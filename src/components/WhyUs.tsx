@@ -82,14 +82,15 @@ export default function WhyUs() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="text-sm font-semibold uppercase tracking-wider text-primary-600">
-            Warum Skytech Solutions
+            Warum Skytech
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Ihre Vorteile auf einen Blick
+            Technologie statt Risiko
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Moderne Technologie, h&ouml;chste Sicherheit und messbare Ergebnisse
-            &ndash; das macht uns zum idealen Partner f&uuml;r Ihre PV-Reinigung.
+            Drohnen statt Ger&uuml;st, demineralisiertes Wasser statt Chemie,
+            Festpreise statt &Uuml;berraschungen &ndash; so funktioniert
+            moderne PV-Reinigung.
           </p>
         </motion.div>
 

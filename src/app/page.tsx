@@ -2,6 +2,8 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import WhyUs from '@/components/WhyUs';
+import Process from '@/components/Process';
+import RoiCalculator from '@/components/RoiCalculator';
 import Trust from '@/components/Trust';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
@@ -15,6 +17,8 @@ export default function Home() {
       <Hero />
       <Services />
       <WhyUs />
+      <Process />
+      <RoiCalculator />
       <Trust />
       <FAQ />
       <CTA />
