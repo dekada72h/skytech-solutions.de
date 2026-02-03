@@ -8,13 +8,13 @@ const footerLinks = {
   ],
   unternehmen: [
     { label: 'Über uns', href: '#vorteile' },
-    { label: 'Partner', href: '#partner' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Kontakt', href: '#kontakt' },
   ],
   rechtliches: [
-    { label: 'Impressum', href: '#' },
-    { label: 'Datenschutz', href: '#' },
-    { label: 'AGB', href: '#' },
+    { label: 'Impressum', href: '/impressum' },
+    { label: 'Datenschutz', href: '/datenschutz' },
+    { label: 'AGB', href: '/agb' },
   ],
 };
 
@@ -91,12 +91,12 @@ export default function Footer() {
             <ul className="mt-3 space-y-2">
               {footerLinks.rechtliches.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-600 transition-colors hover:text-primary-600"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

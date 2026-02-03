@@ -176,8 +176,9 @@ export default function Contact() {
                     <h3 className="font-semibold text-gray-900">Adresse</h3>
                     <p className="mt-1 text-sm text-gray-600">
                       Skytech Solutions<br />
+                      Inh. Christoph Kik<br />
                       Musterstra&szlig;e 42<br />
-                      10115 Berlin, Deutschland
+                      89073 Ulm, Deutschland
                     </p>
                   </div>
                 </div>
