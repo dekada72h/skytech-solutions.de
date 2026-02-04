@@ -4,9 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Uncomment these for GitHub Pages deployment with custom path:
-  // basePath: '/skytech-solutions.de',
-  // assetPrefix: '/skytech-solutions.de',
+  // For GitHub Pages deployment (comment out for local dev on root path)
+  basePath: '/skytech-solutions.de',
+  assetPrefix: '/skytech-solutions.de',
 };
 
 export default nextConfig;
