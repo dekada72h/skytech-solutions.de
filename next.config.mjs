@@ -4,9 +4,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // When you set up custom domain (skytech-services.de), remove basePath and assetPrefix.
-  basePath: '/skytech-solutions.de',
-  assetPrefix: '/skytech-solutions.de',
+  // Uncomment these for GitHub Pages deployment with custom path:
+  // basePath: '/skytech-solutions.de',
+  // assetPrefix: '/skytech-solutions.de',
 };
 
 export default nextConfig;
+

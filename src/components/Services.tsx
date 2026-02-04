@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const services = [
   {
@@ -111,8 +112,8 @@ export default function Services() {
                   className="mt-2 text-sm leading-relaxed text-gray-600"
                   dangerouslySetInnerHTML={{ __html: service.description }}
                 />
-                <a
-                  href="#kontakt"
+                <Link
+                  href="/kontakt"
                   className="mt-4 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
                 >
                   Mehr erfahren
@@ -129,7 +130,7 @@ export default function Services() {
                       d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

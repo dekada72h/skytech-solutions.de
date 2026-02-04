@@ -2,14 +2,14 @@ import Link from 'next/link';
 
 const footerLinks = {
   leistungen: [
-    { label: 'Solarpark-Reinigung', href: '#leistungen' },
-    { label: 'Dachanlagen-Reinigung', href: '#leistungen' },
-    { label: 'Fassadenreinigung', href: '#leistungen' },
+    { label: 'Solarpark-Reinigung', href: '/leistungen' },
+    { label: 'Dachanlagen-Reinigung', href: '/leistungen' },
+    { label: 'Fassadenreinigung', href: '/leistungen' },
   ],
   unternehmen: [
-    { label: 'Über uns', href: '#vorteile' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Kontakt', href: '#kontakt' },
+    { label: 'Über uns', href: '/ueber-uns' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Kontakt', href: '/kontakt' },
   ],
   rechtliches: [
     { label: 'Impressum', href: '/impressum' },
@@ -57,12 +57,12 @@ export default function Footer() {
             <ul className="mt-3 space-y-2">
               {footerLinks.leistungen.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-600 transition-colors hover:text-primary-600"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -74,12 +74,12 @@ export default function Footer() {
             <ul className="mt-3 space-y-2">
               {footerLinks.unternehmen.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-600 transition-colors hover:text-primary-600"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

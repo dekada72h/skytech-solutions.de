@@ -4,10 +4,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const navLinks = [
-  { href: '#leistungen', label: 'Leistungen' },
-  { href: '#vorteile', label: 'Vorteile' },
-  { href: '#partner', label: 'Partner' },
-  { href: '#kontakt', label: 'Kontakt' },
+  { href: '/leistungen', label: 'Leistungen' },
+  { href: '/ueber-uns', label: 'Über uns' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/kontakt', label: 'Kontakt' },
 ];
 
 export default function Navbar() {
@@ -41,20 +41,20 @@ export default function Navbar() {
         {/* Desktop Links */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-gray-600 transition-colors hover:text-primary-600"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#kontakt"
+          <Link
+            href="/kontakt"
             className="rounded-full bg-primary-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-700 hover:shadow-md"
           >
             Angebot anfordern
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -79,22 +79,22 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="border-t border-gray-100 bg-white px-4 pb-4 pt-2 md:hidden">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
               className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary-600"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#kontakt"
+          <Link
+            href="/kontakt"
             onClick={() => setMobileOpen(false)}
             className="mt-2 block rounded-full bg-primary-600 px-5 py-2.5 text-center text-sm font-semibold text-white"
           >
             Angebot anfordern
-          </a>
+          </Link>
         </div>
       )}
     </nav>

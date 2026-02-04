@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -64,8 +65,8 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
             >
-              <a
-                href="#kontakt"
+              <Link
+                href="/kontakt"
                 className="inline-flex items-center justify-center rounded-full bg-primary-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/30"
               >
                 Kostenloses Angebot anfordern
@@ -82,13 +83,13 @@ export default function Hero() {
                     d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                   />
                 </svg>
-              </a>
-              <a
-                href="#leistungen"
+              </Link>
+              <Link
+                href="/leistungen"
                 className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-gray-300 hover:shadow-md"
               >
                 Mehr erfahren
-              </a>
+              </Link>
             </motion.div>
 
             {/* Key facts mini */}

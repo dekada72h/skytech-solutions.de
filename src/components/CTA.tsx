@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function CTA() {
   return (
@@ -34,8 +35,8 @@ export default function CTA() {
               Wir melden uns innerhalb von 24 Stunden bei Ihnen.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-              <a
-                href="#kontakt"
+              <Link
+                href="/kontakt"
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary-700 shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl"
               >
                 Kostenloses Angebot anfordern
@@ -52,7 +53,7 @@ export default function CTA() {
                     d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                   />
                 </svg>
-              </a>
+              </Link>
               <a
                 href="tel:+4915123456789"
                 className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
