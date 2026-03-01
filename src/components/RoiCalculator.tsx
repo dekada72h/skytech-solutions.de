@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { fmt } from '../utils/formatters';
 
 /* ------------------------------------------------------------------ */
 /*  Data & types                                                       */
@@ -82,10 +83,6 @@ const MIN_CLEANING_COST = 150; // minimum per visit
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-function fmt(n: number) {
-  return n.toLocaleString('de-DE');
-}
 
 function getCleaningFrequencyAdvice(env: Environment): { recommended: number; label: string } {
   switch (env) {
