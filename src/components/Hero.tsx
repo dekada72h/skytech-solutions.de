@@ -128,6 +128,7 @@ export default function Hero() {
                 width={800}
                 height={600}
                 className="h-auto w-full object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
