@@ -2,38 +2,38 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 
+const services = [
+  {
+    title: 'Solarpark-Reinigung',
+    description: 'Großflächige Reinigung mit modernster Drohnentechnologie.',
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Dachanlagen-Reinigung',
+    description: 'Professionelle Reinigung für Privat- und Gewerbedächer.',
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Fassadenreinigung',
+    description: 'Reinigung von Glas- und Gebäudefassaden.',
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+      </svg>
+    ),
+  },
+];
+
 // Compact service preview component for homepage
 function ServicePreview() {
-  const services = [
-    {
-      title: 'Solarpark-Reinigung',
-      description: 'Großflächige Reinigung mit modernster Drohnentechnologie.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-        </svg>
-      ),
-    },
-    {
-      title: 'Dachanlagen-Reinigung',
-      description: 'Professionelle Reinigung für Privat- und Gewerbedächer.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-        </svg>
-      ),
-    },
-    {
-      title: 'Fassadenreinigung',
-      description: 'Reinigung von Glas- und Gebäudefassaden.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-        </svg>
-      ),
-    },
-  ];
-
   return (
     <section className="section-padding bg-white">
       <div className="container-width">
@@ -95,14 +95,14 @@ function ServicePreview() {
   );
 }
 
+const highlights = [
+  { value: '30%', label: 'Mehr Ertrag' },
+  { value: '24h', label: 'Angebot' },
+  { value: '100%', label: 'Umweltfreundlich' },
+];
+
 // Compact trust/about preview for homepage
 function AboutPreview() {
-  const highlights = [
-    { value: '30%', label: 'Mehr Ertrag' },
-    { value: '24h', label: 'Angebot' },
-    { value: '100%', label: 'Umweltfreundlich' },
-  ];
-
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-width">
