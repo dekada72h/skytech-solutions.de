@@ -2,13 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-
-const navLinks = [
-  { href: '/leistungen', label: 'Leistungen' },
-  { href: '/ueber-uns', label: 'Über uns' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/kontakt', label: 'Kontakt' },
-];
+import { navLinks, toggleMenu } from '@/utils/navbar';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -59,7 +53,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen(toggleMenu(mobileOpen))}
           className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 hover:bg-gray-100 md:hidden"
           aria-label="Menü öffnen"
         >
