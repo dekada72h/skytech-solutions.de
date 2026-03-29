@@ -21,7 +21,7 @@ const services = [
   {
     title: 'Dachanlagen-Reinigung',
     description:
-      'Professionelle Reinigung von Photovoltaikanlagen auf Privat- und Gewerbe&shy;dächern. Schonend für Ihre Module, maximal im Ergebnis &ndash; ganz ohne Gerüst.',
+      'Professionelle Reinigung von Photovoltaikanlagen auf Privat- und Gewerbedächern. Schonend für Ihre Module, maximal im Ergebnis – ganz ohne Gerüst.',
     image:
       'https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&h=400&fit=crop',
     icon: (
@@ -34,7 +34,7 @@ const services = [
   {
     title: 'Fassadenreinigung',
     description:
-      'Reinigung von Glas- und Gebäudefassaden mit umwelt&shy;freundlichen Methoden. Wir bringen Ihr Gebäude wieder zum Strahlen &ndash; professionell und sicher.',
+      'Reinigung von Glas- und Gebäudefassaden mit umweltfreundlichen Methoden. Wir bringen Ihr Gebäude wieder zum Strahlen – professionell und sicher.',
     image:
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
     icon: (
@@ -66,11 +66,11 @@ export default function Services() {
             Unsere Leistungen
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Professionelle Reinigung f&uuml;r maximale Leistung
+            Professionelle Reinigung für maximale Leistung
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Von gro&szlig;en Solarparks bis hin zu privaten Dachanlagen &ndash; wir
-            bieten ma&szlig;geschneiderte L&ouml;sungen f&uuml;r jeden Bedarf.
+            Von großen Solarparks bis hin zu privaten Dachanlagen – wir
+            bieten maßgeschneiderte Lösungen für jeden Bedarf.
           </p>
         </motion.div>
 
@@ -108,10 +108,9 @@ export default function Services() {
                 <h3 className="text-xl font-bold text-gray-900">
                   {service.title}
                 </h3>
-                <p
-                  className="mt-2 text-sm leading-relaxed text-gray-600"
-                  dangerouslySetInnerHTML={{ __html: service.description }}
-                />
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {service.description}
+                </p>
                 <Link
                   href="/kontakt"
                   className="mt-4 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
