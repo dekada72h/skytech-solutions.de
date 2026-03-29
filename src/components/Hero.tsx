@@ -3,6 +3,13 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  ArrowRightIcon,
+  ShieldCheckIcon,
+  BeakerIcon,
+  ClockIcon,
+  ArrowTrendingUpIcon,
+} from './Icons';
 
 export default function Hero() {
   return (
@@ -70,19 +77,7 @@ export default function Hero() {
                 className="inline-flex items-center justify-center rounded-full bg-primary-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/30"
               >
                 Kostenloses Angebot anfordern
-                <svg
-                  className="ml-2 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
+                <ArrowRightIcon className="ml-2 h-4 w-4" strokeWidth={2} />
               </Link>
               <Link
                 href="/leistungen"
@@ -100,14 +95,12 @@ export default function Hero() {
               className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-gray-100 pt-8"
             >
               {[
-                { icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z', text: 'Vollversichert' },
-                { icon: 'M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5', text: '100% umweltfreundlich' },
-                { icon: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z', text: 'Angebot in 24h' },
+                { icon: ShieldCheckIcon, text: 'Vollversichert' },
+                { icon: BeakerIcon, text: '100% umweltfreundlich' },
+                { icon: ClockIcon, text: 'Angebot in 24h' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2 text-sm text-gray-600">
-                  <svg className="h-4 w-4 text-accent-500" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                  </svg>
+                  <item.icon className="h-4 w-4 text-accent-500" strokeWidth={2} />
                   {item.text}
                 </div>
               ))}
@@ -137,19 +130,10 @@ export default function Hero() {
             <div className="absolute -bottom-4 -left-4 rounded-xl border border-gray-100 bg-white p-4 shadow-lg">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-100">
-                  <svg
+                  <ArrowTrendingUpIcon
                     className="h-5 w-5 text-accent-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
                     strokeWidth={2}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
-                    />
-                  </svg>
+                  />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-gray-900">+30% Ertrag</p>

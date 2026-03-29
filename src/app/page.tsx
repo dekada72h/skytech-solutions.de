@@ -1,6 +1,13 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
+import {
+  SunIcon,
+  HomeIcon,
+  BuildingOfficeIcon,
+  ArrowRightIcon,
+  PhoneIcon,
+} from '@/components/Icons';
 
 // Compact service preview component for homepage
 function ServicePreview() {
@@ -8,29 +15,17 @@ function ServicePreview() {
     {
       title: 'Solarpark-Reinigung',
       description: 'Großflächige Reinigung mit modernster Drohnentechnologie.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-        </svg>
-      ),
+      icon: <SunIcon className="h-6 w-6" />,
     },
     {
       title: 'Dachanlagen-Reinigung',
       description: 'Professionelle Reinigung für Privat- und Gewerbedächer.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-        </svg>
-      ),
+      icon: <HomeIcon className="h-6 w-6" />,
     },
     {
       title: 'Fassadenreinigung',
       description: 'Reinigung von Glas- und Gebäudefassaden.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-        </svg>
-      ),
+      icon: <BuildingOfficeIcon className="h-6 w-6" />,
     },
   ];
 
@@ -75,19 +70,7 @@ function ServicePreview() {
             className="inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
           >
             Alle Leistungen ansehen
-            <svg
-              className="ml-1 h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
+            <ArrowRightIcon className="ml-1 h-4 w-4" strokeWidth={2} />
           </a>
         </div>
       </div>
@@ -124,19 +107,7 @@ function AboutPreview() {
               className="mt-6 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
             >
               Mehr über uns erfahren
-              <svg
-                className="ml-1 h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <ArrowRightIcon className="ml-1 h-4 w-4" strokeWidth={2} />
             </a>
           </div>
           <div className="grid grid-cols-3 gap-4">
@@ -188,37 +159,13 @@ function HomeCTA() {
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary-700 shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl"
               >
                 Kostenloses Angebot anfordern
-                <svg
-                  className="ml-2 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
+                <ArrowRightIcon className="ml-2 h-4 w-4" strokeWidth={2} />
               </a>
               <a
                 href="tel:+4915123456789"
                 className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
               >
-                <svg
-                  className="mr-2 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                  />
-                </svg>
+                <PhoneIcon className="mr-2 h-4 w-4" strokeWidth={2} />
                 Jetzt anrufen
               </a>
             </div>

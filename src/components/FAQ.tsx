@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { PlusIcon } from './Icons';
 
 const faqs = [
   {
@@ -71,15 +72,10 @@ function FAQItem({
       >
         <span className="text-base font-semibold text-gray-900">{question}</span>
         <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-primary-50 hover:text-primary-600">
-          <svg
+          <PlusIcon
             className={`h-4 w-4 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}
-            fill="none"
-            viewBox="0 0 24 24"
             strokeWidth={2}
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-          </svg>
+          />
         </span>
       </button>
       <AnimatePresence initial={false}>

@@ -3,6 +3,12 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  SunIcon,
+  HomeIcon,
+  BuildingOfficeIcon,
+  ArrowRightIcon,
+} from './Icons';
 
 const services = [
   {
@@ -11,11 +17,7 @@ const services = [
       'Großflächige Reinigung von Photovoltaik-Freiflächenanlagen und Solarparks mit modernster Drohnentechnologie. Effizient, schnell und ohne Bodenverdichtung.',
     image:
       'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&h=400&fit=crop',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-      </svg>
-    ),
+    icon: <SunIcon className="h-6 w-6" />,
     badge: 'Beliebteste Leistung',
   },
   {
@@ -24,11 +26,7 @@ const services = [
       'Professionelle Reinigung von Photovoltaikanlagen auf Privat- und Gewerbe&shy;dächern. Schonend für Ihre Module, maximal im Ergebnis &ndash; ganz ohne Gerüst.',
     image:
       'https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&h=400&fit=crop',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-      </svg>
-    ),
+    icon: <HomeIcon className="h-6 w-6" />,
     badge: null,
   },
   {
@@ -37,11 +35,7 @@ const services = [
       'Reinigung von Glas- und Gebäudefassaden mit umwelt&shy;freundlichen Methoden. Wir bringen Ihr Gebäude wieder zum Strahlen &ndash; professionell und sicher.',
     image:
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-      </svg>
-    ),
+    icon: <BuildingOfficeIcon className="h-6 w-6" />,
     badge: null,
   },
 ];
@@ -117,19 +111,10 @@ export default function Services() {
                   className="mt-4 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
                 >
                   Mehr erfahren
-                  <svg
+                  <ArrowRightIcon
                     className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
                     strokeWidth={2}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
+                  />
                 </Link>
               </div>
             </motion.div>
