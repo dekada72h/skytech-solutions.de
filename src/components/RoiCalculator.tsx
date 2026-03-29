@@ -162,6 +162,7 @@ export default function RoiCalculator() {
       roi1x,
       roi2x,
       advice,
+      envData,
       fiveYearLoss: currentAnnualLoss * 5,
     };
   }, [kwp, env, lastCleaning]);
@@ -401,7 +402,7 @@ export default function RoiCalculator() {
                         Unsere Empfehlung f&uuml;r Ihren Standort: {results.advice.label}
                       </p>
                       <p className="mt-1 text-xs leading-relaxed text-accent-700">
-                        F&uuml;r Anlagen im Bereich &bdquo;{environments.find((e) => e.id === env)!.label}&ldquo;
+                        F&uuml;r Anlagen im Bereich &bdquo;{results.envData.label}&ldquo;
                         empfehlen wir eine Reinigung{' '}
                         <strong>{results.advice.label}</strong>.{' '}
                         Bei {fmt(kwp)} kWp sparen Sie damit bis zu{' '}
