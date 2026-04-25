@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 type Environment = 'wohngebiet' | 'landwirtschaft' | 'industrie' | 'wald';
 type LastCleaning = 'nie' | 'ueber3' | '1bis2' | 'unter1';
+type ServiceType = 'reinigung' | 'thermovision' | 'kombi';
 
 const environments: {
   id: Environment;
@@ -74,10 +75,52 @@ const lastCleaningOptions: {
   { id: 'unter1', label: 'Vor < 1 Jahr', multiplier: 1.0 },
 ];
 
+const serviceTypes: {
+  id: ServiceType;
+  label: string;
+  description: string;
+  icon: JSX.Element;
+}[] = [
+  {
+    id: 'reinigung',
+    label: 'Reinigung',
+    description: 'Professionelle Modulreinigung',
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+      </svg>
+    ),
+  },
+  {
+    id: 'thermovision',
+    label: 'Thermovision',
+    description: 'W\u00e4rmebildanalyse mit Bericht',
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+      </svg>
+    ),
+  },
+  {
+    id: 'kombi',
+    label: 'Kombi-Paket',
+    description: 'Reinigung + Thermovision',
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+      </svg>
+    ),
+  },
+];
+
 const COST_PER_KWH = 0.35;
 const SUN_HOURS = 1000;
 const CLEANING_COST_PER_KWP = 2.5; // €/kWp per cleaning
 const MIN_CLEANING_COST = 150; // minimum per visit
+const THERMO_COST_PER_KWP = 3.0; // €/kWp for thermovision
+const MIN_THERMO_COST = 250; // minimum per thermovision inspection
+const KOMBI_DISCOUNT = 0.15; // 15% discount for Kombi-Paket
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -113,6 +156,7 @@ export default function RoiCalculator() {
   const [kwp, setKwp] = useState(50);
   const [env, setEnv] = useState<Environment>('wohngebiet');
   const [lastCleaning, setLastCleaning] = useState<LastCleaning>('1bis2');
+  const [serviceType, setServiceType] = useState<ServiceType>('reinigung');
 
   const results = useMemo(() => {
     const envData = environments.find((e) => e.id === env)!;
@@ -128,8 +172,6 @@ export default function RoiCalculator() {
     const currentAnnualLoss = Math.round(annualRevenue * currentLossRate);
 
     // What regular cleaning would recover
-    // With 1x/year: average soiling = soilRate/2 (cleaned midway)
-    // With 2x/year: average soiling = soilRate/4
     const avgSoiling1x = annualSoilRate / 2;
     const avgSoiling2x = annualSoilRate / 4;
 
@@ -137,8 +179,23 @@ export default function RoiCalculator() {
     const loss2x = Math.round(annualRevenue * avgSoiling2x);
 
     const cleaningCost = Math.max(kwp * CLEANING_COST_PER_KWP, MIN_CLEANING_COST);
-    const cleaningCost1x = Math.round(cleaningCost);
-    const cleaningCost2x = Math.round(cleaningCost * 2 * 0.85); // 15% discount for 2x
+    const thermoCost = Math.max(kwp * THERMO_COST_PER_KWP, MIN_THERMO_COST);
+
+    let cleaningCost1x: number;
+    let cleaningCost2x: number;
+
+    if (serviceType === 'reinigung') {
+      cleaningCost1x = Math.round(cleaningCost);
+      cleaningCost2x = Math.round(cleaningCost * 2 * 0.85);
+    } else if (serviceType === 'thermovision') {
+      cleaningCost1x = Math.round(thermoCost);
+      cleaningCost2x = Math.round(thermoCost * 2 * 0.85);
+    } else {
+      // kombi
+      const kombiBase = cleaningCost + thermoCost;
+      cleaningCost1x = Math.round(kombiBase * (1 - KOMBI_DISCOUNT));
+      cleaningCost2x = Math.round(kombiBase * 2 * (1 - KOMBI_DISCOUNT) * 0.85);
+    }
 
     const savings1x = currentAnnualLoss - loss1x - cleaningCost1x;
     const savings2x = currentAnnualLoss - loss2x - cleaningCost2x;
@@ -164,7 +221,9 @@ export default function RoiCalculator() {
       advice,
       fiveYearLoss: currentAnnualLoss * 5,
     };
-  }, [kwp, env, lastCleaning]);
+  }, [kwp, env, lastCleaning, serviceType]);
+
+  const serviceLabel = serviceType === 'reinigung' ? 'Reinigung' : serviceType === 'thermovision' ? 'Thermovision' : 'Kombi-Paket';
 
   return (
     <section id="rechner" className="section-padding bg-gray-50">
@@ -176,14 +235,14 @@ export default function RoiCalculator() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="text-sm font-semibold uppercase tracking-wider text-primary-600">
-            ROI-Rechner
+            Kostenrechner
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Was kosten Sie verschmutzte Module?
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Drei Angaben gen&uuml;gen &ndash; und Sie sehen sofort, wie viel
-            Ertrag Sie verschenken und was eine Reinigung bringt.
+            Wenige Angaben gen&uuml;gen &ndash; und Sie sehen sofort, wie viel
+            Ertrag Sie verschenken und was unsere Dienstleistungen bringen.
           </p>
         </motion.div>
 
@@ -195,12 +254,69 @@ export default function RoiCalculator() {
           <div className="rounded-2xl border border-gray-100 bg-white shadow-sm">
             {/* ── INPUTS ── */}
             <div className="space-y-8 p-6 sm:p-8">
-              {/* 1. kWp Slider */}
+              {/* 1. Service Type */}
+              <div>
+                <p className="mb-3 text-sm font-semibold text-gray-900">
+                  <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">
+                    1
+                  </span>
+                  Gew&uuml;nschte Dienstleistung
+                </p>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  {serviceTypes.map((s) => (
+                    <button
+                      key={s.id}
+                      onClick={() => setServiceType(s.id)}
+                      className={`rounded-xl border-2 p-3 text-left transition-all ${
+                        serviceType === s.id
+                          ? s.id === 'kombi'
+                            ? 'border-accent-500 bg-accent-50 shadow-sm'
+                            : s.id === 'thermovision'
+                              ? 'border-orange-500 bg-orange-50 shadow-sm'
+                              : 'border-primary-500 bg-primary-50 shadow-sm'
+                          : 'border-gray-100 bg-gray-50 hover:border-gray-200'
+                      }`}
+                    >
+                      <div
+                        className={`mb-2 flex h-9 w-9 items-center justify-center rounded-lg ${
+                          serviceType === s.id
+                            ? s.id === 'kombi'
+                              ? 'bg-accent-100 text-accent-600'
+                              : s.id === 'thermovision'
+                                ? 'bg-orange-100 text-orange-600'
+                                : 'bg-primary-100 text-primary-600'
+                            : 'bg-gray-100 text-gray-500'
+                        }`}
+                      >
+                        {s.icon}
+                      </div>
+                      <p
+                        className={`text-xs font-bold ${
+                          serviceType === s.id
+                            ? s.id === 'kombi'
+                              ? 'text-accent-900'
+                              : s.id === 'thermovision'
+                                ? 'text-orange-900'
+                                : 'text-primary-900'
+                            : 'text-gray-700'
+                        }`}
+                      >
+                        {s.label}
+                      </p>
+                      <p className="mt-0.5 text-[10px] leading-tight text-gray-500">
+                        {s.description}
+                      </p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* 2. kWp Slider */}
               <div>
                 <div className="flex items-baseline justify-between">
                   <label htmlFor="kwp-slider" className="text-sm font-semibold text-gray-900">
                     <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">
-                      1
+                      2
                     </span>
                     Anlagengr&ouml;&szlig;e
                   </label>
@@ -226,11 +342,11 @@ export default function RoiCalculator() {
                 </div>
               </div>
 
-              {/* 2. Environment */}
+              {/* 3. Environment */}
               <div>
                 <p className="mb-3 text-sm font-semibold text-gray-900">
                   <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">
-                    2
+                    3
                   </span>
                   Standort der Anlage
                 </p>
@@ -269,11 +385,11 @@ export default function RoiCalculator() {
                 </div>
               </div>
 
-              {/* 3. Last cleaning */}
+              {/* 4. Last cleaning */}
               <div>
                 <p className="mb-3 text-sm font-semibold text-gray-900">
                   <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">
-                    3
+                    4
                   </span>
                   Letzte Reinigung
                 </p>
@@ -301,7 +417,7 @@ export default function RoiCalculator() {
             {/* ── RESULTS ── */}
             <AnimatePresence mode="wait">
               <motion.div
-                key={`${kwp}-${env}-${lastCleaning}`}
+                key={`${kwp}-${env}-${lastCleaning}-${serviceType}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
@@ -331,14 +447,14 @@ export default function RoiCalculator() {
                 {/* Comparison table */}
                 <div>
                   <p className="mb-3 text-sm font-semibold text-gray-900">
-                    Vergleich: Was bringt regelm&auml;&szlig;ige Reinigung?
+                    Vergleich: Was bringt regelm&auml;&szlig;ige {serviceLabel}?
                   </p>
                   <div className="overflow-hidden rounded-xl border border-gray-200">
                     <table className="w-full text-sm">
                       <thead>
                         <tr className="bg-gray-50 text-left text-xs font-semibold uppercase tracking-wider text-gray-500">
                           <th className="px-4 py-3">&nbsp;</th>
-                          <th className="px-4 py-3 text-center">Ohne Reinigung</th>
+                          <th className="px-4 py-3 text-center">Ohne {serviceLabel}</th>
                           <th className="px-4 py-3 text-center">1&times; / Jahr</th>
                           <th className="border-l-2 border-primary-200 bg-primary-50 px-4 py-3 text-center text-primary-700">
                             2&times; / Jahr
@@ -357,7 +473,7 @@ export default function RoiCalculator() {
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-4 py-3 font-medium text-gray-700">Reinigungskosten</td>
+                          <td className="px-4 py-3 font-medium text-gray-700">{serviceLabel}kosten</td>
                           <td className="px-4 py-3 text-center text-gray-400">&mdash;</td>
                           <td className="px-4 py-3 text-center text-gray-700">{fmt(results.cleaningCost1x)}&nbsp;&euro;</td>
                           <td className="border-l-2 border-primary-200 bg-primary-50/50 px-4 py-3 text-center text-gray-700">
@@ -402,7 +518,7 @@ export default function RoiCalculator() {
                       </p>
                       <p className="mt-1 text-xs leading-relaxed text-accent-700">
                         F&uuml;r Anlagen im Bereich &bdquo;{environments.find((e) => e.id === env)!.label}&ldquo;
-                        empfehlen wir eine Reinigung{' '}
+                        empfehlen wir {serviceLabel}{' '}
                         <strong>{results.advice.label}</strong>.{' '}
                         Bei {fmt(kwp)} kWp sparen Sie damit bis zu{' '}
                         <strong>
@@ -433,6 +549,8 @@ export default function RoiCalculator() {
                     Strompreis: 0,35&nbsp;&euro;/kWh &middot; Sonnenstunden:
                     ca. 1.000&nbsp;h/Jahr &middot; Reinigungskosten:
                     ca. 2,50&nbsp;&euro;/kWp (mind. 150&nbsp;&euro;) &middot;
+                    Thermovision: ca. 3,00&nbsp;&euro;/kWp (mind. 250&nbsp;&euro;) &middot;
+                    15% Rabatt bei Kombi-Paket &middot;
                     15% Mengenrabatt bei 2&times;/Jahr &middot;
                     Verschmutzungsraten basieren auf Branchendurchschnitten
                     f&uuml;r deutsche Standorte. Tats&auml;chliche Werte

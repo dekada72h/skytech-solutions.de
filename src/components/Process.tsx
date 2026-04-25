@@ -14,6 +14,7 @@ const steps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
       </svg>
     ),
+    opposite: null,
   },
   {
     number: '02',
@@ -25,6 +26,7 @@ const steps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
       </svg>
     ),
+    opposite: null,
   },
   {
     number: '03',
@@ -36,6 +38,17 @@ const steps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
       </svg>
     ),
+    opposite: {
+      title: 'Thermovision',
+      description:
+        'Parallel zur Reinigung f&uuml;hren wir auf Wunsch eine umfassende W&auml;rmebildanalyse Ihrer Photovoltaikmodule und Fassaden durch &ndash; defekte Zellen, Hotspots und W&auml;rmebr&uuml;cken werden sofort sichtbar.',
+      icon: (
+        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+        </svg>
+      ),
+    },
   },
   {
     number: '04',
@@ -47,6 +60,17 @@ const steps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
       </svg>
     ),
+    opposite: {
+      title: 'Thermovisionsbericht',
+      description:
+        'Sie erhalten einen detaillierten Thermovisionsbericht mit allen W&auml;rmebildaufnahmen, Analyse der Problemstellen und konkreten Handlungsempfehlungen.',
+      icon: (
+        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+        </svg>
+      ),
+    },
   },
 ];
 
@@ -131,10 +155,38 @@ export default function Process() {
                     </div>
                   </div>
 
-                  {/* Empty space for the other side (desktop) */}
+                  {/* Opposite side content or empty space (desktop) */}
                   <div
-                    className={`hidden lg:block lg:w-1/2 ${isEven ? 'lg:order-2' : ''}`}
-                  />
+                    className={`${isEven ? 'lg:order-2' : ''} ${step.opposite ? 'mt-4 lg:mt-0' : 'hidden lg:block'} lg:w-1/2 ${isEven ? 'lg:pl-16' : 'lg:pr-16 lg:text-right'}`}
+                  >
+                    {step.opposite && (
+                      <div
+                        className={`rounded-2xl border border-orange-100 bg-gradient-to-br from-orange-50 to-amber-50 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-orange-200/50 ${
+                          !isEven ? 'lg:ml-auto' : ''
+                        } lg:max-w-md`}
+                      >
+                        <div
+                          className={`flex items-center gap-3 ${!isEven ? 'lg:flex-row-reverse' : ''}`}
+                        >
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-600">
+                            {step.opposite.icon}
+                          </div>
+                          <div>
+                            <span className="text-xs font-bold uppercase tracking-wider text-orange-500">
+                              Thermovision
+                            </span>
+                            <h3 className="text-lg font-bold text-gray-900">
+                              {step.opposite.title}
+                            </h3>
+                          </div>
+                        </div>
+                        <p
+                          className={`mt-3 text-sm leading-relaxed text-gray-600 ${!isEven ? 'lg:text-right' : ''}`}
+                          dangerouslySetInnerHTML={{ __html: step.opposite.description }}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </motion.div>
               );
             })}

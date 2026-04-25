@@ -8,7 +8,7 @@ const services = [
   {
     title: 'Solarpark-Reinigung',
     description:
-      'Großflächige Reinigung von Photovoltaik-Freiflächenanlagen und Solarparks mit modernster Drohnentechnologie. Effizient, schnell und ohne Bodenverdichtung.',
+      'Gro&szlig;fl&auml;chige Reinigung von Photovoltaik-Freifl&auml;chenanlagen und Solarparks mit modernster Drohnentechnologie. Effizient, schnell und ohne Bodenverdichtung. <strong>Wir verwenden ausschlie&szlig;lich umweltfreundliche und oberfl&auml;chenschonende Reinigungsmittel.</strong>',
     image:
       'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&h=400&fit=crop',
     icon: (
@@ -21,9 +21,9 @@ const services = [
   {
     title: 'Dachanlagen-Reinigung',
     description:
-      'Professionelle Reinigung von Photovoltaikanlagen auf Privat- und Gewerbe&shy;dächern. Schonend für Ihre Module, maximal im Ergebnis &ndash; ganz ohne Gerüst.',
+      'Professionelle Reinigung von Photovoltaikanlagen auf Privat- und Gewerbe&shy;d&auml;chern. Schonend f&uuml;r Ihre Module, maximal im Ergebnis &ndash; ganz ohne Ger&uuml;st. <strong>Wir verwenden ausschlie&szlig;lich umweltfreundliche und oberfl&auml;chenschonende Reinigungsmittel.</strong>',
     image:
-      'https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1637417494521-78b4d1d33029?w=600&h=400&fit=crop',
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
@@ -34,7 +34,7 @@ const services = [
   {
     title: 'Fassadenreinigung',
     description:
-      'Reinigung von Glas- und Gebäudefassaden mit umwelt&shy;freundlichen Methoden. Wir bringen Ihr Gebäude wieder zum Strahlen &ndash; professionell und sicher.',
+      'Reinigung von Glas- und Geb&auml;udefassaden mit umwelt&shy;freundlichen Methoden. Wir bringen Ihr Geb&auml;ude wieder zum Strahlen &ndash; professionell und sicher. <strong>Wir verwenden ausschlie&szlig;lich umweltfreundliche und oberfl&auml;chenschonende Reinigungsmittel.</strong>',
     image:
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
     icon: (
@@ -60,18 +60,57 @@ export default function Services() {
         <motion.div
           {...fadeInUp}
           transition={{ duration: 0.5 }}
-          className="mx-auto max-w-2xl text-center"
+          className="mx-auto max-w-3xl text-center"
         >
           <span className="text-sm font-semibold uppercase tracking-wider text-primary-600">
             Unsere Leistungen
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Professionelle Reinigung f&uuml;r maximale Leistung
+            Professioneller Service f&uuml;r maximale Leistung
           </h2>
           <p className="mt-4 text-lg text-gray-600">
             Von gro&szlig;en Solarparks bis hin zu privaten Dachanlagen &ndash; wir
             bieten ma&szlig;geschneiderte L&ouml;sungen f&uuml;r jeden Bedarf.
+            Sie k&ouml;nnen sowohl bei Einzelauftr&auml;gen als auch bei
+            Abo-Dienstleistungen <strong className="text-primary-600">PREMIUM</strong> mit
+            uns zusammenarbeiten.
           </p>
+        </motion.div>
+
+        {/* Rund um das Thema Section */}
+        <motion.div
+          {...fadeInUp}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mx-auto mt-12 max-w-4xl"
+        >
+          <div className="rounded-2xl border border-primary-100 bg-gradient-to-br from-primary-50 to-white p-8 text-center shadow-sm sm:p-10">
+            <h3 className="text-2xl font-bold uppercase tracking-wide text-primary-800 sm:text-3xl">
+              Rund um das Thema Ihre Fassade und Photovoltaikmodule
+            </h3>
+            <p className="mt-4 text-lg font-medium text-gray-700 sm:text-xl">
+              Alles, was Sie f&uuml;r Ihre Fassaden und Photovoltaikmodule ben&ouml;tigen.
+            </p>
+            <p className="mt-3 text-base text-gray-600 sm:text-lg">
+              Von umfassenden W&auml;rmebildaufnahmen mit Bericht bis hin zu
+              Reinigungsdiensten bis zu 100 Meter H&ouml;he &ndash; Geb&auml;ude und Hallen,
+              egal ob Glasfl&auml;chen, Metallkonstruktionen oder
+              Au&szlig;enfassaden mit unterschiedlichsten Betonstrukturen.
+            </p>
+
+            {/* Drone Cleaning Video */}
+            <div className="mt-8 overflow-hidden rounded-xl shadow-lg">
+              <div className="relative aspect-video">
+                <iframe
+                  src="https://www.youtube.com/embed/2Nm5xD5oYDg?autoplay=0&rel=0&modestbranding=1"
+                  title="Drohnenreinigung von Fassaden &amp; Photovoltaik"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Services Grid */}
