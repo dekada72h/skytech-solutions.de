@@ -97,18 +97,23 @@ export default function Services() {
               Au&szlig;enfassaden mit unterschiedlichsten Betonstrukturen.
             </p>
 
-            {/* Drone Cleaning Video */}
-            <div className="mt-8 overflow-hidden rounded-xl shadow-lg">
-              <div className="relative aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/2Nm5xD5oYDg?autoplay=0&rel=0&modestbranding=1"
-                  title="Drohnenreinigung von Fassaden &amp; Photovoltaik"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full border-0"
-                />
+            {/* Drone Cleaning Video — external, illustrative */}
+            <div className="mt-8 mx-auto max-w-sm">
+              <div className="overflow-hidden rounded-xl shadow-lg">
+                <div className="relative aspect-[9/16]">
+                  <iframe
+                    src="https://www.youtube.com/embed/8tCdhsJYO0o?autoplay=0&rel=0&modestbranding=1"
+                    title="Drohnenreinigung — illustratives Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                </div>
               </div>
+              <p className="mt-3 text-center text-xs text-gray-500 italic">
+                Illustratives Video von einem Drittanbieter (YouTube). Stellt nicht unsere eigene Aufnahme dar — dient lediglich der Veranschaulichung der Drohnenreinigungstechnologie.
+              </p>
             </div>
           </div>
         </motion.div>
