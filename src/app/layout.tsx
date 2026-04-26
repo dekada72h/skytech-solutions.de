@@ -77,7 +77,7 @@ const jsonLd = {
   description:
     'Professionelle Reinigung von Photovoltaikanlagen, Solarparks und Fassaden mit modernster Drohnentechnologie.',
   url: 'https://skytech-services.de',
-  telephone: '+4915123456789',
+  telephone: '+4915216991223',
   email: 'krzysztof@aeropro-inspekcje.pl',
   address: {
     '@type': 'PostalAddress',

@@ -20,7 +20,7 @@ export default function Impressum() {
 
       <h2>Kontakt</h2>
       <p>
-        Telefon: +49 151 2345 6789<br />
+        Telefon: +49 1521 6991223<br />
         E-Mail: krzysztof@aeropro-inspekcje.pl
       </p>
 

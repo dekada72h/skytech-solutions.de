@@ -106,7 +106,7 @@ export default function Contact() {
                   id="telefon"
                   name="telefon"
                   className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
-                  placeholder="+49 151 2345 6789"
+                  placeholder="+49 1521 6991223"
                 />
               </div>
 
@@ -195,10 +195,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900">Telefon</h3>
                     <a
-                      href="tel:+4915123456789"
+                      href="tel:+4915216991223"
                       className="mt-1 block text-sm text-gray-600 hover:text-primary-600"
                     >
-                      +49 151 2345 6789
+                      +49 1521 6991223
                     </a>
                   </div>
                 </div>
