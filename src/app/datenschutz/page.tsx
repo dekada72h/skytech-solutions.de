@@ -25,8 +25,8 @@ export default function Datenschutz() {
       <p>
         <strong>Wer ist verantwortlich f&uuml;r die Datenerfassung auf dieser Website?</strong><br />
         Die Datenverarbeitung auf dieser Website erfolgt durch den
-        Websitebetreiber: Christoph Kik, Skytech Solutions, Musterstra&szlig;e 42,
-        89073 Ulm. E-Mail: info@skytech-services.de.
+        Websitebetreiber: Christoph Kik, Skytech Solutions, H&ouml;henblick 8,
+        89079 Ulm-Einsingen. E-Mail: krzysztof@aeropro-inspekcje.pl.
       </p>
 
       <h2>2. Hosting</h2>
@@ -65,9 +65,9 @@ export default function Datenschutz() {
       <p>
         Skytech Solutions<br />
         Christoph Kik<br />
-        Musterstra&szlig;e 42<br />
-        89073 Ulm<br />
-        E-Mail: info@skytech-services.de
+        H&ouml;henblick 8<br />
+        89079 Ulm-Einsingen<br />
+        E-Mail: krzysztof@aeropro-inspekcje.pl
       </p>
       <p>
         Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person,

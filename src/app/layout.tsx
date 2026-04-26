@@ -78,12 +78,12 @@ const jsonLd = {
     'Professionelle Reinigung von Photovoltaikanlagen, Solarparks und Fassaden mit modernster Drohnentechnologie.',
   url: 'https://skytech-services.de',
   telephone: '+4915123456789',
-  email: 'info@skytech-services.de',
+  email: 'krzysztof@aeropro-inspekcje.pl',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Musterstraße 42',
-    addressLocality: 'Ulm',
-    postalCode: '89073',
+    streetAddress: 'Höhenblick 8',
+    addressLocality: 'Ulm-Einsingen',
+    postalCode: '89079',
     addressCountry: 'DE',
   },
   geo: {

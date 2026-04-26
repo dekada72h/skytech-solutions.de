@@ -177,8 +177,8 @@ export default function Contact() {
                     <p className="mt-1 text-sm text-gray-600">
                       Skytech Solutions<br />
                       Inh. Christoph Kik<br />
-                      Musterstra&szlig;e 42<br />
-                      89073 Ulm, Deutschland
+                      H&ouml;henblick 8<br />
+                      89079 Ulm-Einsingen, Deutschland
                     </p>
                   </div>
                 </div>
@@ -215,10 +215,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-gray-900">E-Mail</h3>
                     <a
-                      href="mailto:info@skytech-services.de"
+                      href="mailto:krzysztof@aeropro-inspekcje.pl"
                       className="mt-1 block text-sm text-gray-600 hover:text-primary-600"
                     >
-                      info@skytech-services.de
+                      krzysztof@aeropro-inspekcje.pl
                     </a>
                   </div>
                 </div>

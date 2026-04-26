@@ -17,7 +17,7 @@ export default function AGB() {
       <p>
         Diese Allgemeinen Gesch&auml;ftsbedingungen (AGB) gelten f&uuml;r alle
         Vertr&auml;ge zwischen Skytech Solutions, Inhaber Christoph Kik,
-        Musterstra&szlig;e 42, 89073 Ulm (nachfolgend &bdquo;Auftragnehmer&ldquo;)
+        H&ouml;henblick 8, 89079 Ulm-Einsingen (nachfolgend &bdquo;Auftragnehmer&ldquo;)
         und dem Kunden (nachfolgend &bdquo;Auftraggeber&ldquo;) &uuml;ber die
         Erbringung von Reinigungs&shy;dienstleistungen f&uuml;r
         Photovoltaikanlagen, Solarparks und Fassaden.

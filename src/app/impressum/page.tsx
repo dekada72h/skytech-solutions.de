@@ -13,15 +13,15 @@ export default function Impressum() {
       <p>
         Skytech Solutions<br />
         Inhaber: Christoph Kik<br />
-        Musterstra&szlig;e 42<br />
-        89073 Ulm<br />
+        H&ouml;henblick 8<br />
+        89079 Ulm-Einsingen<br />
         Deutschland
       </p>
 
       <h2>Kontakt</h2>
       <p>
         Telefon: +49 151 2345 6789<br />
-        E-Mail: info@skytech-services.de
+        E-Mail: krzysztof@aeropro-inspekcje.pl
       </p>
 
       <h2>Umsatzsteuer-ID</h2>
@@ -34,8 +34,8 @@ export default function Impressum() {
       <h2>Verantwortlich f&uuml;r den Inhalt nach &sect; 55 Abs. 2 RSt</h2>
       <p>
         Christoph Kik<br />
-        Musterstra&szlig;e 42<br />
-        89073 Ulm
+        H&ouml;henblick 8<br />
+        89079 Ulm-Einsingen
       </p>
 
       <h2>Streitschlichtung</h2>
