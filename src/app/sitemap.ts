@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { allCitySlugs } from '@/data/cities';
+import { getAllSlugs } from '@/lib/blog';
 
 const BASE = 'https://skytech-solutions.de';
 
@@ -28,7 +29,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
     changefreq: 'monthly' as const,
   }));
-  return [...routes, ...cityRoutes].map((r) => ({
+  const blogRoutes = [
+    { path: '/blog', priority: 0.85, changefreq: 'weekly' as const },
+    ...getAllSlugs().map((slug) => ({
+      path: `/blog/${slug}`,
+      priority: 0.8,
+      changefreq: 'monthly' as const,
+    })),
+  ];
+  return [...routes, ...cityRoutes, ...blogRoutes].map((r) => ({
     url: `${BASE}${r.path}`,
     lastModified: lastmod,
     changeFrequency: r.changefreq,
