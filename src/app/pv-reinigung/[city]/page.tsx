@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cities, cityBySlug, allCitySlugs, REGION_DATA } from '@/data/cities';
 import PublicShell from '@/components/PublicShell';
+import BlogTeaser from '@/components/BlogTeaser';
 
 export const dynamicParams = false;
 
@@ -279,6 +280,12 @@ export default function CityPage({ params }: { params: { city: string } }) {
               </Link>
             </div>
           </section>
+
+          {/* BLOG TEASER — reverse linking */}
+          <BlogTeaser
+            title={`Wissenswertes zu PV-Reinigung — auch relevant für ${c.name}`}
+            subtitle="Vertiefende Artikel zu Ertragsverlust, Kosten und branchen-spezifischen Themen."
+          />
 
           {/* NEARBY CITIES */}
           <section className="mx-auto mb-12 max-w-4xl">

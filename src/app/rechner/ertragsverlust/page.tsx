@@ -1,4 +1,5 @@
 import PublicShell from '@/components/PublicShell';
+import BlogTeaser from '@/components/BlogTeaser';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ErtragsverlustForm from '@/components/calculators/ErtragsverlustForm';
@@ -145,6 +146,11 @@ export default function ErtragsverlustPage() {
             ))}
           </div>
         </div>
+
+        <BlogTeaser
+          preferSlugs={['ertragsverlust-photovoltaik-verschmutzung', 'photovoltaik-reinigung-landwirtschaft-ammoniak', 'pollen-solarmodule-fruehjahr']}
+          title="Ausführlich erklärt — vertiefende Artikel"
+        />
       </div>
     </main>
   </PublicShell>

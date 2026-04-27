@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PublicShell from '@/components/PublicShell';
+import BlogTeaser from '@/components/BlogTeaser';
 import type { CityData, Region } from '@/data/cities';
 
 interface Props {
@@ -85,7 +86,10 @@ export default function RegionHub({ region, cities, info }: Props) {
             ))}
           </div>
 
-          <div className="mx-auto mt-12 text-center">
+          {/* BLOG TEASER */}
+          <BlogTeaser />
+
+          <div className="mx-auto mt-8 text-center">
             <Link href="/pv-reinigung" className="text-sm text-primary-600 hover:underline">
               ← Alle Bundesländer ansehen
             </Link>

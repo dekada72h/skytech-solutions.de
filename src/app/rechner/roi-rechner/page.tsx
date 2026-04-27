@@ -2,6 +2,7 @@ import PublicShell from '@/components/PublicShell';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import RoiCalculator from '@/components/RoiCalculator';
+import BlogTeaser from '@/components/BlogTeaser';
 
 export const metadata: Metadata = {
   title: 'ROI-Rechner für PV-Reinigung — Detailliert | Skytech Solutions',
@@ -57,6 +58,8 @@ export default function RoiRechnerPage() {
       </div>
 
       <RoiCalculator />
+
+      <BlogTeaser />
     </main>
   </PublicShell>
   );

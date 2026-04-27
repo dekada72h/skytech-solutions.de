@@ -1,4 +1,5 @@
 import PublicShell from '@/components/PublicShell';
+import BlogTeaser from '@/components/BlogTeaser';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AmortisationForm from '@/components/calculators/AmortisationForm';
@@ -130,6 +131,11 @@ export default function AmortisationPage() {
             ))}
           </div>
         </div>
+
+        <BlogTeaser
+          preferSlugs={['solarpanel-reinigung-kosten-2026', 'ertragsverlust-photovoltaik-verschmutzung', 'photovoltaik-reinigung-landwirtschaft-ammoniak']}
+          title="Lohnt sich PV-Reinigung wirtschaftlich? — vertiefende Artikel"
+        />
       </div>
     </main>
   </PublicShell>

@@ -1,4 +1,5 @@
 import PublicShell from '@/components/PublicShell';
+import BlogTeaser from '@/components/BlogTeaser';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -152,6 +153,8 @@ export default function RechnerHub() {
             Kostenloses Angebot anfordern
           </Link>
         </div>
+
+        <BlogTeaser />
       </div>
     </main>
   </PublicShell>

@@ -1,4 +1,5 @@
 import PublicShell from '@/components/PublicShell';
+import BlogTeaser from '@/components/BlogTeaser';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ReinigungskostenForm from '@/components/calculators/ReinigungskostenForm';
@@ -134,6 +135,11 @@ export default function ReinigungskostenPage() {
             ))}
           </div>
         </div>
+
+        <BlogTeaser
+          preferSlugs={['solarpanel-reinigung-kosten-2026', 'ertragsverlust-photovoltaik-verschmutzung', 'photovoltaik-reinigung-landwirtschaft-ammoniak']}
+          title="Mehr Wissen zu Reinigungskosten und Wirtschaftlichkeit"
+        />
       </div>
     </main>
   </PublicShell>

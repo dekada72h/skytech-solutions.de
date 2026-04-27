@@ -4,6 +4,7 @@ import PageLayout from '@/components/PageLayout';
 import Services from '@/components/Services';
 import Process from '@/components/Process';
 import CTA from '@/components/CTA';
+import BlogTeaser from '@/components/BlogTeaser';
 
 export const metadata: Metadata = {
     title: 'Leistungen – Professionelle PV-Reinigung',
@@ -46,6 +47,8 @@ export default function Leistungen() {
                     </div>
                 </div>
             </section>
+
+            <BlogTeaser />
 
             <CTA />
         </PageLayout>

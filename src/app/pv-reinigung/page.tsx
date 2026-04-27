@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { cities, citiesByRegion, REGION_DATA } from '@/data/cities';
 import PublicShell from '@/components/PublicShell';
+import BlogTeaser from '@/components/BlogTeaser';
 
 export const metadata: Metadata = {
   title: 'PV-Reinigung in Süddeutschland | 14 Standorte | Skytech Solutions',
@@ -97,6 +98,9 @@ export default function StandortHub() {
               ))}
             </div>
           </div>
+
+          {/* BLOG TEASER */}
+          <BlogTeaser />
 
           <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-primary-100 bg-primary-50/40 p-6 text-center">
             <p className="text-sm text-gray-700">
