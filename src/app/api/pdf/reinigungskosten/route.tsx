@@ -9,6 +9,7 @@ import {
   fmtEur,
 } from '@/lib/calculators';
 import { BasePdfDocument, pdfStyles as s } from '@/lib/pdfDocument';
+import { PdfBarChart } from '@/lib/pdfChart';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -22,6 +23,12 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { input } = payloadSchema.parse(body);
     const result = calcReinigungskosten(input);
+    const baseOnly = calcReinigungskosten({ ...input, withThermography: false });
+    const withThermo = calcReinigungskosten({ ...input, withThermography: true });
+    const compareData = [
+      { label: 'nur Reinigung', value: baseOnly.totalCost, highlight: !input.withThermography },
+      { label: '+ Thermografie', value: withThermo.totalCost, highlight: input.withThermography },
+    ];
 
     const doc = BasePdfDocument({
       title: 'Reinigungskosten-Schätzung',
@@ -73,9 +80,11 @@ export async function POST(req: NextRequest) {
             </View>
           )}
 
+          <PdfBarChart title="Vergleich der Optionen" data={compareData} unit="€" />
+
           <View style={s.section}>
-            <Text style={s.sectionTitle}>Hinweis zur Berechnung</Text>
-            <Text>
+            <Text style={s.sectionTitle}>Methodik &amp; Quellen</Text>
+            <Text style={{ fontSize: 9, color: '#6b7280', lineHeight: 1.5 }}>
               Die Schätzung basiert auf einem Grundpreis von 4,50 € pro Modul für
               Drohnenreinigung, multipliziert mit dem Dach- und Zugänglichkeitsfaktor.
               Bandbreite ±15% für individuelle Faktoren wie Anfahrt, Wasserzugang und

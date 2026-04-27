@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import { calcAmortisation, fmtEur } from '@/lib/calculators';
 import ResultActions from './ResultActions';
+import MiniBarChart from './MiniBarChart';
 
 export default function AmortisationForm() {
   const [cleaningCost, setCleaningCost] = useState(800);
@@ -115,7 +116,23 @@ export default function AmortisationForm() {
 
         <div className="mt-4 rounded-xl bg-white p-4 shadow-sm">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
-            5-Jahres-Tabelle
+            Netto-Gewinn nach Jahren
+          </p>
+          <MiniBarChart
+            data={result.yearlyTable.map((r) => ({
+              label: `J${r.year}`,
+              value: r.net,
+              highlight: r.year === 5,
+            }))}
+            unit=" €"
+            height={150}
+            formatter={(n) => Math.round(n).toLocaleString('de-DE')}
+          />
+        </div>
+
+        <div className="mt-4 rounded-xl bg-white p-4 shadow-sm">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
+            5-Jahres-Tabelle (detailliert)
           </p>
           <div className="grid grid-cols-4 gap-2 text-xs font-medium text-gray-500">
             <span>Jahr</span>

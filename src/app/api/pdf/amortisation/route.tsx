@@ -3,6 +3,7 @@ import { renderToBuffer, Text, View } from '@react-pdf/renderer';
 import { z } from 'zod';
 import { amortisationInput, calcAmortisation, fmtEur } from '@/lib/calculators';
 import { BasePdfDocument, pdfStyles as s } from '@/lib/pdfDocument';
+import { PdfBarChart } from '@/lib/pdfChart';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -73,12 +74,31 @@ export async function POST(req: NextRequest) {
             ))}
           </View>
 
+          <PdfBarChart
+            title="Netto-Gewinn pro Jahr"
+            data={result.yearlyTable.map((r) => ({
+              label: `Jahr ${r.year}`,
+              value: r.net,
+              highlight: r.year === 5,
+            }))}
+            unit="€"
+          />
+
           <View style={s.note}>
             <Text>
               Die Berechnung berücksichtigt mehrere Reinigungszyklen über den Prognose-Zeitraum.
               Bei einem Intervall von {input.cleaningInterval} {input.cleaningInterval === 1 ? 'Jahr' : 'Jahren'}{' '}
               fallen die Kosten entsprechend mehrfach an, der Ertragsverlust wird hingegen
               dauerhaft vermieden.
+            </Text>
+          </View>
+
+          <View style={s.section}>
+            <Text style={s.sectionTitle}>Methodik &amp; Quellen</Text>
+            <Text style={{ fontSize: 9, color: '#6b7280', lineHeight: 1.5 }}>
+              Lineare Amortisationsrechnung mit konstantem jährlichen Verlust und periodischen
+              Reinigungskosten. Annahme: keine Inflation, keine Strompreisänderung. Werte basieren
+              auf Branchendurchschnitt 2025/2026 und sind unverbindlich.
             </Text>
           </View>
         </>

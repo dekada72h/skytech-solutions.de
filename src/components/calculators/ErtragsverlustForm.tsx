@@ -10,6 +10,8 @@ import {
   type Environment,
 } from '@/lib/calculators';
 import ResultActions from './ResultActions';
+import MiniBarChart from './MiniBarChart';
+import PlzInput from './PlzInput';
 
 export default function ErtragsverlustForm() {
   const [kwp, setKwp] = useState(10);
@@ -18,25 +20,51 @@ export default function ErtragsverlustForm() {
   const [eeg, setEeg] = useState(8.2);
   const [selbst, setSelbst] = useState(30);
   const [strompreis, setStrompreis] = useState(35);
+  const [yieldFactor, setYieldFactor] = useState(1.0);
+  const [region, setRegion] = useState<string | null>(null);
 
   const result = useMemo(
     () =>
       calcErtragsverlust({
-        kwp,
+        kwp: kwp * yieldFactor,
         monthsSinceCleaning: months,
         environment: env,
         einspeiseverguetung: eeg,
         selbstverbrauchAnteil: selbst,
         strompreis,
       }),
-    [kwp, months, env, eeg, selbst, strompreis],
+    [kwp, months, env, eeg, selbst, strompreis, yieldFactor],
   );
+
+  // What-if "cost of waiting": calculate at +0, +6, +12, +24 months
+  const compareData = useMemo(() => {
+    const offsets = [0, 6, 12, 24];
+    return offsets.map((off) => {
+      const r = calcErtragsverlust({
+        kwp: kwp * yieldFactor,
+        monthsSinceCleaning: months + off,
+        environment: env,
+        einspeiseverguetung: eeg,
+        selbstverbrauchAnteil: selbst,
+        strompreis,
+      });
+      return {
+        label: off === 0 ? 'jetzt' : `+${off} M`,
+        value: r.lostEarningsAnnual,
+        highlight: off === 0,
+      };
+    });
+  }, [kwp, months, env, eeg, selbst, strompreis, yieldFactor]);
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr,1.1fr]">
       {/* INPUTS */}
       <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
         <h2 className="mb-6 text-xl font-semibold text-gray-900">Ihre Anlage</h2>
+
+        <div className="mb-6">
+          <PlzInput onPreset={(p) => { setEnv(p.defaultEnvironment); setYieldFactor(p.yieldFactor); setRegion(p.region); }} />
+        </div>
 
         <div className="space-y-6">
           <div>
@@ -173,6 +201,27 @@ export default function ErtragsverlustForm() {
         <div className="mt-6 rounded-lg bg-amber-50 p-4 text-sm text-amber-900">
           <strong>Bei Umgebung &bdquo;{result.paneeleEnvLabel}&rdquo;:</strong> typischer
           Effizienzverlust von {fmtPct(environments[env].annualLossRate)} pro Jahr ohne Reinigung.
+          {region && <span className="block mt-1">📍 Werte angepasst für <strong>{region}</strong>.</span>}
+        </div>
+
+        {/* Compare mode: cost of waiting */}
+        <div className="mt-6 rounded-xl bg-white p-4 shadow-sm">
+          <div className="mb-2 flex items-baseline justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wider text-gray-700">
+              Kosten der Verzögerung
+            </p>
+            <p className="text-[10px] text-gray-500">Jährlicher Verlust wenn Sie warten</p>
+          </div>
+          <MiniBarChart
+            data={compareData}
+            unit=" €"
+            height={140}
+            formatter={(n) => Math.round(n).toLocaleString('de-DE')}
+          />
+          <p className="mt-2 text-xs text-gray-600">
+            Wenn Sie noch <strong>2 Jahre warten</strong>, steigt der jährliche Verlust auf{' '}
+            <strong className="text-rose-600">{fmtEur(compareData[3].value)}</strong>.
+          </p>
         </div>
 
         <ResultActions

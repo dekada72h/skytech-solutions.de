@@ -10,12 +10,15 @@ import {
   type AccessType,
 } from '@/lib/calculators';
 import ResultActions from './ResultActions';
+import MiniBarChart from './MiniBarChart';
+import PlzInput from './PlzInput';
 
 export default function ReinigungskostenForm() {
   const [panels, setPanels] = useState(40);
   const [roof, setRoof] = useState<RoofType>('satteldach');
   const [access, setAccess] = useState<AccessType>('mittel');
   const [thermo, setThermo] = useState(false);
+  const [region, setRegion] = useState<string | null>(null);
 
   const result = useMemo(
     () =>
@@ -28,11 +31,25 @@ export default function ReinigungskostenForm() {
     [panels, roof, access, thermo],
   );
 
+  // Compare: with vs without thermography, with different access conditions
+  const compareData = useMemo(() => {
+    const base = calcReinigungskosten({ panelCount: panels, roofType: roof, access, withThermography: false });
+    const withThermo = calcReinigungskosten({ panelCount: panels, roofType: roof, access, withThermography: true });
+    return [
+      { label: 'nur Reinigung', value: base.totalCost, highlight: !thermo },
+      { label: '+ Thermografie', value: withThermo.totalCost, highlight: thermo },
+    ];
+  }, [panels, roof, access, thermo]);
+
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr,1.1fr]">
       {/* INPUTS */}
       <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
         <h2 className="mb-6 text-xl font-semibold text-gray-900">Ihre Anlage</h2>
+
+        <div className="mb-6">
+          <PlzInput onPreset={(p) => { setRegion(p.region); }} />
+        </div>
 
         <div className="space-y-6">
           <div>
@@ -148,6 +165,23 @@ export default function ReinigungskostenForm() {
             ))}
           </ul>
         )}
+
+        {region && (
+          <p className="mt-3 text-xs text-gray-600">📍 Anfahrt nach <strong>{region}</strong> ist im Preis enthalten.</p>
+        )}
+
+        {/* Compare: thermo vs no thermo */}
+        <div className="mt-4 rounded-xl bg-white p-4 shadow-sm">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-700">
+            Vergleich der Optionen
+          </p>
+          <MiniBarChart
+            data={compareData}
+            unit=" €"
+            height={130}
+            formatter={(n) => Math.round(n).toLocaleString('de-DE')}
+          />
+        </div>
 
         <ResultActions
           pdfPath="/api/pdf/reinigungskosten"

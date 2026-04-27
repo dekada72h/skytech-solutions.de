@@ -11,6 +11,7 @@ import {
   fmtPct,
 } from '@/lib/calculators';
 import { BasePdfDocument, pdfStyles as s } from '@/lib/pdfDocument';
+import { PdfBarChart } from '@/lib/pdfChart';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -24,6 +25,16 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { input } = payloadSchema.parse(body);
     const result = calcErtragsverlust(input);
+
+    // Compare data: cost of waiting at +0/+6/+12/+24 months
+    const compareData = [0, 6, 12, 24].map((off) => {
+      const r = calcErtragsverlust({ ...input, monthsSinceCleaning: input.monthsSinceCleaning + off });
+      return {
+        label: off === 0 ? 'jetzt' : `+${off} M.`,
+        value: r.lostEarningsAnnual,
+        highlight: off === 0,
+      };
+    });
 
     const doc = BasePdfDocument({
       title: 'Ertragsverlust-Berechnung',
@@ -64,6 +75,8 @@ export async function POST(req: NextRequest) {
             </View>
           </View>
 
+          <PdfBarChart title="Kosten der Verzögerung — Verlust pro Jahr" data={compareData} unit="€" />
+
           <View style={s.note}>
             <Text>
               Bei Umgebung &bdquo;{result.paneeleEnvLabel}&rdquo; beträgt der typische Effizienzverlust{' '}
@@ -79,6 +92,16 @@ export async function POST(req: NextRequest) {
               Eine professionelle Reinigung Ihrer PV-Anlage kann den Ertragsverlust nahezu
               vollständig ausgleichen. Bei Industrie- und Landwirtschaftsanlagen empfehlen wir
               eine jährliche Reinigung, in Wohngebieten alle 2–3 Jahre.
+            </Text>
+          </View>
+
+          <View style={s.section}>
+            <Text style={s.sectionTitle}>Methodik &amp; Quellen</Text>
+            <Text style={{ fontSize: 9, color: '#6b7280', lineHeight: 1.5 }}>
+              Berechnung basiert auf Branchendurchschnittswerten und Studien des Fraunhofer ISE
+              sowie TÜV-Berichten zur Photovoltaik-Wartung. Annahme: 950 kWh/kWp/Jahr typische
+              Süddeutsche Erträge, exponentielle Verschmutzungskurve. Werte sind unverbindlich
+              und ersetzen keine Vor-Ort-Messung.
             </Text>
           </View>
         </>
