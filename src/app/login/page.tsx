@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import LoginForm from './LoginForm';
 
 export const metadata: Metadata = {
@@ -8,7 +9,17 @@ export const metadata: Metadata = {
 
 export default function LoginPage({ searchParams }: { searchParams: { callbackUrl?: string; error?: string } }) {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 px-4">
+    <main className="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 px-4">
+      <Link
+        href="/"
+        className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white/80 px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm backdrop-blur transition-all hover:bg-white hover:text-primary-700"
+      >
+        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Zurück zur Startseite
+      </Link>
+
       <div className="w-full max-w-md rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
         <div className="mb-6 text-center">
           <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600">
