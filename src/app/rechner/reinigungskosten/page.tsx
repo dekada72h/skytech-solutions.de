@@ -1,3 +1,4 @@
+import PublicShell from '@/components/PublicShell';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ReinigungskostenForm from '@/components/calculators/ReinigungskostenForm';
@@ -78,6 +79,7 @@ export default function ReinigungskostenPage() {
   };
 
   return (
+    <PublicShell>
     <main className="bg-gradient-to-b from-gray-50 via-white to-gray-50 pt-24 pb-20">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
@@ -134,5 +136,6 @@ export default function ReinigungskostenPage() {
         </div>
       </div>
     </main>
+  </PublicShell>
   );
 }

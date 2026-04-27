@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -8,7 +10,101 @@ const fadeInUp = {
   viewport: { once: true, margin: '-50px' },
 };
 
+function useContactPrefill() {
+  const params = useSearchParams();
+  return {
+    betreff: params.get('betreff') ?? '',
+    nachricht: params.get('nachricht') ?? '',
+  };
+}
+
 export default function Contact() {
+  return (
+    <Suspense fallback={null}>
+      <ContactInner />
+    </Suspense>
+  );
+}
+
+function ContactInner() {
+  const prefill = useContactPrefill();
+  const [vorname, setVorname] = useState('');
+  const [nachname, setNachname] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefon, setTelefon] = useState('');
+  const [leistung, setLeistung] = useState('');
+  const [nachricht, setNachricht] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [done, setDone] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (prefill.nachricht) setNachricht(prefill.nachricht);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    setBusy(true);
+    setErr(null);
+    const subject = prefill.betreff || (leistung ? `Anfrage: ${leistung}` : 'Kontaktanfrage');
+    const fullMessage = `${nachricht || ''}${leistung ? `\n\nGewünschte Leistung: ${leistung}` : ''}`.trim();
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${vorname} ${nachname}`.trim(),
+          email,
+          phone: telefon,
+          subject,
+          message: fullMessage,
+          source: 'kontakt-page',
+        }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setDone(true);
+      setVorname(''); setNachname(''); setEmail(''); setTelefon(''); setLeistung(''); setNachricht('');
+    } catch (e) {
+      setErr('Senden fehlgeschlagen. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <ContactView
+      vorname={vorname} setVorname={setVorname}
+      nachname={nachname} setNachname={setNachname}
+      email={email} setEmail={setEmail}
+      telefon={telefon} setTelefon={setTelefon}
+      leistung={leistung} setLeistung={setLeistung}
+      nachricht={nachricht} setNachricht={setNachricht}
+      submit={submit} busy={busy} done={done} err={err}
+    />
+  );
+}
+
+interface ViewProps {
+  vorname: string; setVorname: (v: string) => void;
+  nachname: string; setNachname: (v: string) => void;
+  email: string; setEmail: (v: string) => void;
+  telefon: string; setTelefon: (v: string) => void;
+  leistung: string; setLeistung: (v: string) => void;
+  nachricht: string; setNachricht: (v: string) => void;
+  submit: (e: React.FormEvent) => void;
+  busy: boolean; done: boolean; err: string | null;
+}
+
+function ContactView(p: ViewProps) {
+  return ContactViewBody(p);
+}
+
+function ContactViewBody({
+  vorname, setVorname, nachname, setNachname, email, setEmail,
+  telefon, setTelefon, leistung, setLeistung, nachricht, setNachricht,
+  submit, busy, done, err,
+}: ViewProps) {
   return (
     <section id="kontakt" className="section-padding bg-white">
       <div className="container-width">
@@ -38,10 +134,17 @@ export default function Contact() {
             className="lg:col-span-3"
           >
             <form
-              action="#"
-              method="POST"
+              onSubmit={submit}
               className="rounded-2xl border border-gray-100 bg-gray-50 p-6 shadow-sm sm:p-8"
             >
+              {done && (
+                <div className="mb-5 rounded-xl bg-emerald-50 p-4 text-sm text-emerald-800">
+                  ✓ Vielen Dank! Ihre Nachricht wurde übermittelt. Wir melden uns innerhalb von 24 Stunden.
+                </div>
+              )}
+              {err && (
+                <div className="mb-5 rounded-xl bg-red-50 p-4 text-sm text-red-700">{err}</div>
+              )}
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label
@@ -55,6 +158,8 @@ export default function Contact() {
                     id="vorname"
                     name="vorname"
                     required
+                    value={vorname}
+                    onChange={(e) => setVorname(e.target.value)}
                     className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                     placeholder="Max"
                   />
@@ -71,6 +176,8 @@ export default function Contact() {
                     id="nachname"
                     name="nachname"
                     required
+                    value={nachname}
+                    onChange={(e) => setNachname(e.target.value)}
                     className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                     placeholder="Mustermann"
                   />
@@ -89,6 +196,8 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                   placeholder="max@beispiel.de"
                 />
@@ -105,6 +214,8 @@ export default function Contact() {
                   type="tel"
                   id="telefon"
                   name="telefon"
+                  value={telefon}
+                  onChange={(e) => setTelefon(e.target.value)}
                   className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                   placeholder="+49 1521 6991223"
                 />
@@ -121,6 +232,8 @@ export default function Contact() {
                   id="leistung"
                   name="leistung"
                   required
+                  value={leistung}
+                  onChange={(e) => setLeistung(e.target.value)}
                   className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                 >
                   <option value="">Bitte w&auml;hlen...</option>
@@ -142,6 +255,8 @@ export default function Contact() {
                   id="nachricht"
                   name="nachricht"
                   rows={4}
+                  value={nachricht}
+                  onChange={(e) => setNachricht(e.target.value)}
                   className="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                   placeholder="Beschreiben Sie kurz Ihr Anliegen..."
                 />
@@ -149,9 +264,10 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="mt-6 w-full rounded-xl bg-primary-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/30 sm:w-auto"
+                disabled={busy}
+                className="mt-6 w-full rounded-xl bg-primary-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/30 disabled:opacity-50 sm:w-auto"
               >
-                Anfrage absenden
+                {busy ? 'Senden...' : 'Anfrage absenden'}
               </button>
             </form>
           </motion.div>

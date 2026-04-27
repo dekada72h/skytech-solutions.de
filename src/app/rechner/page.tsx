@@ -1,3 +1,4 @@
+import PublicShell from '@/components/PublicShell';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -89,6 +90,7 @@ export default function RechnerHub() {
   };
 
   return (
+    <PublicShell>
     <main className="bg-gradient-to-b from-gray-50 via-white to-gray-50 pt-24 pb-20">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
 
@@ -152,5 +154,6 @@ export default function RechnerHub() {
         </div>
       </div>
     </main>
+  </PublicShell>
   );
 }
