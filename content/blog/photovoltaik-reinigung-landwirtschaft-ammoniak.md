@@ -2,7 +2,7 @@
 title: "Photovoltaik-Reinigung in der Landwirtschaft: Warum Ammoniak Ihre Module zerstört"
 description: "Hofbetriebe verlieren bis zu 18 % Ertrag pro Jahr — und Ammoniak aus Stallhaltung greift Module chemisch an. Was Sie über PV-Reinigung in der Landwirtschaft wissen sollten."
 slug: "photovoltaik-reinigung-landwirtschaft-ammoniak"
-date: "2026-04-27"
+date: "2026-04-07"
 author: "Skytech Solutions"
 category: "industry"
 keywords:

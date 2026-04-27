@@ -2,7 +2,7 @@
 title: "Wie viel Geld verlieren Sie durch eine schmutzige PV-Anlage? Echte Zahlen 2026 + Berechnung pro kWp"
 description: "Eine verschmutzte Photovoltaikanlage verliert 4–18 % Ertrag pro Jahr. Wir zeigen Ihnen die echten Zahlen aus der Praxis — und ein 30-Sekunden-Rechner für Ihre individuelle Verlustberechnung."
 slug: "ertragsverlust-photovoltaik-verschmutzung"
-date: "2026-04-27"
+date: "2026-03-18"
 author: "Skytech Solutions"
 category: "guide"
 keywords:

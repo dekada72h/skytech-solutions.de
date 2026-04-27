@@ -2,7 +2,7 @@
 title: "Solarpanel-Reinigung Kosten 2026: Pro kWp, pro Modul, pro Stunde — alles was Sie wissen müssen"
 description: "Was kostet professionelle PV-Reinigung 2026 wirklich? Pro Modul, pro kWp, pro Stunde — mit ehrlichem Vergleich Drohne vs. Gerüst, Privat vs. Industrie, Wartungsverträgen."
 slug: "solarpanel-reinigung-kosten-2026"
-date: "2026-04-27"
+date: "2026-04-17"
 author: "Skytech Solutions"
 category: "pricing"
 keywords:
