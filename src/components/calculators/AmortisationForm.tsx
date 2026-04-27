@@ -125,7 +125,7 @@ export default function AmortisationForm() {
               highlight: r.year === 5,
             }))}
             unit=" €"
-            height={150}
+            height={240}
             formatter={(n) => Math.round(n).toLocaleString('de-DE')}
           />
         </div>

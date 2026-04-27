@@ -215,7 +215,7 @@ export default function ErtragsverlustForm() {
           <MiniBarChart
             data={compareData}
             unit=" €"
-            height={140}
+            height={240}
             formatter={(n) => Math.round(n).toLocaleString('de-DE')}
           />
           <p className="mt-2 text-xs text-gray-600">

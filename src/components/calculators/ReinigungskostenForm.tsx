@@ -178,7 +178,7 @@ export default function ReinigungskostenForm() {
           <MiniBarChart
             data={compareData}
             unit=" €"
-            height={130}
+            height={220}
             formatter={(n) => Math.round(n).toLocaleString('de-DE')}
           />
         </div>
