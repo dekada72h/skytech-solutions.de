@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { cities, cityBySlug, allCitySlugs } from '@/data/cities';
+import { cities, cityBySlug, allCitySlugs, REGION_DATA } from '@/data/cities';
 import PublicShell from '@/components/PublicShell';
 
 export const dynamicParams = false;
@@ -37,7 +37,9 @@ const iconMap: Record<string, string> = {
 export default function CityPage({ params }: { params: { city: string } }) {
   const c = cityBySlug(params.city);
   if (!c) notFound();
+  const regionInfo = REGION_DATA[c.region];
 
+  // Schemas: LocalBusiness, BreadcrumbList, FAQPage
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -54,11 +56,10 @@ export default function CityPage({ params }: { params: { city: string } }) {
       postalCode: '89079',
       addressCountry: 'DE',
     },
-    areaServed: {
-      '@type': 'City',
-      name: c.name,
-      address: { '@type': 'PostalAddress', addressLocality: c.name, postalCode: c.plz, addressCountry: 'DE' },
-    },
+    areaServed: [
+      { '@type': 'City', name: c.name, address: { '@type': 'PostalAddress', addressLocality: c.name, postalCode: c.plz, addressCountry: 'DE' } },
+      ...c.nearbyVillages.map((v) => ({ '@type': 'City' as const, name: v, address: { '@type': 'PostalAddress' as const, addressLocality: v, addressCountry: 'DE' } })),
+    ],
     priceRange: '€€',
     serviceType: 'Photovoltaik-Reinigung',
   };
@@ -68,25 +69,37 @@ export default function CityPage({ params }: { params: { city: string } }) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://skytech-solutions.de' },
-      { '@type': 'ListItem', position: 2, name: 'Standorte', item: 'https://skytech-solutions.de/pv-reinigung' },
-      { '@type': 'ListItem', position: 3, name: c.name, item: `https://skytech-solutions.de/pv-reinigung/${c.slug}` },
+      { '@type': 'ListItem', position: 2, name: 'PV-Reinigung', item: 'https://skytech-solutions.de/pv-reinigung' },
+      { '@type': 'ListItem', position: 3, name: regionInfo.name, item: `https://skytech-solutions.de/pv-reinigung/${c.region}` },
+      { '@type': 'ListItem', position: 4, name: c.name, item: `https://skytech-solutions.de/pv-reinigung/${c.slug}` },
     ],
   };
 
-  const nearbyCity = (slug: string) => cityBySlug(slug);
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: c.cityFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
 
   return (
     <PublicShell>
       <main className="bg-gradient-to-b from-gray-50 via-white to-gray-50 pt-20 pb-20">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
         <div className="container-width px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
+          {/* BREADCRUMB */}
           <nav className="mb-6 text-sm text-gray-500">
             <Link href="/" className="hover:text-primary-600">Start</Link>
             <span className="mx-2">/</span>
-            <Link href="/leistungen" className="hover:text-primary-600">Leistungen</Link>
+            <Link href="/pv-reinigung" className="hover:text-primary-600">PV-Reinigung</Link>
+            <span className="mx-2">/</span>
+            <Link href={`/pv-reinigung/${c.region}`} className="hover:text-primary-600">{regionInfo.name}</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-900">{c.name}</span>
           </nav>
@@ -96,9 +109,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
             <span className="inline-block rounded-full bg-primary-100 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-primary-700">
               📍 {c.state} · {c.distanceFromUlmKm === 0 ? 'unser Standort' : `${c.distanceFromUlmKm} km von Ulm`}
             </span>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              {c.heroTitle}
-            </h1>
+            <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">{c.heroTitle}</h1>
             <p className="mt-6 text-lg text-gray-600">{c.heroSubtitle}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link href="/kontakt" className="rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-primary-700">
@@ -114,32 +125,22 @@ export default function CityPage({ params }: { params: { city: string } }) {
           <div className="mx-auto mb-16 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Fact label="PLZ" value={c.plz} />
             <Fact label="Einwohner" value={c.population.toLocaleString('de-DE')} />
-            <Fact
-              label="Anfahrt"
-              value={c.distanceFromUlmKm === 0 ? 'Lokal' : `${c.distanceFromUlmKm} km`}
-              sub={c.driveTimeMin ? `${c.driveTimeMin} Min.` : undefined}
-            />
+            <Fact label="Anfahrt" value={c.distanceFromUlmKm === 0 ? 'Lokal' : `${c.distanceFromUlmKm} km`} sub={c.driveTimeMin ? `${c.driveTimeMin} Min.` : undefined} />
             <Fact label="Bundesland" value={c.state} />
           </div>
 
-          {/* INTRO — 3 paragraphs unique per city */}
+          {/* INTRO — 3 paragraphs */}
           <section className="mx-auto mb-16 max-w-3xl space-y-6 text-base leading-relaxed text-gray-700">
             <div>
-              <h2 className="mb-3 text-2xl font-bold text-gray-900">
-                Solar in {c.name} — was Sie wissen sollten
-              </h2>
+              <h2 className="mb-3 text-2xl font-bold text-gray-900">Solar in {c.name} — was Sie wissen sollten</h2>
               <p>{c.intro.history}</p>
             </div>
             <div>
-              <h2 className="mb-3 text-2xl font-bold text-gray-900">
-                Wer ist unser Kundenkreis in {c.name}?
-              </h2>
+              <h2 className="mb-3 text-2xl font-bold text-gray-900">Wer ist unser Kundenkreis in {c.name}?</h2>
               <p>{c.intro.industry}</p>
             </div>
             <div>
-              <h2 className="mb-3 text-2xl font-bold text-gray-900">
-                Klima &amp; Verschmutzung in {c.name}
-              </h2>
+              <h2 className="mb-3 text-2xl font-bold text-gray-900">Klima &amp; Verschmutzung in {c.name}</h2>
               <p dangerouslySetInnerHTML={{ __html: c.intro.climate.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') }} />
             </div>
           </section>
@@ -159,33 +160,132 @@ export default function CityPage({ params }: { params: { city: string } }) {
             ))}
           </section>
 
-          {/* CTA: calculator with PLZ pre-fill suggestion */}
-          <section className="mx-auto mb-16 max-w-3xl rounded-2xl border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-white p-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-900">
+          {/* DISTRICTS + NEARBY VILLAGES */}
+          <section className="mx-auto mb-16 grid max-w-4xl gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6">
+              <h2 className="text-lg font-bold text-gray-900">Stadtteile in {c.name}</h2>
+              <p className="mt-1 text-xs text-gray-500">Wir bedienen alle Bezirke der Stadt.</p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {c.districts.map((d) => (
+                  <li key={d} className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">{d}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-white p-6">
+              <h2 className="text-lg font-bold text-gray-900">Auch im Umland</h2>
+              <p className="mt-1 text-xs text-gray-500">Gemeinden im Service-Gebiet rund um {c.name}.</p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {c.nearbyVillages.map((v) => (
+                  <li key={v} className="rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700">{v}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* CASE STUDY */}
+          <section className="mx-auto mb-16 max-w-4xl rounded-2xl border-2 border-emerald-200 bg-emerald-50/40 p-8">
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-700">Praxisbeispiel</p>
+            <h2 className="mt-2 text-2xl font-bold text-gray-900">{c.caseStudy.title}</h2>
+            <p className="mt-3 text-gray-700">{c.caseStudy.description}</p>
+            <div className="mt-4 flex flex-wrap gap-2 text-xs">
+              <Link href="/rechner/ertragsverlust" className="rounded-full bg-white px-3 py-1 text-emerald-700 underline hover:bg-emerald-100">
+                → Ihren Verlust berechnen
+              </Link>
+              <Link href="/rechner/amortisation" className="rounded-full bg-white px-3 py-1 text-emerald-700 underline hover:bg-emerald-100">
+                → Ihre Amortisation prüfen
+              </Link>
+            </div>
+          </section>
+
+          {/* PRICING */}
+          <section className="mx-auto mb-16 max-w-3xl rounded-2xl border border-gray-200 bg-white p-8">
+            <h2 className="text-2xl font-bold text-gray-900">Preisbeispiel für {c.name}</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">Anlagengröße</p>
+                <p className="mt-1 text-2xl font-bold text-gray-900">{c.pricingExample.sizeKwp} kWp</p>
+                <p className="text-xs text-gray-500">≈ {c.pricingExample.panelCount} Module</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">Reinigungspreis</p>
+                <p className="mt-1 text-2xl font-bold text-primary-700">
+                  {c.pricingExample.priceMin}–{c.pricingExample.priceMax} €
+                </p>
+                <p className="text-xs text-gray-500">Brutto inkl. Anfahrt</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">Pro Modul</p>
+                <p className="mt-1 text-2xl font-bold text-gray-900">
+                  {(c.pricingExample.priceMin / c.pricingExample.panelCount).toFixed(2)} €
+                </p>
+                <p className="text-xs text-gray-500">ab Festpreis</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-gray-600">{c.pricingExample.note}</p>
+            <Link
+              href="/rechner/reinigungskosten"
+              className="mt-4 inline-block text-sm font-semibold text-primary-600 hover:underline"
+            >
+              → Genauer berechnen mit unserem Schätzer
+            </Link>
+          </section>
+
+          {/* SEASONAL TIP */}
+          <section className="mx-auto mb-16 max-w-3xl rounded-2xl bg-amber-50 border border-amber-200 p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-amber-700">💡 Profi-Tipp für {c.name}</p>
+            <p className="mt-2 text-base text-amber-900">{c.seasonalTip}</p>
+          </section>
+
+          {/* FAQ */}
+          <section className="mx-auto mb-16 max-w-3xl">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900">
+              Häufige Fragen — PV-Reinigung in {c.name}
+            </h2>
+            <div className="space-y-3">
+              {c.cityFaqs.map((f) => (
+                <details key={f.q} className="group rounded-xl border border-gray-200 bg-white p-5">
+                  <summary className="cursor-pointer text-base font-semibold text-gray-900">{f.q}</summary>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          {/* CALCULATOR DEEPLINKS */}
+          <section className="mx-auto mb-16 max-w-4xl rounded-2xl border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-white p-8">
+            <h2 className="text-center text-2xl font-bold text-gray-900">
               Berechnen Sie jetzt — angepasst für {c.name}
             </h2>
-            <p className="mt-2 text-gray-600">
-              Geben Sie Ihre PLZ <strong className="text-primary-700">{c.plz}</strong> in unseren
-              Rechner ein und erhalten Sie automatisch regional angepasste Werte.
+            <p className="mt-2 text-center text-gray-600">
+              Geben Sie Ihre PLZ <strong className="text-primary-700">{c.plz}</strong> in unsere Rechner ein
+              für regional angepasste Werte.
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link href="/rechner/ertragsverlust" className="rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary-700">
-                Ertragsverlust berechnen
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <Link href="/rechner/ertragsverlust" className="rounded-xl border border-primary-300 bg-white p-4 text-sm transition-all hover:border-primary-500 hover:shadow-md">
+                <p className="font-semibold text-gray-900">📉 Ertragsverlust</p>
+                <p className="mt-1 text-xs text-gray-500">Wieviel verlieren Sie pro Jahr?</p>
               </Link>
-              <Link href="/rechner/reinigungskosten" className="rounded-full border border-primary-300 bg-white px-6 py-3 text-sm font-semibold text-primary-700 hover:bg-primary-50">
-                Reinigungskosten schätzen
+              <Link href="/rechner/reinigungskosten" className="rounded-xl border border-primary-300 bg-white p-4 text-sm transition-all hover:border-primary-500 hover:shadow-md">
+                <p className="font-semibold text-gray-900">💰 Reinigungskosten</p>
+                <p className="mt-1 text-xs text-gray-500">Was kostet Sie die Reinigung?</p>
+              </Link>
+              <Link href="/rechner/amortisation" className="rounded-xl border border-primary-300 bg-white p-4 text-sm transition-all hover:border-primary-500 hover:shadow-md">
+                <p className="font-semibold text-gray-900">⏱ Amortisation</p>
+                <p className="mt-1 text-xs text-gray-500">Wann zahlt sich die Reinigung aus?</p>
+              </Link>
+              <Link href="/rechner/roi-rechner" className="rounded-xl border border-primary-300 bg-white p-4 text-sm transition-all hover:border-primary-500 hover:shadow-md">
+                <p className="font-semibold text-gray-900">📊 Detaillierter ROI</p>
+                <p className="mt-1 text-xs text-gray-500">Profi-Tool für genaue Werte.</p>
               </Link>
             </div>
           </section>
 
           {/* NEARBY CITIES */}
           <section className="mx-auto mb-12 max-w-4xl">
-            <h2 className="mb-6 text-center text-xl font-bold text-gray-900">
-              Auch in der Region tätig
-            </h2>
+            <h2 className="mb-6 text-center text-xl font-bold text-gray-900">Auch in der Region tätig</h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {c.nearby.map((slug) => {
-                const n = nearbyCity(slug);
+                const n = cityBySlug(slug);
                 if (!n) return null;
                 return (
                   <Link
@@ -202,10 +302,14 @@ export default function CityPage({ params }: { params: { city: string } }) {
             </div>
           </section>
 
-          {/* All-cities link */}
-          <div className="text-center">
-            <Link href="/pv-reinigung" className="text-sm text-primary-600 hover:underline">
-              ← Alle Standorte ansehen
+          {/* BACK LINKS */}
+          <div className="text-center text-sm">
+            <Link href={`/pv-reinigung/${c.region}`} className="text-primary-600 hover:underline">
+              ← Alle Standorte in {regionInfo.name}
+            </Link>
+            <span className="mx-3 text-gray-400">·</span>
+            <Link href="/pv-reinigung" className="text-primary-600 hover:underline">
+              Alle Bundesländer
             </Link>
           </div>
         </div>

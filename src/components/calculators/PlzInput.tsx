@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { lookupPlz, type PlzPreset } from '@/lib/plzPresets';
+import { cityByPlz, type CityData } from '@/data/cities';
 
 interface Props {
   onPreset?: (preset: PlzPreset, plz: string) => void;
@@ -10,6 +12,7 @@ interface Props {
 export default function PlzInput({ onPreset }: Props) {
   const [plz, setPlz] = useState('');
   const [preset, setPreset] = useState<PlzPreset | null>(null);
+  const [matchedCity, setMatchedCity] = useState<CityData | null>(null);
 
   useEffect(() => {
     if (plz.length === 5) {
@@ -18,8 +21,11 @@ export default function PlzInput({ onPreset }: Props) {
         setPreset(p);
         onPreset?.(p, plz);
       }
+      const city = cityByPlz(plz);
+      setMatchedCity(city ?? null);
     } else if (plz.length < 2) {
       setPreset(null);
+      setMatchedCity(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [plz]);
@@ -49,6 +55,20 @@ export default function PlzInput({ onPreset }: Props) {
           </div>
         )}
       </div>
+      {matchedCity && (
+        <div className="mt-3 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-xs">
+          <p className="text-emerald-800">
+            ✅ Wir bieten <strong>persönlichen Service in {matchedCity.name}</strong> an —
+            Anfahrt {matchedCity.distanceFromUlmKm === 0 ? 'lokal' : `${matchedCity.distanceFromUlmKm} km / ${matchedCity.driveTimeMin} Min.`}
+          </p>
+          <Link
+            href={`/pv-reinigung/${matchedCity.slug}`}
+            className="mt-1 inline-block font-semibold text-emerald-700 underline hover:text-emerald-900"
+          >
+            → Standort-Seite für {matchedCity.name} ansehen
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

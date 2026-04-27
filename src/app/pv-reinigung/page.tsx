@@ -1,19 +1,21 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { cities } from '@/data/cities';
+import { cities, citiesByRegion, REGION_DATA } from '@/data/cities';
 import PublicShell from '@/components/PublicShell';
 
 export const metadata: Metadata = {
-  title: 'PV-Reinigung in Süddeutschland | Standorte | Skytech Solutions',
+  title: 'PV-Reinigung in Süddeutschland | 14 Standorte | Skytech Solutions',
   description:
-    'PV-Reinigung in 14 Städten Baden-Württembergs und Bayerns: Ulm, Stuttgart, Karlsruhe, Augsburg, Memmingen u.v.m. Drohnengestützt, dokumentiert, mit Festpreis. Wählen Sie Ihre Stadt.',
+    'PV-Reinigung in Baden-Württemberg und Bayern: 14 Städte, regionale Hubs, drohnengestützte Reinigung mit Festpreis und Foto-Dokumentation. Wählen Sie Ihre Region.',
   keywords: ['PV-Reinigung Standorte', 'Photovoltaik-Reinigung Baden-Württemberg', 'PV-Reinigung Bayern', 'Solaranlagen Reinigung Süddeutschland'],
   alternates: { canonical: 'https://skytech-solutions.de/pv-reinigung' },
 };
 
 export default function StandortHub() {
-  // Sort by distance from Ulm
   const sorted = [...cities].sort((a, b) => a.distanceFromUlmKm - b.distanceFromUlmKm);
+  const bw = citiesByRegion('baden-wuerttemberg');
+  const by = citiesByRegion('bayern');
+
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -35,51 +37,71 @@ export default function StandortHub() {
         <div className="container-width px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <span className="inline-block rounded-full bg-primary-100 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-primary-700">
-              📍 14 Standorte
+              📍 14 Standorte · 2 Bundesländer
             </span>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               PV-Reinigung in <span className="text-primary-600">Süddeutschland</span>
             </h1>
             <p className="mt-6 text-lg text-gray-600">
               Wir bedienen Baden-Württemberg und das angrenzende Bayern mit professioneller
-              Photovoltaik-Reinigung. Wählen Sie Ihre Stadt — jede Standort-Seite enthält
-              regional angepasste Hinweise zu Klima, Verschmutzung und Wartungs-Intervallen.
+              Photovoltaik-Reinigung. Wählen Sie Ihre Region oder direkt Ihre Stadt — jede
+              Standort-Seite enthält regional angepasste Hinweise zu Klima, Verschmutzung,
+              Wartungs-Intervallen und realistische Preise.
             </p>
           </div>
 
-          {/* CITIES GRID */}
-          <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {sorted.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/pv-reinigung/${c.slug}`}
-                className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl"
-              >
-                <div className="mb-3 flex items-baseline justify-between">
-                  <h2 className="text-xl font-semibold text-gray-900">{c.name}</h2>
-                  <span className="text-xs font-medium text-gray-500">{c.state}</span>
-                </div>
-                <div className="mb-4 grid grid-cols-2 gap-2 text-xs text-gray-500">
-                  <span>📍 {c.plz}</span>
-                  <span>👥 {(c.population / 1000).toFixed(0)}k</span>
-                  <span>🚗 {c.distanceFromUlmKm === 0 ? 'lokal' : `${c.distanceFromUlmKm} km`}</span>
-                  <span>⏱ {c.driveTimeMin === 0 ? '0 Min.' : `${c.driveTimeMin} Min.`}</span>
-                </div>
-                <p className="line-clamp-3 flex-1 text-sm text-gray-600">{c.heroSubtitle}</p>
-                <span className="mt-4 inline-flex items-center text-sm font-semibold text-primary-600 group-hover:text-primary-700">
-                  PV-Reinigung in {c.name}
-                  <svg className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </span>
-              </Link>
-            ))}
+          {/* REGIONAL HUBS — primary navigation */}
+          <div className="mx-auto mb-16 grid max-w-4xl gap-6 md:grid-cols-2">
+            <Link
+              href="/pv-reinigung/baden-wuerttemberg"
+              className="group rounded-2xl border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-white p-8 shadow-md transition-all hover:-translate-y-1 hover:border-primary-400 hover:shadow-xl"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary-700">Bundesland</p>
+              <h2 className="mt-2 text-2xl font-bold text-gray-900">Baden-Württemberg</h2>
+              <p className="mt-2 text-sm text-gray-600">{REGION_DATA['baden-wuerttemberg'].description}</p>
+              <p className="mt-4 text-sm font-semibold text-primary-700">
+                {bw.length} Standorte →
+              </p>
+            </Link>
+            <Link
+              href="/pv-reinigung/bayern"
+              className="group rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-white p-8 shadow-md transition-all hover:-translate-y-1 hover:border-amber-400 hover:shadow-xl"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wider text-amber-700">Bundesland</p>
+              <h2 className="mt-2 text-2xl font-bold text-gray-900">Bayern</h2>
+              <p className="mt-2 text-sm text-gray-600">{REGION_DATA.bayern.description}</p>
+              <p className="mt-4 text-sm font-semibold text-amber-700">
+                {by.length} Standorte →
+              </p>
+            </Link>
           </div>
 
-          <div className="mx-auto mt-16 max-w-3xl rounded-2xl border border-primary-100 bg-primary-50/40 p-6 text-center">
+          {/* ALL CITIES (compact list) */}
+          <div className="mx-auto mb-12 max-w-5xl">
+            <h2 className="mb-4 text-center text-xl font-bold text-gray-900">Alle Standorte</h2>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {sorted.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/pv-reinigung/${c.slug}`}
+                  className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary-300 hover:shadow-md"
+                >
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-semibold text-gray-900">{c.name}</span>
+                    <span className="text-xs text-gray-500">{c.state}</span>
+                  </div>
+                  <p className="mt-1 text-xs text-gray-500">
+                    PLZ {c.plz} · {c.distanceFromUlmKm === 0 ? 'lokal' : `${c.distanceFromUlmKm} km`}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-primary-100 bg-primary-50/40 p-6 text-center">
             <p className="text-sm text-gray-700">
-              <strong>Ihre Stadt fehlt?</strong> Wir prüfen gerne, ob ein Termin in Ihrer Region
-              möglich ist. Schreiben Sie uns für ein Festpreisangebot — auch außerhalb dieser Liste.
+              <strong>Ihre Stadt fehlt?</strong> Wir prüfen gerne Sondertermine außerhalb dieser
+              Liste. Bei mehreren Anlagen in einer Region bieten wir reduzierte Anfahrtskosten.
             </p>
             <Link
               href="/kontakt"
