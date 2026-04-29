@@ -31,9 +31,38 @@ faqs:
     a: "Begrenzt. Wasser allein löst Pollen nur, wenn sie noch frisch sind und nicht verbacken. Bei Sommer-eingebrannten Pollenschichten brauchen Sie demineralisiertes Wasser und mechanische Reinigung mit weichen Bürsten — sonst riskieren Sie, dass Mineralien aus dem Leitungswasser Flecken hinterlassen."
 ---
 
-Wer in Süddeutschland eine PV-Anlage hat, kennt das Phänomen: Im April fängt es an, im Mai erreicht es seinen Höhepunkt — eine **gelbliche Schicht** legt sich auf die Module. Manchmal so dick, dass sie mit dem Auto vergleichbar wird, das am Frühjahrswagen vor der Garage steht. Pollen.
+<p class="lead">Wer in Süddeutschland eine PV-Anlage hat, kennt das Phänomen: Im April fängt es an, im Mai erreicht es seinen Höhepunkt — eine <strong>gelbliche Schicht</strong> legt sich auf die Module. Pollen. Sie kostet Sie 4–7 % Jahresertrag — und Regen hilft nur teilweise.</p>
 
-Was viele Anlagenbesitzer nicht wissen: Diese Schicht kostet Sie **4 bis 7 Prozent Ertrag** — manchmal mehr. Und sie verschwindet nicht einfach wieder, wenn die Pollensaison vorbei ist. Was passiert, warum Regen oft nicht hilft, und wann der richtige Zeitpunkt für eine Reinigung ist — darum geht es in diesem Artikel.
+<div class="tldr not-prose">
+  <div class="tldr-title">🌼 TL;DR — Pollen-Saison in 4 Punkten</div>
+  <ul>
+    <li><strong>4–7 % Ertragsverlust</strong> im April–Juni, in Waldregionen bis 9 %.</li>
+    <li>Eine Birke produziert <strong>5 Mio. Pollen pro Tag</strong> — sie kleben auf Glasflächen.</li>
+    <li>Regen wäscht nur <strong>30–40 %</strong> weg. Der Rest verbackt im Sommer („Bake-on").</li>
+    <li>Optimaler Reinigungstermin: <strong>Ende Mai bis Mitte Juni</strong>.</li>
+  </ul>
+</div>
+
+<div class="stat-grid not-prose">
+  <div class="stat-card">
+    <div class="stat-number">5<span class="stat-unit">Mio</span></div>
+    <div class="stat-label">Pollen / Tag (Birke)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">7<span class="stat-unit">%</span></div>
+    <div class="stat-label">Max. Verlust / Saison</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">40<span class="stat-unit">%</span></div>
+    <div class="stat-label">Regen-Wirkung</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">Mai<span class="stat-unit">/Jun</span></div>
+    <div class="stat-label">Beste Reinigung</div>
+  </div>
+</div>
+
+Was viele Anlagenbesitzer nicht wissen: Diese Schicht verschwindet nicht einfach wieder, wenn die Pollensaison vorbei ist. Was passiert, warum Regen oft nicht hilft, und wann der richtige Zeitpunkt für eine Reinigung ist — darum geht es in diesem Artikel.
 
 ## Was passiert in der Pollensaison wirklich?
 
@@ -47,6 +76,14 @@ Was dann passiert, hängt vom Wetter ab.
 
 **Feuchter Frühling**: Tau morgens, Sonne nachmittags — und die Pollen werden in der Wärme **regelrecht eingebacken**. Auf der Modulfläche entstehen klebrige, fast lackartige Krusten. Wir nennen diesen Effekt in der Branche **Bake-on**, und er ist das eigentliche Pollen-Problem.
 
+<div class="callout callout-warning">
+  <div class="callout-icon">🥯</div>
+  <div class="callout-body">
+    <p class="callout-title">Bake-on-Effekt erklärt</p>
+    <p>Pollen + Tau + Sonnenwärme = klebrige, fast lackartige Kruste. Einmal verbacken, lassen sie sich mit reinem Wasser nicht mehr lösen — es braucht demineralisiertes Wasser und mechanische Reinigung mit weichen Bürsten.</p>
+  </div>
+</div>
+
 ## Warum der Regen oft nicht ausreicht
 
 Eine Frage, die uns Kunden oft stellen: „Wenn es doch sowieso regnet, warum reinigen wir die Module dann?"
@@ -55,7 +92,22 @@ Die Antwort: Regen wäscht **frische Pollen** weg — aber nur teilweise. Pollen
 
 Eine **Studie der Hochschule Ulm** hat das 2023 untersucht: Auf zehn vergleichbaren Anlagen wurde der Pollen-Verschmutzungsgrad gemessen — fünf in Wäldern, fünf in offenen Wohngebieten. Nach drei Monaten Pollensaison plus normalem Regen war der **Verschmutzungsgrad bei 60 % der erwarteten Werte** (also: Regen hat nur 40 % weggewaschen). Bei den Wald-Anlagen sogar nur 30 % weggewaschen — der Rest blieb haften.
 
+<div class="bar-chart not-prose">
+  <div class="bar-chart-title">Pollen-Anteil, der nach Regen liegen bleibt</div>
+  <div class="bar-chart-sub">Hochschule-Ulm-Studie 2023, 10 Vergleichsanlagen, 3 Monate Pollensaison</div>
+  <div class="bar-row">
+    <div class="bar-label">Wohngebiet, offen</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-warn" style="width:60%; animation-delay:0.1s">60 % bleiben</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Wald-Anlagen</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-danger" style="width:70%; animation-delay:0.3s">70 % bleiben</div></div>
+  </div>
+</div>
+
 Praktische Konsequenz: Regen ist gut, aber nicht ausreichend. Wenn Sie maximale Erträge im Sommer wollen, ist eine **professionelle Reinigung Ende Mai / Anfang Juni** die wirtschaftlichste Investition.
+
+<div class="divider-icon not-prose"><span>🌳</span></div>
 
 ## Welche Regionen sind besonders betroffen?
 
@@ -86,21 +138,57 @@ In allen Regionen gilt: Wenn Ihre Anlage **direkt unter Bäumen** liegt — Lind
 
 Die wichtigste Frage: wann reinigen?
 
-Wir empfehlen **Ende Mai bis Mitte Juni**. Hier die Logik:
-
-**Vorher (März/April):** Sinnlos. Die Pollensaison hat noch nicht angefangen oder gerade erst begonnen. Eine Reinigung jetzt ist in 6 Wochen wieder weg.
-
-**Frühe Pollensaison (Anfang Mai):** Auch nicht ideal. Die Hauptpollen-Welle (Eiche, Buche, Gräser) kommt noch.
-
-**Nach der Pollen-Hauptsaison (Ende Mai):** **Optimal**. Die meisten Bäume und Gräser haben ausgeblüht. Was jetzt auf Ihren Modulen ist, bleibt — also runter damit.
-
-**Hochsommer (Juli/August):** Funktioniert auch, aber Sie haben dann schon 2 Monate suboptimalen Ertrag verloren. Außerdem ist es heiß — auf Glasflächen über 60 °C nicht gut für demineralisiertes Wasser, weil es sofort verdampft und Mineralfraktionen hinterlässt.
-
-**Herbst (September):** Funktioniert, aber zu spät — die Sommer-Hauptsaison ist vorbei. Macht Sinn als zweite Reinigung im Jahr für besonders belastete Anlagen.
+<div class="steps not-prose">
+  <div class="step">
+    <div class="step-num">✕</div>
+    <div class="step-body">
+      <h4>März / April — zu früh</h4>
+      <p>Sinnlos. Die Pollensaison hat noch nicht angefangen oder gerade erst begonnen. Eine Reinigung jetzt ist in 6 Wochen wieder weg.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">~</div>
+    <div class="step-body">
+      <h4>Anfang Mai — noch nicht ideal</h4>
+      <p>Die Hauptpollen-Welle (Eiche, Buche, Gräser) kommt noch. Ergebnis: nicht haltbar.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">✓</div>
+    <div class="step-body">
+      <h4>Ende Mai bis Mitte Juni — optimal</h4>
+      <p>Die meisten Bäume und Gräser haben ausgeblüht. Was jetzt auf Ihren Modulen ist, bleibt — also runter damit. Maximaler Sommer-Ertrag gesichert.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">~</div>
+    <div class="step-body">
+      <h4>Juli / August — funktioniert</h4>
+      <p>Aber 2 Monate suboptimaler Ertrag bereits verloren. Bei &gt; 60 °C Modultemperatur verdampft Wasser zu schnell und hinterlässt Flecken.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">~</div>
+    <div class="step-body">
+      <h4>September — zu spät</h4>
+      <p>Sommer-Hauptsaison vorbei. Sinnvoll nur als <em>zweite</em> Reinigung im Jahr bei besonders belasteten Anlagen.</p>
+    </div>
+  </div>
+</div>
 
 Praktischer Tipp: **Schreiben Sie sich Ende April einen Termin in den Kalender** — „Skytech Solutions kontaktieren". Wir planen unsere Frühsommer-Touren typischerweise 4–6 Wochen voraus. Wer früh dran ist, bekommt bessere Termine.
 
+<div class="divider-icon not-prose"><span>📍</span></div>
+
 ## Was eine Pollen-Reinigung wirklich bringt — Praxisbeispiel
+
+<div class="callout callout-success">
+  <div class="callout-icon">📊</div>
+  <div class="callout-body">
+    <p class="callout-title">Allgäu-Vorland, 28 kWp, 5 Jahre nicht gereinigt</p>
+    <p>Verschmutzungsgrad: 18 %. Reinigungskosten: <strong>410 €</strong>. Mehrertrag im 1. Jahr: ~2.500 kWh ≈ <strong>475 €</strong>. Amortisation: <strong>10 Monate</strong>.</p>
+  </div>
+</div>
 
 Ein Privatkunde aus [Ottobeuren](/pv-reinigung/memmingen) (Allgäu-Vorland), 28 kWp Aufdach-Anlage seit 2019. Hatte seit Inbetriebnahme nicht reinigen lassen.
 
@@ -118,9 +206,34 @@ Ein Privatkunde aus [Ottobeuren](/pv-reinigung/memmingen) (Allgäu-Vorland), 28 
 
 Heute haben wir den Hof in unserer **jährlichen Allgäu-Tour** drin. Reinigung Ende Mai jedes Jahr, kostenlos zur Inspektion. Der Mehrertrag bleibt stabil, der Aufwand ist minimal.
 
+<div class="divider-icon not-prose"><span>🚿</span></div>
+
 ## Selbstreinigung gegen Pollen — was geht, was nicht
 
 Was wir oft hören: „Ich nehme den Gartenschlauch und spritze die Module ab." Funktioniert das?
+
+<div class="compare-grid not-prose">
+  <div class="compare-card bad">
+    <h4>🚫 Was nicht funktioniert</h4>
+    <ul>
+      <li>Hochdruckreiniger — beschädigt Anti-Reflex-Beschichtung</li>
+      <li>Leitungswasser — hinterlässt Kalkflecken</li>
+      <li>Spülmittel oder Reinigungschemikalien</li>
+      <li>Topfschwamm oder Stahlbürste</li>
+      <li>Dachzugang ohne Sicherung</li>
+    </ul>
+  </div>
+  <div class="compare-card good">
+    <h4>✅ Was halbwegs geht (DIY)</h4>
+    <ul>
+      <li>Frische Pollen, noch nicht verbacken</li>
+      <li>Demineralisiertes Wasser (5 L ~5 €)</li>
+      <li>Weiche Mikrofiber-Bürste, Teleskopstange</li>
+      <li>Frühe Morgenstunden, kühles Modul</li>
+      <li>Nur ebenes, sicher zugängliches Dach</li>
+    </ul>
+  </div>
+</div>
 
 **Bedingt.** Bei **frischen Pollen**, die noch nicht verbacken sind (also wenn die Pollensaison gerade läuft, nicht nach Sommer-Sonnenphase), kann ein einfaches Abspritzen mit Wasser einen Teil entfernen. Aber:
 
@@ -138,7 +251,11 @@ Wenn Sie wissen wollen, wie viel Sie spezifisch durch Pollen verlieren, geht das
 
 Wenn Sie wissen wollen, was eine Reinigung in Ihrer Region kostet, hilft Ihnen der [Reinigungskosten-Schätzer](/rechner/reinigungskosten) — dort einfach Modulanzahl, Dachform und Zugänglichkeit eingeben.
 
-## Fazit: Pollen sind kein Theme für „später"
+<div class="divider-icon not-prose"><span>✅</span></div>
+
+## Fazit: Pollen sind kein Thema für „später"
+
+<div class="pull-quote">Eine Reinigung Ende Mai kostet weniger, als ein einziger verlorener Sommer-Ertragsmonat.</div>
 
 Pollen sind ein vorhersehbares, jährlich wiederkehrendes Problem. Anders als Industrie-Russ oder Salznebel, die kontinuierlich kommen, hat die Pollensaison einen klaren Anfang (März/April) und ein klares Ende (Anfang Juni). Das macht es einfach, dagegen vorzugehen — wenn man es nicht ignoriert.
 

@@ -31,9 +31,38 @@ faqs:
     a: "Auf Ihrem eigenen Grundstück nein — das fällt unter die EU-Drohnen-Verordnung als gewerblicher Einsatz, für den wir alle nötigen Lizenzen und Versicherungen haben. Bei Anlagen direkt an Stallgebäuden mit Tieren stimmen wir den Termin vorher mit Ihnen ab."
 ---
 
-Wer einen Bauernhof betreibt, hat es bei Photovoltaik nicht einfach. Was auf Stadtdächern in 30 Jahren ohne große Sorgen läuft, kämpft auf Stallhallen, Maschinenscheunen und Aussiedlerhöfen mit ganz anderen Problemen — und die teuersten davon sieht man nicht einmal.
+<p class="lead">Wer einen Bauernhof betreibt, hat es bei Photovoltaik nicht einfach. Stallhallen, Maschinenscheunen und Aussiedlerhöfe kämpfen mit ganz anderen Problemen als Stadtdächer — und die teuersten davon sieht man nicht einmal: <strong>Ammoniak</strong>.</p>
 
-Die wichtigste Zahl gleich vorweg: Landwirtschaftliche PV-Anlagen verlieren **12 bis 18 Prozent Ertrag pro Jahr** — durchgehend, nicht nur in Spitzenzeiten. Das ist drei- bis viermal so viel wie eine Anlage in einem Wohngebiet. Und der Hauptgrund ist nicht der sichtbare Staub, den jeder kennt — sondern ein unsichtbares Gas, das fast jeder Hof produziert: **Ammoniak**.
+<div class="tldr not-prose">
+  <div class="tldr-title">🚜 TL;DR — PV in der Landwirtschaft</div>
+  <ul>
+    <li>Hofanlagen verlieren <strong>12–18 % Ertrag pro Jahr</strong> — 3–4× mehr als Wohngebiete.</li>
+    <li>Ammoniak (NH₃) aus Tierhaltung ätzt die Anti-Reflex-Beschichtung der Module — <strong>irreversibel</strong>.</li>
+    <li>Eine 100-kWp-Anlage verliert ohne Reinigung schnell <strong>3.000–4.500 € pro Jahr</strong>.</li>
+    <li>Reinigung 1.200–1.800 € amortisiert sich in <strong>4–6 Monaten</strong>.</li>
+  </ul>
+</div>
+
+<div class="stat-grid not-prose">
+  <div class="stat-card">
+    <div class="stat-number">18<span class="stat-unit">%</span></div>
+    <div class="stat-label">Ertragsverlust / Jahr</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">14<span class="stat-unit">%</span></div>
+    <div class="stat-label">Ammoniak-Schaden 10 Jahre</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">4–6<span class="stat-unit">Mon.</span></div>
+    <div class="stat-label">Amortisation</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">4,50<span class="stat-unit">€</span></div>
+    <div class="stat-label">Pro Modul (Drohne)</div>
+  </div>
+</div>
+
+Die wichtigste Zahl gleich vorweg: Landwirtschaftliche PV-Anlagen verlieren **12 bis 18 Prozent Ertrag pro Jahr** — durchgehend, nicht nur in Spitzenzeiten. Das ist drei- bis viermal so viel wie eine Anlage in einem Wohngebiet.
 
 ## Das Ammoniak-Problem: chemische Korrosion über Jahre
 
@@ -41,9 +70,32 @@ Wenn Sie Tiere halten — Rinder, Schweine, Hühner, Pferde — emittiert Ihr St
 
 Ammoniak ist ein **alkalisches Gas**. Es reagiert mit dem Glas der Module — genauer gesagt mit der **Anti-Reflex-Beschichtung**, die normalerweise dafür sorgt, dass mehr Sonnenlicht ins Modul gelangt und nicht reflektiert wird. Über Wochen und Monate ätzt Ammoniak mikroskopische Defekte in diese Beschichtung. Sie können das nicht sehen. Sie können das nicht abwischen. Aber Sie merken es im Ertrag.
 
-Eine **Studie der TU München** aus 2021 hat das untersucht: Anlagen auf Schweinemastbetrieben verloren nach **5 Jahren** durchschnittlich **8 % Lichttransmission** allein durch Ammoniak — zusätzlich zu jeder normalen Verschmutzung. Bei einem Rinderbetrieb mit offenem Liegeboxenstall waren es nach 10 Jahren bis zu **14 %**. Diese Verluste sind **dauerhaft**. Auch eine perfekte Reinigung bringt sie nicht zurück.
+Eine **Studie der TU München** aus 2021 hat das untersucht: Anlagen auf Schweinemastbetrieben verloren nach **5 Jahren** durchschnittlich **8 % Lichttransmission** allein durch Ammoniak — zusätzlich zu jeder normalen Verschmutzung. Bei einem Rinderbetrieb mit offenem Liegeboxenstall waren es nach 10 Jahren bis zu **14 %**.
+
+<div class="bar-chart not-prose">
+  <div class="bar-chart-title">Dauerhafter Lichttransmissions-Verlust durch NH₃</div>
+  <div class="bar-chart-sub">TU München 2021 — irreversibel, auch nach Reinigung</div>
+  <div class="bar-row">
+    <div class="bar-label">Schweinemast 5 J.</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-warn" style="width:50%; animation-delay:0.1s">8 %</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Rinderbetrieb 10 J.</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-danger" style="width:90%; animation-delay:0.3s">14 %</div></div>
+  </div>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-icon">⚗️</div>
+  <div class="callout-body">
+    <p class="callout-title">Diese Verluste sind dauerhaft</p>
+    <p>Auch eine perfekte Reinigung bringt sie nicht zurück — die Anti-Reflex-Beschichtung ist mikroskopisch zerstört. Die einzige Strategie ist <strong>Vorbeugung</strong> durch regelmäßige Reinigung und kluge Modul-Platzierung.</p>
+  </div>
+</div>
 
 Die einzige Strategie ist **Vorbeugung**. Und die fängt mit zwei Dingen an: kluger Modul-Platzierung und regelmäßiger Reinigung.
+
+<div class="divider-icon not-prose"><span>🐄</span></div>
 
 ## Was wir auf Höfen sehen — drei typische Probleme
 
@@ -100,14 +152,17 @@ Hofbetriebe sind oft kleinere Höfe mit 30–80 kWp, manchmal auch größere Sol
 
 Im Allgäu-Vorland (Memmingen, Buxheim, Ungerhausen, Ottobeuren) fahren wir oft eine ganze Woche durch — sieben oder acht Höfe nacheinander. Das spart jedem Einzelnen **30–40 % Anfahrtskosten** gegenüber einer separaten Beauftragung.
 
+<div class="divider-icon not-prose"><span>📋</span></div>
+
 ## Praxisbeispiel: Schweinemastbetrieb in Erlenbach (Heilbronn)
 
-Ein Schweinemast-Betrieb am [Heilbronner Rand](/pv-reinigung/heilbronn) hatte folgende Situation:
-
-- **180-kWp-Anlage** auf einer Mastbuchtenhalle
-- Inbetriebnahme 2014
-- **Niemals professionell gereinigt**, nur Eigenreinigung mit Hochdruckreiniger 2018 (das war der nächste Fehler)
-- Jahresertrag laut Smart-Meter-Daten: 152.000 kWh statt der erwarteten 180.000 kWh — **15 % Verlust**
+<div class="callout callout-info">
+  <div class="callout-icon">🏭</div>
+  <div class="callout-body">
+    <p class="callout-title">Ausgangslage</p>
+    <p><strong>180-kWp-Anlage</strong> auf einer Mastbuchtenhalle, Inbetriebnahme 2014. Nie professionell gereinigt — nur Eigenreinigung mit Hochdruckreiniger 2018 (Fehler!). Jahresertrag: 152.000 kWh statt erwartete 180.000 kWh — <strong>15 % Verlust</strong>.</p>
+  </div>
+</div>
 
 Bei der Erstinspektion 2025 fanden wir:
 
@@ -124,23 +179,54 @@ Was wir gemacht haben:
 
 Resultat nach 12 Monaten:
 
-- Mehrertrag: **+22.500 kWh** (weil wir auch die defekten Module identifiziert hatten und der Betrieb sie ersetzte)
-- Wertsteigerung im ersten Jahr: ~**4.200 €**
-- Wartungsvertrag-Kosten: 1.500 €/Jahr
-- Reinvestition in 2 weiteren Modulen: 600 €
-- **Netto-Gewinn 1. Jahr: 2.100 €**, ab Jahr 2: ~3.000 €/Jahr
+<div class="stat-grid not-prose">
+  <div class="stat-card">
+    <div class="stat-number">+22.500<span class="stat-unit">kWh</span></div>
+    <div class="stat-label">Mehrertrag</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">+4.200<span class="stat-unit">€</span></div>
+    <div class="stat-label">Wertsteigerung Jahr 1</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">2.100<span class="stat-unit">€</span></div>
+    <div class="stat-label">Netto-Gewinn Jahr 1</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">3.000<span class="stat-unit">€/J</span></div>
+    <div class="stat-label">Ab Jahr 2</div>
+  </div>
+</div>
 
 Der Betreiber hatte vorher bei einem regionalen Wettbewerber ein Angebot über **6.500 €** — Reinigung ohne Drohne, mit Hochdruckverfahren und ohne Thermografie. Hätte ihm wahrscheinlich nicht geholfen, vielleicht sogar geschadet.
 
+<div class="divider-icon not-prose"><span>🌾</span></div>
+
 ## Was Sie als Landwirt für Ihre PV-Anlage tun sollten
 
-Drei Empfehlungen aus der Praxis.
-
-**Erstens — Inspektion lassen.** Wenn Sie eine PV-Anlage auf Stall- oder Maschinenhalle haben und sie noch nie professionell inspiziert wurde: lassen Sie das machen. Bei uns kostenlos. Sie erfahren, was die Anlage wirklich produziert und wo sie versteckte Probleme hat.
-
-**Zweitens — jährliche Wartung einplanen.** Bei landwirtschaftlichen Anlagen ist das nicht optional, sondern wirtschaftlich notwendig. Schreiben Sie sich einen Termin in den Kalender, idealerweise nach der Pollensaison im Mai/Juni oder nach der Ernte im September.
-
-**Drittens — Ammoniak-Belastung minimieren wo möglich.** Bei Neubau: Module möglichst nicht direkt über aktiven Tierställen platzieren. Wenn die Lage es zulässt, lieber auf Maschinenhalle, Heuscheune oder Wirtschaftsgebäude. Bei bestehenden Anlagen: regelmäßige Reinigung als Vorbeugung gegen Beschichtungs-Schäden.
+<div class="steps not-prose">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Inspektion lassen</h4>
+      <p>Wenn Sie eine PV-Anlage auf Stall- oder Maschinenhalle haben und sie noch nie professionell inspiziert wurde: lassen Sie das machen. Bei uns <strong>kostenlos</strong>. Sie erfahren, was die Anlage wirklich produziert und wo sie versteckte Probleme hat.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Jährliche Wartung einplanen</h4>
+      <p>Bei landwirtschaftlichen Anlagen nicht optional, sondern wirtschaftlich notwendig. Idealer Termin: nach der Pollensaison <strong>Mai/Juni</strong> oder nach der Ernte im <strong>September</strong>.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Ammoniak-Belastung minimieren</h4>
+      <p>Bei Neubau: Module möglichst nicht direkt über aktiven Tierställen platzieren. Lieber auf Maschinenhalle, Heuscheune oder Wirtschaftsgebäude. Bei bestehenden Anlagen: regelmäßige Reinigung als Vorbeugung.</p>
+    </div>
+  </div>
+</div>
 
 ## Was kostet das alles?
 
@@ -154,7 +240,11 @@ Bei größeren Solarpark-Anlagen ab **300 kWp** Mengenrabatt 15–20 %, bei Verb
 
 Sie können sich Ihre individuellen Kosten auch grob mit unserem **[Reinigungskosten-Schätzer](/rechner/reinigungskosten)** ausrechnen — geben Sie einfach die Modulanzahl, Dachform und Zugänglichkeit ein.
 
+<div class="divider-icon not-prose"><span>✅</span></div>
+
 ## Fazit: Ammoniak ist keine Theorie
+
+<div class="pull-quote">12–18 % Ertragsverlust pro Jahr — vermeidbar mit einer jährlichen Reinigung.</div>
 
 Wenn Sie auf einem Hof eine PV-Anlage haben — und nichts dagegen tun — verlieren Sie kontinuierlich Geld. **12 bis 18 Prozent pro Jahr**, plus dauerhafte Schäden durch Ammoniak-Korrosion. Das summiert sich über 20 Jahre Anlagen-Lebenszeit auf erhebliche Beträge.
 

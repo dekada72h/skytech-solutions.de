@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </header>
 
           <div
-            className="prose prose-lg mx-auto max-w-3xl prose-headings:font-bold prose-headings:tracking-tight prose-h2:mt-12 prose-h2:text-2xl prose-h2:text-gray-900 prose-h3:mt-8 prose-h3:text-xl prose-p:text-gray-700 prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-table:my-8 prose-th:bg-gray-100 prose-th:px-4 prose-th:py-2 prose-th:text-left prose-td:border-b prose-td:border-gray-200 prose-td:px-4 prose-td:py-2 prose-li:text-gray-700"
+            className="blog-content prose prose-lg mx-auto max-w-3xl prose-headings:font-bold prose-headings:tracking-tight prose-h2:mt-14 prose-h2:text-3xl prose-h2:text-gray-900 prose-h3:mt-10 prose-h3:text-xl prose-h3:text-gray-900 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-primary-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-table:my-8 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-td:border-b prose-td:border-gray-200 prose-td:px-4 prose-td:py-3 prose-li:text-gray-700 prose-li:my-1 prose-img:rounded-xl prose-img:shadow-md prose-blockquote:border-l-4 prose-blockquote:border-primary-500 prose-blockquote:bg-primary-50 prose-blockquote:py-2 prose-blockquote:px-5 prose-blockquote:not-italic prose-blockquote:text-gray-800 prose-blockquote:rounded-r-lg"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
 

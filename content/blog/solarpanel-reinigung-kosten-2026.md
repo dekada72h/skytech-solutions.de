@@ -33,9 +33,36 @@ faqs:
     a: "Wenn die jährliche Mehrertrags-Erwartung mehr als die halben Reinigungskosten ist. Bei einer 30-kWp-Anlage mit 10 % Verschmutzung und 350 € Reinigungspreis: Mehrertrag ~250 €/Jahr — Amortisation nach 17 Monaten. Bei größeren oder stärker verschmutzten Anlagen oft schon nach 4–8 Monaten."
 ---
 
-„Was kostet das?" Das ist meistens die erste Frage, wenn ich einen neuen Auftrag aufnehme. Und ehrlich gesagt: Sie ist auch die wichtigste. Eine Reinigung muss sich rechnen, sonst ist sie keine kluge Investition.
+<p class="lead">„Was kostet das?" Das ist meistens die erste Frage, wenn ich einen neuen Auftrag aufnehme. In diesem Artikel sage ich Ihnen die echten Zahlen — pro Modul, pro kWp, pro Stunde. Ohne Marketing-Blabla, ohne „auf Anfrage".</p>
 
-In diesem Artikel sage ich Ihnen die echten Zahlen — pro Modul, pro kWp, pro Stunde. Ohne Marketing-Blabla, ohne „auf Anfrage". Einfach was eine PV-Reinigung 2026 in Süddeutschland realistischerweise kostet, was Sie dafür bekommen, und worauf Sie achten sollten, wenn Sie Angebote vergleichen.
+<div class="tldr not-prose">
+  <div class="tldr-title">💰 TL;DR — Preise auf einen Blick</div>
+  <ul>
+    <li>Drohnenreinigung: <strong>4,50–7,50 € pro Modul</strong> bei normaler Zugänglichkeit.</li>
+    <li>Pro kWp: <strong>11–13 €</strong> (bei modernen 380–420 W Modulen).</li>
+    <li>30-kWp-Privatanlage: <strong>340–540 €</strong> Pauschal.</li>
+    <li>Amortisation typischerweise <strong>5–16 Monate</strong> je nach Verschmutzungsgrad.</li>
+  </ul>
+</div>
+
+<div class="stat-grid not-prose">
+  <div class="stat-card">
+    <div class="stat-number">4,50<span class="stat-unit">€</span></div>
+    <div class="stat-label">Ab pro Modul</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">12<span class="stat-unit">€/kWp</span></div>
+    <div class="stat-label">Durchschnitt</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">25<span class="stat-unit">%</span></div>
+    <div class="stat-label">Wartungs-Rabatt</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">0<span class="stat-unit">€</span></div>
+    <div class="stat-label">Erstinspektion</div>
+  </div>
+</div>
 
 ## Pauschal ab 4,50 € pro Modul — was das bedeutet
 
@@ -87,6 +114,39 @@ Eine moderne 380–420-Wp-Modul-Generation bedeutet **2,4 bis 2,6 Module pro kWp
 | 500 kWp | 1.300 | 4.500–6.500 € |
 | 1.000 kWp | 2.600 | 8.500–12.000 € |
 
+<div class="bar-chart not-prose">
+  <div class="bar-chart-title">Reinigungskosten nach Anlagengröße</div>
+  <div class="bar-chart-sub">Pauschal inkl. demineralisiertem Wasser, Foto-Dokumentation, Versicherung</div>
+  <div class="bar-row">
+    <div class="bar-label">10 kWp</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-success" style="width:5%; animation-delay:0.1s">170 €</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">30 kWp</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-success" style="width:10%; animation-delay:0.2s">540 €</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">50 kWp</div>
+    <div class="bar-track"><div class="bar-fill" style="width:15%; animation-delay:0.3s">880 €</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">100 kWp</div>
+    <div class="bar-track"><div class="bar-fill" style="width:25%; animation-delay:0.4s">1.620 €</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">200 kWp</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-warn" style="width:42%; animation-delay:0.5s">3.200 €</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">500 kWp</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-warn" style="width:65%; animation-delay:0.6s">6.500 €</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">1.000 kWp</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-danger" style="width:100%; animation-delay:0.7s">12.000 €</div></div>
+  </div>
+</div>
+
 Diese Preise sind **inklusive Mehrwertsteuer für Privatkunden** (im B2B-Bereich entsprechend netto). Sie enthalten Reinigung, demineralisiertes Wasser und Foto-Dokumentation. Wer für mehr Genauigkeit das Tool nutzen möchte: unser [Reinigungskosten-Schätzer](/rechner/reinigungskosten) liefert je nach Modulanzahl, Dachform und Zugänglichkeit eine Bandbreite von ±15 %.
 
 ## Pro Stunde — was hinter den Pauschalpreisen steckt
@@ -97,26 +157,36 @@ Eine durchschnittliche **30-kWp-Anlage** brauchen wir mit zwei Mann etwa **2,5 b
 
 Pauschalpreise sind für Sie als Kunde meistens günstiger und transparenter — Sie wissen genau, was Sie zahlen, ohne Überraschungen wenn die Reinigung „länger gedauert hat als geplant".
 
+<div class="divider-icon not-prose"><span>🚁</span></div>
+
 ## Drohne vs. Gerüst — der ehrliche Kostenvergleich
 
 Ein häufiger Vergleich: Drohnenreinigung gegen klassische Gerüstreinigung. Beide haben Vor- und Nachteile.
 
-**Drohne — Drohnenreinigung mit demineralisiertem Wasser (das machen wir):**
-
-- Pro Modul: 4,50–6,00 €
-- Setup-Zeit: 15 Minuten
-- Sturzrisiko: null
-- Geeignet für: alle Dachformen, besonders Steildach und Hanglage
-- Limitation: bei Starkwind über 25 km/h kein Einsatz möglich
-
-**Gerüst — klassische Reinigung mit Hubsteiger oder Gerüst:**
-
-- Pro Modul: 5,00–8,00 €
-- Setup-Zeit: 1–4 Stunden für Aufbau
-- Zusatzkosten Gerüst: 200–800 € pro Tag
-- Sturzrisiko: real
-- Geeignet für: Flachdach, niedriges Satteldach
-- Vorteil: gründlicher bei besonders zähen Verschmutzungen
+<div class="compare-grid not-prose">
+  <div class="compare-card good">
+    <h4>🚁 Drohnenreinigung</h4>
+    <ul>
+      <li>4,50–6,00 € pro Modul</li>
+      <li>Setup-Zeit: 15 Minuten</li>
+      <li>Sturzrisiko: null</li>
+      <li>Alle Dachformen, Steildach &amp; Hanglage</li>
+      <li>Demineralisiertes Wasser</li>
+      <li>Limitation: Starkwind &gt; 25 km/h</li>
+    </ul>
+  </div>
+  <div class="compare-card bad">
+    <h4>🏗️ Gerüst / Hubsteiger</h4>
+    <ul>
+      <li>5,00–8,00 € pro Modul</li>
+      <li>Setup-Zeit: 1–4 Stunden</li>
+      <li>Zusatzkosten Gerüst: 200–800 € / Tag</li>
+      <li>Sturzrisiko real</li>
+      <li>Nur Flachdach / niedriges Satteldach</li>
+      <li>Vorteil bei sehr zäher Verschmutzung</li>
+    </ul>
+  </div>
+</div>
 
 **Wann was?**
 
@@ -190,7 +260,17 @@ Was nicht im Pauschalpreis enthalten ist:
 
 **Anfahrt über 80 km:** +0,90 € pro km Mehrentfernung. Bei größeren Aufträgen verhandelbar oder im Verbund-Termin gebündelt.
 
+<div class="divider-icon not-prose"><span>⚠️</span></div>
+
 ## Versteckte Kosten — wo Wettbewerber tricks
+
+<div class="callout callout-warning">
+  <div class="callout-icon">🚨</div>
+  <div class="callout-body">
+    <p class="callout-title">Faustregel</p>
+    <p>Wenn ein Angebot deutlich <strong>unter 4 € pro Modul</strong> liegt — fragen Sie nach. Entweder fehlt etwas Wichtiges (Wasser, Versicherung, Dokumentation), oder die Reinigung ist nicht gründlich.</p>
+  </div>
+</div>
 
 Worauf Sie bei Vergleichsangeboten achten sollten:
 
@@ -208,24 +288,62 @@ Faustregel: **Wenn ein Angebot deutlich unter 4 € pro Modul liegt**, fragen Si
 
 Die wichtigste Zahl: **Wann amortisiert sich die Investition?**
 
-Eine sehr grobe Faustregel:
+<div class="bar-chart not-prose">
+  <div class="bar-chart-title">Amortisationsdauer nach Verschmutzungsgrad</div>
+  <div class="bar-chart-sub">Wann zahlt sich die Reinigung selbst aus — typische Werte</div>
+  <div class="bar-row">
+    <div class="bar-label">8 % Verschmutzung</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-warn" style="width:100%; animation-delay:0.1s">14–16 Mon.</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">12 % Verschmutzung</div>
+    <div class="bar-track"><div class="bar-fill" style="width:70%; animation-delay:0.2s">9–11 Mon.</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">18 % Verschmutzung</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-success" style="width:42%; animation-delay:0.3s">5–7 Mon.</div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">25 %+ Verschmutzung</div>
+    <div class="bar-track"><div class="bar-fill bar-fill-success" style="width:25%; animation-delay:0.4s">3–4 Mon.</div></div>
+  </div>
+</div>
 
-- Bei 8 % Verschmutzung amortisiert sich die Reinigung in **14–16 Monaten**
-- Bei 12 % Verschmutzung in **9–11 Monaten**
-- Bei 18 % Verschmutzung in **5–7 Monaten**
-- Bei 25 %+ Verschmutzung in **3–4 Monaten**
+<div class="pull-quote">Bei 18 % Verschmutzung zahlt sich die Reinigung in einem halben Jahr selbst aus.</div>
 
 Genauere Werte für Ihre Anlage liefert unser [Amortisations-Rechner](/rechner/amortisation) — geben Sie einfach Reinigungskosten und jährlichen Verlust ein.
 
 Wenn Sie Ihren spezifischen Verlust noch nicht kennen, fangen Sie mit dem [Ertragsverlust-Rechner](/rechner/ertragsverlust) an. Das geht in 30 Sekunden, ist kostenlos, und liefert eine fundierte Schätzung.
 
+<div class="divider-icon not-prose"><span>✅</span></div>
+
 ## Fazit: Transparenz schlägt billige Lockangebote
 
 Wenn Sie Angebote für PV-Reinigung vergleichen, achten Sie auf drei Dinge:
 
-1. **Transparenter Pauschalpreis** ohne versteckte Anfahrtskosten oder Aufpreis-Überraschungen
-2. **Inkludierte Leistungen**: demineralisiertes Wasser, Foto-Dokumentation, Versicherung
-3. **Faire Preisspanne**: 4,50–7,50 € pro Modul ist marktüblich. Deutlich darunter = Vorsicht. Deutlich darüber = überteuert.
+<div class="steps not-prose">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Transparenter Pauschalpreis</h4>
+      <p>Ohne versteckte Anfahrtskosten oder Aufpreis-Überraschungen. Festpreis vor Auftragsannahme.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Inkludierte Leistungen</h4>
+      <p>Demineralisiertes Wasser, Foto-Dokumentation, Versicherung — alles im Pauschalpreis.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Faire Preisspanne</h4>
+      <p>4,50–7,50 € pro Modul ist marktüblich. Deutlich darunter = Vorsicht. Deutlich darüber = überteuert.</p>
+    </div>
+  </div>
+</div>
 
 Bei uns bekommen Sie diese Transparenz schwarz auf weiß — Erstinspektion und Festpreisangebot sind immer kostenlos und unverbindlich. Sie zahlen, wenn die Reinigung erfolgt ist und Sie zufrieden sind.
 

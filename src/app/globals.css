@@ -23,3 +23,191 @@
     @apply mx-auto max-w-7xl;
   }
 }
+
+/* ============== BLOG ARTICLE ENRICHMENTS ============== */
+
+.blog-content .lead {
+  @apply mt-2 mb-10 text-xl leading-relaxed text-gray-800 font-medium border-l-4 border-primary-500 pl-6 py-3 bg-gradient-to-r from-primary-50 to-transparent rounded-r-lg;
+}
+.blog-content .lead::first-letter {
+  @apply float-left mr-3 mt-1 text-6xl font-bold leading-none text-primary-600;
+  font-family: Georgia, serif;
+}
+
+.blog-content .callout {
+  @apply my-10 rounded-2xl border-l-4 p-6 shadow-sm flex gap-4;
+}
+.blog-content .callout-icon {
+  @apply text-3xl flex-shrink-0 leading-none;
+}
+.blog-content .callout-body { @apply flex-1; }
+.blog-content .callout-title {
+  @apply font-bold text-base mb-1 mt-0;
+}
+.blog-content .callout-body > p { @apply m-0; }
+.blog-content .callout-body > p + p { @apply mt-2; }
+.blog-content .callout-info { @apply bg-blue-50 border-blue-500; }
+.blog-content .callout-info .callout-title { @apply text-blue-900; }
+.blog-content .callout-warning { @apply bg-amber-50 border-amber-500; }
+.blog-content .callout-warning .callout-title { @apply text-amber-900; }
+.blog-content .callout-success { @apply bg-emerald-50 border-emerald-500; }
+.blog-content .callout-success .callout-title { @apply text-emerald-900; }
+.blog-content .callout-insight { @apply bg-violet-50 border-violet-500; }
+.blog-content .callout-insight .callout-title { @apply text-violet-900; }
+
+.blog-content .stat-grid {
+  @apply my-12 grid grid-cols-2 md:grid-cols-4 gap-4;
+}
+.blog-content .stat-card {
+  @apply rounded-xl bg-white border-2 border-gray-100 p-5 text-center shadow-sm hover:border-primary-300 hover:shadow-md transition-all;
+}
+.blog-content .stat-number {
+  @apply text-3xl md:text-4xl font-extrabold text-primary-600 leading-none;
+}
+.blog-content .stat-unit {
+  @apply text-base font-semibold text-primary-500 ml-1;
+}
+.blog-content .stat-label {
+  @apply mt-2 text-xs font-semibold text-gray-600 uppercase tracking-wide;
+}
+
+.blog-content .bar-chart {
+  @apply my-10 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 p-6;
+}
+.blog-content .bar-chart-title {
+  @apply text-lg font-bold text-gray-900 mb-1;
+}
+.blog-content .bar-chart-sub {
+  @apply text-sm text-gray-500 mb-5;
+}
+.blog-content .bar-row {
+  @apply flex items-center gap-3 mb-3;
+}
+.blog-content .bar-label {
+  @apply w-44 text-sm font-medium text-gray-700 flex-shrink-0;
+}
+.blog-content .bar-track {
+  @apply flex-1 h-7 bg-gray-100 rounded-md overflow-hidden relative;
+}
+.blog-content .bar-fill {
+  @apply h-full rounded-md flex items-center justify-end pr-2 text-xs font-bold text-white whitespace-nowrap;
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  animation: barGrow 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.blog-content .bar-fill-warn { background: linear-gradient(90deg, #d97706 0%, #f59e0b 100%); }
+.blog-content .bar-fill-danger { background: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%); }
+.blog-content .bar-fill-success { background: linear-gradient(90deg, #15803d 0%, #22c55e 100%); }
+
+@keyframes barGrow {
+  to { transform: scaleX(1); }
+}
+
+.blog-content .compare-grid {
+  @apply my-10 grid md:grid-cols-2 gap-5;
+}
+.blog-content .compare-card {
+  @apply rounded-2xl border-2 p-6 shadow-sm;
+}
+.blog-content .compare-card.bad { @apply bg-rose-50 border-rose-200; }
+.blog-content .compare-card.good { @apply bg-emerald-50 border-emerald-200; }
+.blog-content .compare-card h4 {
+  @apply text-lg font-bold mb-3 mt-0 flex items-center gap-2;
+}
+.blog-content .compare-card.bad h4 { @apply text-rose-900; }
+.blog-content .compare-card.good h4 { @apply text-emerald-900; }
+.blog-content .compare-card ul {
+  @apply space-y-2 text-sm text-gray-700 list-none pl-0 m-0;
+}
+.blog-content .compare-card li {
+  @apply pl-6 relative;
+}
+.blog-content .compare-card.bad li::before {
+  content: '✕'; @apply absolute left-0 text-rose-600 font-bold;
+}
+.blog-content .compare-card.good li::before {
+  content: '✓'; @apply absolute left-0 text-emerald-600 font-bold;
+}
+
+.blog-content .divider-icon {
+  @apply my-16 flex items-center gap-4;
+}
+.blog-content .divider-icon::before,
+.blog-content .divider-icon::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, #d1d5db, transparent);
+}
+.blog-content .divider-icon span {
+  @apply text-2xl;
+}
+
+.blog-content .pull-quote {
+  @apply my-12 text-2xl leading-snug font-semibold text-gray-900 text-center max-w-2xl mx-auto relative py-8 px-4;
+}
+.blog-content .pull-quote::before {
+  content: '“'; @apply absolute -top-2 left-1/2 -translate-x-1/2 text-8xl text-primary-200 font-serif leading-none;
+}
+
+.blog-content .steps {
+  @apply my-10 space-y-5;
+}
+.blog-content .step {
+  @apply flex gap-4 items-start;
+}
+.blog-content .step-num {
+  @apply flex-shrink-0 w-10 h-10 rounded-full bg-primary-600 text-white font-bold flex items-center justify-center text-sm;
+}
+.blog-content .step-body h4 {
+  @apply font-bold text-gray-900 mb-1 mt-0 text-base;
+}
+.blog-content .step-body p {
+  @apply text-gray-700 m-0 text-sm leading-relaxed;
+}
+
+/* Tables: header + zebra */
+.blog-content thead {
+  background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+}
+.blog-content thead th {
+  @apply text-white font-semibold;
+}
+.blog-content tbody tr:nth-child(even) td {
+  @apply bg-gray-50;
+}
+.blog-content table {
+  @apply rounded-xl overflow-hidden shadow-sm;
+}
+
+/* H2 accent bar */
+.blog-content h2 {
+  @apply relative pl-5 border-l-4 border-primary-500;
+}
+
+/* Hero image / figure */
+.blog-content .hero-figure {
+  @apply my-10 rounded-2xl overflow-hidden shadow-lg;
+}
+.blog-content .hero-figure img {
+  @apply w-full h-auto;
+}
+.blog-content .hero-figure figcaption {
+  @apply text-xs text-gray-500 px-4 py-3 bg-gray-50 italic;
+}
+
+/* TL;DR box */
+.blog-content .tldr {
+  @apply my-10 rounded-2xl bg-gradient-to-br from-primary-50 to-blue-50 border border-primary-200 p-6;
+}
+.blog-content .tldr-title {
+  @apply text-xs font-bold uppercase tracking-widest text-primary-700 mb-3 flex items-center gap-2;
+}
+.blog-content .tldr ul {
+  @apply space-y-2 list-none pl-0 m-0;
+}
+.blog-content .tldr li {
+  @apply pl-7 relative text-gray-800 leading-relaxed;
+}
+.blog-content .tldr li::before {
+  content: '→'; @apply absolute left-0 top-0 text-primary-600 font-bold;
+}

@@ -48,7 +48,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   if (!fs.existsSync(file)) return null;
   const raw = fs.readFileSync(file, 'utf8');
   const { data, content } = matter(raw);
-  const processed = await remark().use(remarkGfm).use(remarkHtml).process(content);
+  const processed = await remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).process(content);
   return {
     ...(data as BlogFrontmatter),
     slug,
