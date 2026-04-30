@@ -365,12 +365,10 @@ export default function NotFound() {
 
   const showSpray = stage === 'cleanLeft' || stage === 'cleanRight' || stage === 'finalSweep';
 
-  // Dirty layer wipes
-  // Left half: visible until cleanLeft, then wipes from left to center (revealing left first)
-  const leftClipDone = stage === 'cleanRight' || stage === 'finalSweep' || stage === 'exit' || stage === 'done';
+  // Dirty layer wipes — once cleaned, STAYS cleaned for the rest of the sequence
+  const leftClipDone = ['goRight', 'cleanRight', 'finalSweep', 'exit', 'done'].includes(stage);
   const leftClipping = stage === 'cleanLeft';
-  // Right half: visible until cleanRight, then wipes from right to center
-  const rightClipDone = stage === 'finalSweep' || stage === 'exit' || stage === 'done';
+  const rightClipDone = ['finalSweep', 'exit', 'done'].includes(stage);
   const rightClipping = stage === 'cleanRight';
 
   return (
@@ -453,31 +451,24 @@ export default function NotFound() {
             <AnimatePresence>
               {stage === 'done' && (
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="absolute inset-x-0 bottom-6 flex flex-col items-center px-6 text-center sm:bottom-10"
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2, type: 'spring', stiffness: 130 }}
+                  className="absolute inset-0 flex items-center justify-center px-6"
                 >
-                  <motion.div
-                    initial={{ scale: 0.6, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.5, type: 'spring', stiffness: 120 }}
-                    className="mb-3 rounded-xl bg-white/90 px-4 py-2 backdrop-blur-sm"
-                  >
+                  <div className="flex w-full max-w-md flex-col items-center rounded-2xl bg-white/92 px-6 py-6 text-center shadow-lg backdrop-blur-sm sm:px-8 sm:py-7">
                     <Image
                       src="/skytech-logo-mark.png"
                       alt="Skytech Solutions"
                       width={3052}
                       height={638}
-                      className="h-10 w-auto sm:h-14"
+                      className="mx-auto h-10 w-auto sm:h-14"
                       priority
                     />
-                  </motion.div>
-                  <div className="rounded-xl bg-white/85 px-5 py-3 backdrop-blur-sm">
-                    <p className="max-w-md text-base font-semibold text-gray-900 sm:text-lg">
+                    <p className="mt-4 text-base font-semibold text-gray-900 sm:text-lg">
                       Diese Seite wurde gerade frisch gereinigt.
                     </p>
-                    <p className="mt-1 max-w-md text-sm text-gray-600 sm:text-base">
+                    <p className="mt-1.5 text-sm text-gray-600 sm:text-base">
                       So gründlich reinigt Skytech Solutions auch Ihre
                       Photovoltaikanlage – mit Drohnentechnologie bis 150 m Höhe.
                     </p>
