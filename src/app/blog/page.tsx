@@ -4,10 +4,10 @@ import PublicShell from '@/components/PublicShell';
 import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog | PV-Reinigung Wissen | Skytech Solutions',
+  title: 'Blog – PV- und Fassadenreinigung Wissen | Skytech Solutions',
   description:
-    'Praktische Ratgeber rund um Photovoltaik-Reinigung: Ertragsverlust durch Verschmutzung, Reinigungsintervalle, Industrie- und Landwirtschafts-spezifische Themen. Mit Daten von Fraunhofer ISE und TÜV.',
-  keywords: ['PV-Reinigung Blog', 'Photovoltaik Wissen', 'Solaranlagen Wartung', 'Ertragsverlust Solarmodule'],
+    'Praktische Ratgeber rund um Photovoltaik- und Fassadenreinigung: Ertragsverlust, Reinigungsintervalle, Hubsteiger vs. Drohne, Material-Guides und branchen-spezifische Themen. Mit Daten von Fraunhofer ISE und TÜV.',
+  keywords: ['PV-Reinigung Blog', 'Fassadenreinigung Blog', 'Photovoltaik Wissen', 'Drohnenreinigung Ratgeber', 'Solaranlagen Wartung'],
   alternates: { canonical: 'https://skytech-solutions.de/blog' },
 };
 
@@ -32,7 +32,7 @@ export default function BlogIndex() {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: 'Skytech Solutions Blog',
-    description: 'PV-Reinigung Ratgeber und Wissen.',
+    description: 'Ratgeber und Wissen rund um PV-Reinigung und Fassadenreinigung.',
     url: 'https://skytech-solutions.de/blog',
     blogPost: posts.map((p) => ({
       '@type': 'BlogPosting',
@@ -56,11 +56,13 @@ export default function BlogIndex() {
               📚 Wissen &amp; Ratgeber
             </span>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              PV-Reinigung <span className="text-primary-600">Blog</span>
+              Skytech <span className="text-primary-600">Blog</span>
             </h1>
             <p className="mt-6 text-lg text-gray-600">
-              Praktische Artikel zu Ertragsverlust, Reinigungsintervallen und branchen-spezifischen
-              Herausforderungen. Daten aus Fraunhofer ISE, TÜV-Studien und unserer eigenen Praxis.
+              Praktische Artikel zu <strong>Photovoltaik-</strong> und <strong>Fassadenreinigung</strong>:
+              Ertragsverlust, Reinigungsintervalle, Material-Guides, Hubsteiger vs. Drohne und
+              branchen-spezifische Herausforderungen. Daten aus Fraunhofer ISE, TÜV-Studien und
+              unserer eigenen Praxis.
             </p>
           </div>
 
