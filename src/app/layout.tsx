@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://skytech-services.de'),
+  metadataBase: new URL('https://skytech-solutions.de'),
   title: {
     default:
       'Skytech Solutions – Professionelle Photovoltaik-Reinigung | Drohnenreinigung Deutschland',
@@ -38,11 +38,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-256.png', type: 'image/png', sizes: '256x256' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'Skytech Solutions – Bis zu 30% mehr Ertrag aus Ihrer Solaranlage',
     description:
       'Professionelle PV-Reinigung mit Drohnentechnologie. Ohne Gerüst, umweltfreundlich, mit Foto-Dokumentation. Kostenloses Angebot in 24h.',
-    url: 'https://skytech-services.de',
+    url: 'https://skytech-solutions.de',
     siteName: 'Skytech Solutions',
     locale: 'de_DE',
     type: 'website',
@@ -73,10 +80,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': 'https://skytech-solutions.de/#localbusiness',
   name: 'Skytech Solutions',
   description:
     'Professionelle Reinigung von Photovoltaikanlagen, Solarparks und Fassaden mit modernster Drohnentechnologie.',
-  url: 'https://skytech-services.de',
+  url: 'https://skytech-solutions.de',
   telephone: '+4915216991223',
   email: 'krzysztof@aeropro-inspekcje.pl',
   address: {
@@ -165,6 +173,45 @@ const faqJsonLd = {
   ],
 };
 
+const servicesJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      '@id': 'https://skytech-solutions.de/#service-solarpark',
+      name: 'Solarpark-Reinigung',
+      serviceType: 'Photovoltaik-Reinigung',
+      provider: { '@id': 'https://skytech-solutions.de/#localbusiness' },
+      areaServed: { '@type': 'Country', name: 'Deutschland' },
+      description:
+        'Großflächige Reinigung von Photovoltaik-Freiflächenanlagen und Solarparks mit Drohnentechnologie DCS X1 PRO. Bis zu 150 m Arbeitshöhe, demineralisiertes Wasser, ohne Bodenverdichtung.',
+      url: 'https://skytech-solutions.de/leistungen',
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://skytech-solutions.de/#service-dachanlagen',
+      name: 'Dachanlagen-Reinigung',
+      serviceType: 'Photovoltaik-Reinigung',
+      provider: { '@id': 'https://skytech-solutions.de/#localbusiness' },
+      areaServed: { '@type': 'Country', name: 'Deutschland' },
+      description:
+        'Professionelle Reinigung von Photovoltaikanlagen auf Privat- und Gewerbedächern – ohne Gerüst, schonend und herstellerkonform.',
+      url: 'https://skytech-solutions.de/leistungen',
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://skytech-solutions.de/#service-fassaden',
+      name: 'Fassadenreinigung mit Drohne',
+      serviceType: 'Gebäudereinigung',
+      provider: { '@id': 'https://skytech-solutions.de/#localbusiness' },
+      areaServed: { '@type': 'Country', name: 'Deutschland' },
+      description:
+        'Reinigung von Glas-, Aluminium- und Betonfassaden bis 150 m Höhe mit RO/DI-Wasseraufbereitung. Leistung 1200–2000 m²/h bei Glasfassaden.',
+      url: 'https://skytech-solutions.de/leistungen',
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -180,6 +227,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
         />
       </head>
       <body>{children}</body>

@@ -1,107 +1,202 @@
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
+import Services from '@/components/Services';
+import Process from '@/components/Process';
+import FAQ from '@/components/FAQ';
+import BlogTeaser from '@/components/BlogTeaser';
+import CTA from '@/components/CTA';
 
-// Compact service preview component for homepage
-function ServicePreview() {
-  const services = [
-    {
-      title: 'Solarpark-Reinigung',
-      description: 'Großflächige Reinigung mit modernster Drohnentechnologie.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-        </svg>
-      ),
-    },
-    {
-      title: 'Dachanlagen-Reinigung',
-      description: 'Professionelle Reinigung für Privat- und Gewerbedächer.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-        </svg>
-      ),
-    },
-    {
-      title: 'Fassadenreinigung',
-      description: 'Reinigung von Glas- und Gebäudefassaden.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-        </svg>
-      ),
-    },
-    {
-      title: 'Thermovision',
-      description: 'Wärmebildanalyse mit detailliertem Bericht.',
-      icon: (
-        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-        </svg>
-      ),
-    },
+// Drohne vs. Gerüst — comparison table for SEO + conversion
+function DroneVsScaffold() {
+  const rows = [
+    { label: 'Aufbauzeit', drone: 'Sofort einsatzbereit', scaffold: '1–3 Tage Auf- und Abbau' },
+    { label: 'Arbeitshöhe', drone: 'Bis zu 150 m', scaffold: 'Begrenzt durch Statik & Genehmigung' },
+    { label: 'Kosten', drone: 'Festpreis pro m² / Modul', scaffold: 'Hohe Logistik- und Mietkosten' },
+    { label: 'Wasserverbrauch', drone: 'Bis zu 90 % weniger (RO/DI)', scaffold: 'Hoher Verbrauch, oft Leitungswasser' },
+    { label: 'Risiko für Personal', drone: 'Keine Höhenarbeit nötig', scaffold: 'Absturzgefahr, PSAgA-Pflicht' },
+    { label: 'Belastung der Module', drone: 'Berührungslos, demineralisiert', scaffold: 'Bürsten, Druck, Kalkrückstände' },
+    { label: 'Bodenverdichtung', drone: 'Keine – ideal für Solarparks', scaffold: 'Schwere Geräte schädigen Bewuchs' },
+    { label: 'Genehmigungen', drone: 'Drohnen-Flugfreigabe (durch uns)', scaffold: 'Aufstellgenehmigung, ggf. Sperrung' },
   ];
+
+  return (
+    <section className="section-padding bg-gray-50">
+      <div className="container-width">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="text-sm font-semibold uppercase tracking-wider text-primary-600">
+            Drohne vs. Gerüst
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Warum Drohnenreinigung die bessere Wahl ist
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            Klassische Gerüstreinigung ist langsam, teuer und riskant. Mit unserer
+            Drohnentechnologie reinigen wir Photovoltaikmodule und Fassaden bis 150 m
+            Höhe – in einem Bruchteil der Zeit und ohne Eingriff in den Betrieb.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+          <div className="grid grid-cols-3 gap-0 border-b border-gray-100 bg-gray-50 px-4 py-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:px-6 sm:text-sm">
+            <div></div>
+            <div className="text-center text-primary-700">Drohnenreinigung</div>
+            <div className="text-center">Gerüst &amp; Hebebühne</div>
+          </div>
+          {rows.map((row, i) => (
+            <div
+              key={row.label}
+              className={`grid grid-cols-3 gap-0 px-4 py-4 text-sm sm:px-6 sm:text-base ${
+                i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
+              }`}
+            >
+              <div className="font-semibold text-gray-900">{row.label}</div>
+              <div className="text-center text-primary-700">
+                <span className="inline-flex items-start gap-1.5">
+                  <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary-600" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span>{row.drone}</span>
+                </span>
+              </div>
+              <div className="text-center text-gray-500">{row.scaffold}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Einsatzgebiete — regions + city links for local SEO
+function ServiceAreas() {
+  const bw = [
+    'ulm',
+    'stuttgart',
+    'karlsruhe',
+    'heilbronn',
+    'pforzheim',
+    'reutlingen',
+    'tuebingen',
+    'heidenheim',
+    'aalen',
+    'friedrichshafen',
+    'konstanz',
+  ];
+  const by = ['neu-ulm', 'augsburg', 'memmingen'];
+
+  const labels: Record<string, string> = {
+    ulm: 'Ulm',
+    stuttgart: 'Stuttgart',
+    karlsruhe: 'Karlsruhe',
+    heilbronn: 'Heilbronn',
+    pforzheim: 'Pforzheim',
+    reutlingen: 'Reutlingen',
+    tuebingen: 'Tübingen',
+    heidenheim: 'Heidenheim',
+    aalen: 'Aalen',
+    friedrichshafen: 'Friedrichshafen',
+    konstanz: 'Konstanz',
+    'neu-ulm': 'Neu-Ulm',
+    augsburg: 'Augsburg',
+    memmingen: 'Memmingen',
+  };
 
   return (
     <section className="section-padding bg-white">
       <div className="container-width">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary-600">
-            Unsere Leistungen
+            Einsatzgebiete
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Professioneller Service für maximale Leistung
+            PV-Reinigung in Baden-Württemberg, Bayern &amp; deutschlandweit
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Von großen Solarparks bis hin zu privaten Dachanlagen – wir bieten
-            maßgeschneiderte Lösungen für jeden Bedarf. Sie können sowohl bei
-            Einzelaufträgen als auch bei Abo-Dienstleistungen{' '}
-            <strong className="text-primary-600">PREMIUM</strong> mit uns zusammenarbeiten.
+            Unser Hauptstandort liegt in Ulm-Einsingen. Von dort aus reinigen wir
+            Solarparks, Dachanlagen und Fassaden in ganz Süddeutschland – für
+            Großprojekte sind wir bundesweit unterwegs.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-2xl border border-gray-100 bg-gray-50 p-6 shadow-sm transition-all duration-300 hover:shadow-md"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-                {service.icon}
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 sm:p-8">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-700 font-bold">
+                BW
               </div>
-              <h3 className="mt-4 text-lg font-bold text-gray-900">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                {service.description}
-              </p>
+              <h3 className="text-xl font-bold text-gray-900">Baden-Württemberg</h3>
             </div>
-          ))}
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              Schwerpunktregion mit kurzen Anfahrtswegen und schnellen
+              Reaktionszeiten. Häufige Einsätze in Solarparks im Schwäbischen
+              Oberland sowie auf Gewerbedächern im Großraum Stuttgart.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {bw.map((slug) => (
+                <Link
+                  key={slug}
+                  href={`/pv-reinigung/${slug}`}
+                  className="rounded-full border border-gray-200 bg-white px-3.5 py-1.5 text-sm font-medium text-gray-700 transition-all hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
+                >
+                  PV-Reinigung {labels[slug]}
+                </Link>
+              ))}
+            </div>
+            <Link
+              href="/pv-reinigung/baden-wuerttemberg"
+              className="mt-5 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
+            >
+              Alle Standorte in BW
+              <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 sm:p-8">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-700 font-bold">
+                BY
+              </div>
+              <h3 className="text-xl font-bold text-gray-900">Bayern</h3>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              Bayerisch-Schwaben und Allgäu liegen direkt an unserem Standort.
+              Ideal für gewerbliche Dachanlagen, Logistikhallen und Freiflächen­anlagen
+              entlang der A7/A8.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {by.map((slug) => (
+                <Link
+                  key={slug}
+                  href={`/pv-reinigung/${slug}`}
+                  className="rounded-full border border-gray-200 bg-white px-3.5 py-1.5 text-sm font-medium text-gray-700 transition-all hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
+                >
+                  PV-Reinigung {labels[slug]}
+                </Link>
+              ))}
+            </div>
+            <Link
+              href="/pv-reinigung/bayern"
+              className="mt-5 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
+            >
+              Alle Standorte in Bayern
+              <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
 
-        <div className="mt-10 text-center">
-          <a
-            href="/leistungen"
-            className="inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
-          >
-            Alle Leistungen ansehen
-            <svg
-              className="ml-1 h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
-          </a>
-        </div>
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-gray-500">
+          Solarpark außerhalb dieser Regionen?{' '}
+          <Link href="/kontakt" className="font-semibold text-primary-600 hover:text-primary-700">
+            Sprechen Sie uns an
+          </Link>{' '}
+          – ab einer bestimmten Modulanzahl reisen wir bundesweit an.
+        </p>
       </div>
     </section>
   );
@@ -112,6 +207,7 @@ function AboutPreview() {
   const highlights = [
     { value: '30%', label: 'Mehr Ertrag' },
     { value: '24h', label: 'Angebot' },
+    { value: '150 m', label: 'Arbeitshöhe' },
     { value: '100%', label: 'Umweltfreundlich' },
   ];
 
@@ -129,9 +225,11 @@ function AboutPreview() {
             <p className="mt-4 text-lg text-gray-600">
               Drohnen statt Gerüst, demineralisiertes Wasser statt Chemie,
               Festpreise statt Überraschungen – so funktioniert moderne
-              PV-Reinigung.
+              Photovoltaik- und Fassadenreinigung. Wir arbeiten mit der
+              integrierten Plattform <strong>DCS X1 PRO</strong> in Kombination
+              mit der industriellen Drohne <strong>DJI Matrice 400</strong>.
             </p>
-            <a
+            <Link
               href="/ueber-uns"
               className="mt-6 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
             >
@@ -149,91 +247,20 @@ function AboutPreview() {
                   d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {highlights.map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm"
+                className="rounded-2xl border border-gray-100 bg-white p-5 text-center shadow-sm"
               >
-                <p className="text-3xl font-bold text-primary-600">
+                <p className="text-2xl font-bold text-primary-600 sm:text-3xl">
                   {item.value}
                 </p>
-                <p className="mt-1 text-sm text-gray-600">{item.label}</p>
+                <p className="mt-1 text-xs text-gray-600 sm:text-sm">{item.label}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Compact CTA for homepage
-function HomeCTA() {
-  return (
-    <section className="section-padding bg-white">
-      <div className="container-width">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 px-6 py-16 text-center shadow-2xl shadow-primary-900/20 sm:px-12 sm:py-20">
-          <div className="absolute inset-0 opacity-10">
-            <div
-              className="h-full w-full"
-              style={{
-                backgroundImage:
-                  'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-                backgroundSize: '32px 32px',
-              }}
-            />
-          </div>
-
-          <div className="relative mx-auto max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Bereit, mehr aus Ihrer Solaranlage herauszuholen?
-            </h2>
-            <p className="mt-4 text-lg text-primary-100">
-              Fordern Sie jetzt Ihr kostenloses und unverbindliches Angebot an.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-              <a
-                href="/kontakt"
-                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary-700 shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl"
-              >
-                Kostenloses Angebot anfordern
-                <svg
-                  className="ml-2 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </a>
-              <a
-                href="tel:+4915216991223"
-                className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
-              >
-                <svg
-                  className="mr-2 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                  />
-                </svg>
-                Jetzt anrufen
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -246,9 +273,14 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <ServicePreview />
+      <Services />
       <AboutPreview />
-      <HomeCTA />
+      <Process />
+      <DroneVsScaffold />
+      <ServiceAreas />
+      <FAQ />
+      <BlogTeaser />
+      <CTA />
       <Footer />
     </main>
   );
