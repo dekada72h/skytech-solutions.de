@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/admin/me/password — zalogowany user zmienia własne hasło.
+// Wymaga aktualnego hasła (sprawdzane bcrypt.compare) + nowego hasła.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import bcrypt from 'bcryptjs';

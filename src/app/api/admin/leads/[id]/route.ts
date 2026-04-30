@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// PATCH /api/admin/leads/[id] — admin update statusu lead'a
+// (NEW/CONTACTED/QUOTED/WON/LOST). Wymaga sesji ADMIN/PARTNER.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';

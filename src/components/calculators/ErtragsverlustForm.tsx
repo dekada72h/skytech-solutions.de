@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// ErtragsverlustForm — formularz rechnera "ile tracisz na brudnej PV?".
+// Inputy: kWp, cena prądu, środowisko (Wohngebiet/Landwirtschaft/Industrie),
+// godziny słońca. Wynik kalkulowany live (useMemo). Przycisk "Pobierz PDF"
+// uderza w /api/pdf/ertragsverlust.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, useMemo } from 'react';

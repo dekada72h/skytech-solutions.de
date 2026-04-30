@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// lib/pdfChart.tsx — wykres słupkowy do PDF (react-pdf/renderer).
+// Używany w lib/pdfDocument.tsx jako komponent w PDF-ach generowanych
+// po stronie serwera (rechnery).
+// ─────────────────────────────────────────────────────────────────────────
 import { View, Text, StyleSheet, Svg, Rect, Line, Text as SvgText } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({

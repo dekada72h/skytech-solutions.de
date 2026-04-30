@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /impressum — Impressum (informacje o właścicielu strony).
+// Wymagane prawnie w Niemczech (§5 TMG). Adres firmy, kontakt, USt-ID.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import LegalLayout from '@/components/LegalLayout';
 

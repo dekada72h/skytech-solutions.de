@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// RoiCalculator — duży interaktywny rechner ROI z wielokrokowym wizardem.
+// Stage'e: dane anlagi → środowisko → kalkulacja → wynik z wykresem ROI
+// w czasie. Bardziej rozbudowany niż 3 mniejsze rechnery — ma flow
+// "10 lat ahead" projection.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, useMemo } from 'react';

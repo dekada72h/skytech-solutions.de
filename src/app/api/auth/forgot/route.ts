@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/auth/forgot — żądanie resetu hasła. Generuje token (random
+// 32 bajty), zapisuje hash do bazy (PasswordResetToken), wysyła e-mail
+// z linkiem /reset-password?token=<plain>. Token ważny 1h.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { randomBytes, createHash } from 'crypto';

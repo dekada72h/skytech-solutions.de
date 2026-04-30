@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /datenschutz — Datenschutzerklärung (polityka prywatności wg DSGVO).
+// Statyczny tekst w LegalLayout. Wymagana prawnie dla strony niemieckiej.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import LegalLayout from '@/components/LegalLayout';
 

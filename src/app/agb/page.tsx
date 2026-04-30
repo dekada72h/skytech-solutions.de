@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /agb — Allgemeine Geschäftsbedingungen (regulamin firmy).
+// Statyczna strona z LegalLayout — same paragrafy <p> w wąskiej kolumnie.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import LegalLayout from '@/components/LegalLayout';
 

@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /admin/messages — wiadomości z formularza kontaktowego (oddzielne od
+// leadów — tutaj raczej zapytania ogólne, a nie z rechnera). Tabela +
+// MessageActions (status: UNREAD/READ/ARCHIVED).
+// ─────────────────────────────────────────────────────────────────────────
 import { prisma } from '@/lib/prisma';
 import StatusBadge from '@/components/admin/StatusBadge';
 import MessageActions from './MessageActions';

@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /standorte/baden-wuerttemberg — region hub dla BW. Cienki wrapper:
+// metadata + delegacja do RegionHub component (wspólnego z Bayern).
+// Treść regionu z REGION_DATA, lista miast z citiesByRegion().
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import RegionHub from '@/components/RegionHub';
 import { citiesByRegion, REGION_DATA } from '@/data/cities';

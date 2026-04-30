@@ -1,6 +1,12 @@
-/* ------------------------------------------------------------------ */
-/*  Shared calculator math + types — single source of truth for UI/PDF */
-/* ------------------------------------------------------------------ */
+// ─────────────────────────────────────────────────────────────────────────
+// lib/calculators.ts — wzory i typy dla 4 kalkulatorów online:
+//  • Ertragsverlust — strata przychodu z brudnych modułów
+//  • Reinigungskosten — szacunek kosztu czyszczenia
+//  • Amortisation — kiedy się zwróci inwestycja w czyszczenie
+//  • ROI — zwrot kapitału w czasie
+// Single source — używane w UI (formularze) i przy generowaniu PDF.
+// Walidacja inputu przez Zod, jednolite typy między klientem a serwerem.
+// ─────────────────────────────────────────────────────────────────────────
 
 import { z } from 'zod';
 

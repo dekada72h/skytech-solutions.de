@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// PlzInput — pole input dla kodu pocztowego PLZ. Po wpisaniu 2 cyfr
+// odpalamy lookupPlz() i wyświetlamy sugestię najbliższego miasta + link
+// do strony /standorte/<city>. onPreset callback zwraca preset rodzica.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useEffect, useState } from 'react';

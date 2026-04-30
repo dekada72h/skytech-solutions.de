@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /login — strona logowania do panelu admina. Server component renderuje
+// branding + LoginForm (client). Niezindeksowana (robots noindex).
+// Po zalogowaniu middleware przekierowuje na /admin.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import LoginForm from './LoginForm';

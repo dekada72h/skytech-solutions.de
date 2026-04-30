@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// LeadActions — UI per-row dla tabeli leadów. Dropdown statusu (PUT
+// /api/admin/leads/[id]) + edytor notatek (PATCH /api/admin/leads/[id]/notes).
+// useTransition żeby nie blokować UI przy zapisie.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, useTransition, useEffect } from 'react';

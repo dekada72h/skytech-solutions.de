@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /rechner/roi-rechner — pełna interaktywna strona ROI rechnera.
+// Renderuje duży komponent RoiCalculator z wielokrokowym wizardem.
+// ─────────────────────────────────────────────────────────────────────────
 import PublicShell from '@/components/PublicShell';
 import type { Metadata } from 'next';
 import Link from 'next/link';

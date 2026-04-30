@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// lib/pdfDocument.tsx — szablon dokumentu PDF dla raportów z rechnerów.
+// Strona A4, brand header, tytuł, dane wejściowe, wynik, opcjonalny
+// wykres (pdfChart.tsx), stopka z brandingiem. Używane w /api/pdf/*.
+// ─────────────────────────────────────────────────────────────────────────
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import type { ReactElement } from 'react';
 

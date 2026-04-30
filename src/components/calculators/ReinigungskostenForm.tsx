@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// ReinigungskostenForm — rechner "ile kosztuje czyszczenie?". Inputy:
+// liczba modułów, dachowa/Solarpark, dystans, stopień zabrudzenia.
+// Output: zakres cen (od/do) bazujący na cennikach branżowych.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, useMemo } from 'react';

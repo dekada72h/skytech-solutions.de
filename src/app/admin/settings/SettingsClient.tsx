@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// SettingsClient — UI dla /admin/settings: 2 sekcje
+//  • Hasło — formularz zmiany własnego hasła (POST /api/admin/me/password)
+//  • 2FA — setup TOTP (QR z secrets), weryfikacja kodu, wyłączenie 2FA
+// (POST /api/admin/me/2fa/{setup,verify,disable}).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, useTransition } from 'react';

@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/pdf/amortisation — PDF z prognozą zwrotu z czyszczenia.
+// Pattern jak inne pdf-endpointy.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { renderToBuffer, Text, View } from '@react-pdf/renderer';
 import { z } from 'zod';

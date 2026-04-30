@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/pdf/reinigungskosten — PDF z szacunkiem kosztu czyszczenia.
+// Pattern jak ertragsverlust: walidacja → render → binary response.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { renderToBuffer, Text, View } from '@react-pdf/renderer';
 import { z } from 'zod';

@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/pdf/ertragsverlust — generuje PDF raport ze stratą przychodu.
+// Walidacja inputu (Zod), renderowanie szablonu pdfDocument + pdfChart,
+// zwrot binarki PDF z attachment header (browser pobiera).
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { renderToBuffer } from '@react-pdf/renderer';
 import { Text, View } from '@react-pdf/renderer';

@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /rechner — strona główna sekcji "Online-Rechner". Lista 4 kalkulatorów:
+// Ertragsverlust, Reinigungskosten, Amortisation, ROI. Każdy w osobnej
+// karcie z opisem, czasem wypełnienia i CTA. Bardzo silne SEO (long-tail
+// "PV Rechner online", "Solarpanel Reinigung Kosten Rechner").
+// ─────────────────────────────────────────────────────────────────────────
 import PublicShell from '@/components/PublicShell';
 import BlogTeaser from '@/components/BlogTeaser';
 import type { Metadata } from 'next';

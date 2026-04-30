@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// MessageActions — UI per-row dla messages. Dropdown statusu (PATCH
+// /api/admin/messages/[id]). Mark as Read / Archive akcje.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, useTransition } from 'react';

@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /standorte/bayern — region hub dla Bayern. Pattern jak BW (metadata +
+// delegacja do RegionHub). 3 miasta: Augsburg, Memmingen, Neu-Ulm.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import RegionHub from '@/components/RegionHub';
 import { citiesByRegion, REGION_DATA } from '@/data/cities';

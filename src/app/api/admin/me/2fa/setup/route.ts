@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/admin/me/2fa/setup — start procesu włączania 2FA. Generuje
+// nowy TOTP secret, zapisuje tymczasowo (`twoFactorSecretPending`), zwraca
+// QR-code (data-URL) do zeskanowania w Google Authenticator/Authy.
+// User następnie weryfikuje kodem z aplikacji w endpoint'cie /verify.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { generateSecret, generateURI } from 'otplib';
 import QRCode from 'qrcode';

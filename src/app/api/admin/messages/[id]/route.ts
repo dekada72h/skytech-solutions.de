@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// PATCH /api/admin/messages/[id] — update statusu wiadomości
+// (UNREAD/READ/ARCHIVED). Wymaga sesji ADMIN/PARTNER.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';

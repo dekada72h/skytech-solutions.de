@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// StatusBadge — kolorowy badge z etykietą statusu Lead/Message w panelu
+// admina. Mapuje status na kolor (rose=Neu/Ungelesen, blue=Angebot,
+// emerald=Gewonnen, gray=Verloren) i niemiecką etykietę.
+// ─────────────────────────────────────────────────────────────────────────
 type Status = 'UNREAD' | 'READ' | 'ARCHIVED' | 'NEW' | 'CONTACTED' | 'QUOTED' | 'WON' | 'LOST';
 
 const colors: Record<Status, string> = {

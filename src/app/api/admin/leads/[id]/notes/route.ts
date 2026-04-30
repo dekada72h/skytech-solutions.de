@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// PATCH /api/admin/leads/[id]/notes — zapis notatek do lead'a (free-text).
+// Wymaga sesji ADMIN/PARTNER.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';

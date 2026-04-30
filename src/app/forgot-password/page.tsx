@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /forgot-password — formularz "zapomniałem hasła". Email → POST
+// /api/auth/forgot → mailer wysyła link z tokenem. Niezindeksowana.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState } from 'react';

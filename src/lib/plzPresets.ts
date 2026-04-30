@@ -1,8 +1,8 @@
 /**
- * German postal-code → climate / pollution zone presets.
- * First 2 digits of PLZ map to a region; the region maps to typical
- * environment + sun hours adjustment. Used by calculators to suggest
- * sensible defaults for the local user.
+ * lib/plzPresets.ts — mapowanie niemieckich kodów pocztowych (PLZ) na
+ * strefy klimatyczne i typ otoczenia (Wohngebiet / Landwirtschaft / Industrie).
+ * Pierwsze 2 cyfry PLZ → region → typowe parametry słońca i zanieczyszczenia.
+ * Używane w kalkulatorach do auto-sugestii defaultów dla użytkownika.
  */
 
 import type { Environment } from './calculators';

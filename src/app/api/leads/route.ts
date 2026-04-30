@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/leads — endpoint dla rechnerów (publiczny). Zapisuje lead z
+// parametrami rechnera + dane kontaktowe. Pre-fill kontaktu w /kontakt
+// uderza tu, jeśli user wypełni formularz na końcu rechnera.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';

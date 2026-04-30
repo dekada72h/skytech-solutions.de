@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /admin/users — zarządzanie użytkownikami panelu (tylko ADMIN ma dostęp).
+// Lista user'ów + UsersClient z formularzem dodawania, edycji ról, resetu
+// hasła. Sprawdzenie roli przed renderem (redirect jeśli PARTNER).
+// ─────────────────────────────────────────────────────────────────────────
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';

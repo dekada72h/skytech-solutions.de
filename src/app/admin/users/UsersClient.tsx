@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// UsersClient — UI zarządzania użytkownikami: tabela + formularz dodawania
+// nowego user'a (POST /api/admin/users), edycja roli (PATCH), reset hasła
+// przez admina, usuwanie. Tylko dla zalogowanego ADMIN.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, useTransition } from 'react';

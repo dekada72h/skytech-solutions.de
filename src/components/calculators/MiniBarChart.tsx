@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// MiniBarChart — prosty wykres słupkowy SVG do wizualizacji wyników
+// rechnerów (np. roczny ertragsverlust w 5 latach). Lekki, bez bibliotek.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 interface BarPoint { label: string; value: number; highlight?: boolean }

@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /admin layout — wspólny szkielet panelu admina. Sidebar z menu (Dashboard,
+// Leads, Messages, Settings, Users) + topbar z user-info i logout.
+// Server component sprawdza session i przekierowuje na /login jeśli brak.
+// ─────────────────────────────────────────────────────────────────────────
 import Link from 'next/link';
 import { auth, signOut } from '@/lib/auth';
 import { redirect } from 'next/navigation';

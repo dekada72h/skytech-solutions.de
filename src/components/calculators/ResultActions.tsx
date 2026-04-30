@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// ResultActions — pasek akcji pod wynikiem rechnera. Dwa CTA:
+// "Pobierz PDF z wynikiem" (uderza w /api/pdf/<calc>) i "Bezpłatne
+// Angebot" (link do /kontakt z pre-fill parametrami z rechnera).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState } from 'react';

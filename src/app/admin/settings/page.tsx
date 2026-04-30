@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /admin/settings — ustawienia konta zalogowanego użytkownika.
+// SettingsClient pozwala: zmienić własne hasło, włączyć/wyłączyć 2FA (TOTP).
+// ─────────────────────────────────────────────────────────────────────────
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';

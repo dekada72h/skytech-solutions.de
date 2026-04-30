@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// AmortisationForm — rechner "kiedy zwróci się czyszczenie PV?".
+// Inputy: koszt czyszczenia + roczny zysk z czystych modułów.
+// Wynik = miesięcy do break-even. Live calc + opcja PDF.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, useMemo } from 'react';

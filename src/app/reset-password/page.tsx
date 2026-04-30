@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /reset-password — strona z formularzem resetu hasła. Token z URL
+// (?token=xxx, useSearchParams w Suspense). POST /api/auth/reset
+// z token + nowym hasłem. Niezindeksowana.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState, Suspense } from 'react';

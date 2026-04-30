@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/admin/users/[id]/reset — admin generuje nowe tymczasowe hasło
+// dla wybranego user'a (np. gdy zapomniał i nie ma maila). Zwraca plain
+// password do skopiowania (tylko 1× widoczne). Tylko dla ADMIN.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { randomBytes } from 'crypto';

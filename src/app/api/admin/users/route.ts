@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/admin/users — utwórz nowego user'a panelu (tylko ADMIN).
+// GET → lista wszystkich. Hashowanie hasła przez bcrypt przed zapisem.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import bcrypt from 'bcryptjs';

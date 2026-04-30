@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// PATCH/DELETE /api/admin/users/[id] — edycja roli (ADMIN/PARTNER) lub
+// usunięcie user'a panelu. Tylko dla zalogowanego ADMIN.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';

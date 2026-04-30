@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/admin/me/2fa/disable — wyłącza 2FA dla zalogowanego user'a.
+// Czyści twoFactorSecret i twoFactorSecretPending. Wymaga zalogowania.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';

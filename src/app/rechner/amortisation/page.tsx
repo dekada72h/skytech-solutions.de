@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /rechner/amortisation — strona rechnera "kiedy się zwróci czyszczenie?".
+// Hero + AmortisationForm + objaśnienie wzoru + FAQ + CTA.
+// ─────────────────────────────────────────────────────────────────────────
 import PublicShell from '@/components/PublicShell';
 import BlogTeaser from '@/components/BlogTeaser';
 import type { Metadata } from 'next';

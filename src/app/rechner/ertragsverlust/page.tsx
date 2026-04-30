@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /rechner/ertragsverlust — pełna strona rechnera straty z brudnej PV.
+// Hero z tytułem, formularz (ErtragsverlustForm), explanation + FAQ
+// + BlogTeaser. Schema HowTo dla rich snippets.
+// ─────────────────────────────────────────────────────────────────────────
 import PublicShell from '@/components/PublicShell';
 import BlogTeaser from '@/components/BlogTeaser';
 import type { Metadata } from 'next';

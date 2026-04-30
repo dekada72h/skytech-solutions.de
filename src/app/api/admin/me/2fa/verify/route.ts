@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/admin/me/2fa/verify — finalizacja włączania 2FA. User wpisuje
+// 6-cyfrowy kod z aplikacji TOTP, sprawdzamy go względem `secretPending`,
+// jeśli OK → przenosimy do `twoFactorSecret` (aktywne) i zwracamy success.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { verify as totpVerify } from 'otplib';

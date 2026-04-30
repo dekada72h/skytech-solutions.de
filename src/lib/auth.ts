@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// lib/auth.ts — konfiguracja NextAuth dla panelu admina. Provider:
+// Credentials (email + hasło + opcjonalny TOTP/2FA). Hashowanie haseł
+// przez bcryptjs, weryfikacja TOTP przez otplib. User pochodzi z Prismy.
+// ─────────────────────────────────────────────────────────────────────────
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';

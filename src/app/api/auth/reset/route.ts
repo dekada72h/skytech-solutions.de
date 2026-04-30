@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/auth/reset — ustawienie nowego hasła z tokenem. Hashuje
+// otrzymany token, sprawdza w bazie + nieprzeterminowany, zapisuje
+// nowy passwordHash (bcrypt) i unieważnia token.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createHash } from 'crypto';

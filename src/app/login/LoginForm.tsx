@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// LoginForm — formularz logowania (email + hasło + opcjonalny kod 2FA).
+// Wywołuje signIn() z next-auth/react. Po sukcesie redirect na callbackUrl
+// (przekazany z middleware przy próbie wejścia na /admin/*).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState } from 'react';

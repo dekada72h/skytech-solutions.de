@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /rechner/reinigungskosten — pełna strona rechnera kosztów czyszczenia.
+// Hero + ReinigungskostenForm + opis metodologii + FAQ + CTA.
+// ─────────────────────────────────────────────────────────────────────────
 import PublicShell from '@/components/PublicShell';
 import BlogTeaser from '@/components/BlogTeaser';
 import type { Metadata } from 'next';

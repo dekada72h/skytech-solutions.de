@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /admin — dashboard panelu admina. Statystyki: liczba leads, messages,
+// nowi użytkownicy w ostatnich 7 dniach. Server component pobiera dane
+// bezpośrednio z Prismy (force-dynamic = zawsze świeże dane).
+// ─────────────────────────────────────────────────────────────────────────
 import { prisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';

@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /admin/leads — lista leadów z formularza kontaktowego. Server component
+// renderuje tabelę (data, imię, e-mail, status, źródło, parametry rechnera).
+// LeadActions = client component z dropdownem statusów + przycisk Notes.
+// ─────────────────────────────────────────────────────────────────────────
 import { prisma } from '@/lib/prisma';
 import StatusBadge from '@/components/admin/StatusBadge';
 import LeadActions from './LeadActions';

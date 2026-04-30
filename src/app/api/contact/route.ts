@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// POST /api/contact — endpoint dla formularza kontaktowego (publiczny).
+// Walidacja przez Zod, zapis do bazy (tabela Message), wysyłka maila do
+// admina przez mailer. Anti-spam: sprawdzanie honeypot field.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
