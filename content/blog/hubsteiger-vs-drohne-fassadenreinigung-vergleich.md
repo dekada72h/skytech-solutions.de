@@ -273,3 +273,18 @@ Wenn Sie für eine kommende Reinigung Angebote vergleichen wollen, machen Sie es
 Bei uns bekommen Sie auf alle drei Fragen schriftliche Antworten — vor Vertrags­abschluss. Schicken Sie uns drei Fotos Ihrer Fassade aus unterschiedlichen Höhen über das [Kontaktformular](/kontakt) und wir liefern in 24 Stunden ein konkretes Festpreis­angebot mit klar aufgeschlüsselten Annahmen.
 
 Mehr zum Thema **konkrete Preise und Projektbeispiele**: unser [Kostenartikel 2026](/blog/fassadenreinigung-drohne-kosten-2026). Wenn Sie zuerst wissen wollen, welche Methode überhaupt zu Ihrem Material passt, ist der [Material-Guide Glas vs. Aluminium vs. Beton](/blog/glasfassade-vs-aluminiumfassade-reinigung) der richtige Einstieg.
+
+<div class="divider-icon not-prose"><span>📚</span></div>
+
+## Quellen & weiterführende Informationen
+
+Die Vergleichs­zahlen stammen aus eigenen Projekten 2024–2026, ergänzt durch öffentlich verfügbare Daten. Empfehlens­werte Quellen für die unabhängige Recherche:
+
+- **[Luftfahrt­bundesamt – Drohnen­regelungen](https://www.lba.de/DE/Drohnen/Drohnen_node.html)**: Aufstiegs­genehmigungen, EU-Klassen C2/C3, SORA-Verfahren
+- **[EASA – EU-Drohnen­verordnung](https://www.easa.europa.eu/en/domains/drones-air-mobility/drones)**: rechtlicher Rahmen für gewerbliche Drohnen­einsätze in der EU
+- **[BG BAU – Absturz­sicherung & PSAgA](https://www.bgbau.de/themen/sicherheit-und-gesundheit/absturzsicherung/)**: Versicherungs­situation und Pflichten bei Höhenarbeit
+- **[IRATA International](https://irata.org/)**: Standards für Industrie­kletterer und seil­gestützte Arbeits­verfahren
+- **[DGUV – Höhenarbeit](https://www.dguv.de/de/praevention/themen-a-z/absturz/index.jsp)**: Unfall­statistik und Vorgaben für Hubsteiger- und Gerüst­einsätze
+- **[BSW Solar – Bundesverband Solarwirtschaft](https://www.solarwirtschaft.de/)**: Branchen­zahlen zu PV-Wartung und -Reinigung
+
+Mehr zu **konkreten Kosten** im [Pricing-Artikel 2026](/blog/fassadenreinigung-drohne-kosten-2026) oder zur **richtigen Methode für jedes Material** im [Material-Guide](/blog/glasfassade-vs-aluminiumfassade-reinigung). Springen Sie direkt zur Detailseite [Fassadenreinigung](/leistungen/fassadenreinigung) oder [Dachanlagen-Reinigung](/leistungen/dachanlagen-reinigung) — und für ein konkretes Angebot ist die [Kontaktseite](/kontakt) der schnellste Weg.

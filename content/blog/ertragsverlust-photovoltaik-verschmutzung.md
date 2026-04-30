@@ -399,3 +399,17 @@ Eine professionelle Reinigung amortisiert sich in den meisten Fällen innerhalb 
 Mein Tipp aus der Praxis: **Lassen Sie Ihre Anlage einmal professionell inspizieren** — auch wenn sie scheinbar sauber aussieht. In über 80 % der Erstinspektionen finden wir versteckte Mängel oder unterschätzte Verschmutzung. Die Inspektion ist bei uns kostenlos und unverbindlich. Sie wissen danach, woran Sie sind — und können selbst entscheiden, ob sich eine Reinigung für Sie lohnt.
 
 Mehr zu spezifischen Themen finden Sie in unseren weiterführenden Artikeln: [Photovoltaik-Reinigung in der Landwirtschaft](/blog/photovoltaik-reinigung-landwirtschaft-ammoniak), [Pollen auf Solarmodulen](/blog/pollen-solarmodule-fruehjahr) und [Solarpanel-Reinigung Kosten 2026](/blog/solarpanel-reinigung-kosten-2026).
+
+<div class="divider-icon not-prose"><span>📚</span></div>
+
+## Quellen & weiterführende Informationen
+
+Die Zahlen in diesem Artikel basieren auf eigenen Vor-/Nach­messungen und unabhängigen Studien. Wer tiefer einsteigen will:
+
+- **[Fraunhofer ISE – Photovoltaikreinigung & Soiling Loss](https://www.ise.fraunhofer.de/de/forschungsprojekte.html)**: führendes Forschungsinstitut zu Verschmutzungs­verlusten und Modul-Degradation
+- **[BSW Solar – Bundesverband Solarwirtschaft](https://www.solarwirtschaft.de/)**: Branchen­zahlen zum spezifischen Ertrag, Wartungs­empfehlungen
+- **[TÜV Rheinland – PV-Modul-Tests](https://www.tuv.com/germany/de/photovoltaik.html)**: Standards für Modul­prüfung und Hot-Spot-Risiko­bewertung
+- **[VDE-AR-N 4105 – Anschlussrichtlinie](https://www.vde-verlag.de/)**: technische Anschluss­bedingungen für PV-Anlagen am Niederspannungs­netz
+- **[Deutscher Wetterdienst (DWD)](https://www.dwd.de/)**: regionale Daten zu Pollen­flug, Staub­belastung und Niederschlags­häufigkeit
+
+Mehr zu **konkreten Kosten** im [Pricing-Artikel 2026](/blog/solarpanel-reinigung-kosten-2026), zu **landwirtschafts­spezifischen Themen** im [Ammoniak-Artikel](/blog/photovoltaik-reinigung-landwirtschaft-ammoniak), zur **passenden Leistung** unsere [Solarpark-Reinigung](/leistungen/solarpark-reinigung) oder [Dachanlagen-Reinigung](/leistungen/dachanlagen-reinigung).

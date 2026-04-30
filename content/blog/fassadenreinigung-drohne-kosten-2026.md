@@ -249,3 +249,17 @@ Wenn Sie ein konkretes Projekt vor sich haben — Bürogebäude, Hotel, Klinik, 
 Schicken Sie uns drei Fotos Ihrer Fassade aus unterschiedlichen Perspektiven oder eine grobe Skizze mit Maßen über unser [Kontaktformular](/kontakt) — wir melden uns innerhalb von 24 Stunden mit einem konkreten Vorschlag und Termin­optionen zurück.
 
 Mehr zur passenden Methode für Ihr spezifisches Material lesen Sie in unserem [Vergleichsartikel Glas vs. Aluminium vs. Beton](/blog/glasfassade-vs-aluminiumfassade-reinigung). Und wenn Sie konkret wissen wollen, **wann sich Drohne lohnt und wann nicht**, ist unser [ehrlicher Vergleich Hubsteiger vs. Drohne](/blog/hubsteiger-vs-drohne-fassadenreinigung-vergleich) die richtige Lektüre.
+
+<div class="divider-icon not-prose"><span>📚</span></div>
+
+## Quellen & weiterführende Informationen
+
+Die Zahlen und Methoden in diesem Artikel basieren auf eigenen Projekten, ergänzt durch Branchen­daten. Wer tiefer einsteigen will:
+
+- **[Luftfahrt­bundesamt – Drohnen­regelungen](https://www.lba.de/DE/Drohnen/Drohnen_node.html)**: Anmeldung, Aufstiegs­genehmigungen, EU-Klassen
+- **[EASA – EU-Drohnen­verordnung](https://www.easa.europa.eu/en/domains/drones-air-mobility/drones)**: rechtlicher Rahmen für gewerbliche Drohnen­einsätze
+- **[BG BAU – Sicherheit bei Höhenarbeit](https://www.bgbau.de/themen/sicherheit-und-gesundheit/absturzsicherung/)**: PSAgA-Pflicht, Versicherungs­situation klassischer Methoden
+- **[DGUV – Persönliche Schutzausrüstung gegen Absturz](https://www.dguv.de/de/praevention/themen-a-z/absturz/index.jsp)**: warum Drohnen­einsatz versicherungs­technisch günstiger ist
+- **[BIV – Bundesinnung der Gebäudereiniger](https://www.die-gebaeudedienstleister.de/)**: Branchen­standards, Qualitäts­kriterien
+
+Sehen Sie sich auch unsere [Detailseite zu Fassadenreinigung](/leistungen/fassadenreinigung) an oder springen Sie direkt zu unseren [Standorten](/standorte) für regionale Informationen.

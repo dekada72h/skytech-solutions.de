@@ -219,3 +219,17 @@ Die häufigsten Schäden, die wir bei der Erstinspektion sehen, kommen nicht von
 Wenn Sie unsicher sind, welches Verfahren zu Ihrer Fassade passt: schicken Sie uns drei Fotos aus unterschiedlichen Perspektiven über unser [Kontaktformular](/kontakt) — wir machen eine Materialeinschätzung und ein angepasstes Angebot in 24 Stunden.
 
 Mehr zum Thema **Kosten und realistische Beispiele** finden Sie in unserem [aktuellen Kostenartikel 2026](/blog/fassadenreinigung-drohne-kosten-2026). Wenn Sie konkret abwägen, ob Sie überhaupt mit Drohne oder lieber mit Hubsteiger reinigen sollen, ist unser [direkter Vergleich](/blog/hubsteiger-vs-drohne-fassadenreinigung-vergleich) der richtige nächste Schritt.
+
+<div class="divider-icon not-prose"><span>📚</span></div>
+
+## Quellen & weiterführende Informationen
+
+Materialwahl und Reinigungs­methode haben sich in den letzten Jahren branchen­weit standardisiert. Wer tiefer einsteigen will, findet in folgenden Quellen verlässliche Informationen:
+
+- **[GFF Glas + Fassade – Reinigungs­richtlinien](https://www.gff-magazin.de/)**: Fachzeitschrift für Glasfassaden, Beschichtungen und Reinigungs­standards
+- **[Bundesverband Aluminium e.V.](https://www.aluinfo.de/)**: technische Hinweise zur Pflege eloxierter und beschichteter Aluminium­oberflächen
+- **[Fraunhofer IBP – Bauphysik](https://www.ibp.fraunhofer.de/)**: Forschung zu Algen­bewuchs und Witterungs­schutz an WDVS-Fassaden
+- **[BIV – Bundesinnung der Gebäudereiniger](https://www.die-gebaeudedienstleister.de/)**: Branchen­standards für Material- und Methoden­wahl
+- **[DGUV – Sicherheit auf Baustellen](https://www.dguv.de/)**: Sicherheits­regeln bei Höhenarbeit, Hochdruck­einsatz und Chemikalien
+
+Mehr zu **konkreten Kosten** für jeden Material­typ finden Sie in unserem [Kostenartikel 2026](/blog/fassadenreinigung-drohne-kosten-2026), zur **Methodenwahl** im [Vergleich Hubsteiger vs. Drohne](/blog/hubsteiger-vs-drohne-fassadenreinigung-vergleich). Konkrete Detailseiten zu den Leistungen: [Fassadenreinigung](/leistungen/fassadenreinigung), [Solarpark-Reinigung](/leistungen/solarpark-reinigung), [Dachanlagen-Reinigung](/leistungen/dachanlagen-reinigung). Wenn Sie ein konkretes Objekt haben, springen Sie direkt zur [Kontaktseite](/kontakt) — Festpreis in 24 Stunden.

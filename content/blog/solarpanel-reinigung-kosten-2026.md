@@ -350,3 +350,17 @@ Bei uns bekommen Sie diese Transparenz schwarz auf weiß — Erstinspektion und 
 Wenn Sie konkret wissen wollen, was eine Reinigung für Ihre Anlage kostet, nutzen Sie entweder unseren [Reinigungskosten-Schätzer](/rechner/reinigungskosten) oder fordern Sie direkt ein **kostenloses Festpreisangebot** über unser [Kontaktformular](/kontakt) an. Wir melden uns innerhalb von 24 Stunden mit einem konkreten Vorschlag — und die Inspektion vor Ort kostet Sie nichts.
 
 Mehr zum Thema PV-Verschmutzung allgemein: unser [Hauptartikel über Ertragsverlust](/blog/ertragsverlust-photovoltaik-verschmutzung). Spezifisch für Hofbetriebe: [PV-Reinigung in der Landwirtschaft](/blog/photovoltaik-reinigung-landwirtschaft-ammoniak).
+
+<div class="divider-icon not-prose"><span>📚</span></div>
+
+## Quellen & weiterführende Informationen
+
+Die Preisangaben in diesem Artikel basieren auf Markt­beobachtungen und eigenen Festpreis­kalkulationen 2024–2026. Für unabhängige Quellen:
+
+- **[BSW Solar – Bundesverband Solarwirtschaft](https://www.solarwirtschaft.de/)**: Branchen­zahlen zu Wartungs- und Reinigungs­kosten, Marktpreis­entwicklung
+- **[BIV – Bundesinnung der Gebäudereiniger](https://www.die-gebaeudedienstleister.de/)**: Branchen­standards, Qualitäts­kriterien und Preis­leitlinien
+- **[Stiftung Warentest – PV-Wartung](https://www.test.de/)**: unabhängige Verbraucher­tests zu PV-Wartungs­dienstleistungen
+- **[Verbraucherzentrale – Photovoltaik-Wartung](https://www.verbraucherzentrale.de/)**: rechtliche Hinweise zu Wartungs­verträgen und Festpreis­angeboten
+- **[VDE – Verband der Elektrotechnik](https://www.vde.com/)**: Empfehlungen zu Inspektions­intervallen und Modul­schutz
+
+Mehr zum **Hauptthema Ertragsverlust** im [Pillar-Artikel](/blog/ertragsverlust-photovoltaik-verschmutzung), zu **landwirtschafts­spezifischen Kosten** im [Ammoniak-Artikel](/blog/photovoltaik-reinigung-landwirtschaft-ammoniak), zur passenden Leistung [Solarpark-Reinigung](/leistungen/solarpark-reinigung) oder [Dachanlagen-Reinigung](/leistungen/dachanlagen-reinigung).

@@ -264,3 +264,17 @@ Unser Tipp: **Eine professionelle Reinigung Ende Mai / Anfang Juni** in jährlic
 Wenn Sie in Süddeutschland wohnen — Baden-Württemberg, Bayern, Allgäu — und im Mai oder Juni eine Reinigung in Erwägung ziehen, schreiben Sie uns. Frühsommer ist unsere Hochsaison, deshalb planen wir 4–6 Wochen voraus. **Erstinspektion ist immer kostenlos.**
 
 Mehr zum Thema PV-Verschmutzung im Allgemeinen finden Sie in unserem [Hauptartikel](/blog/ertragsverlust-photovoltaik-verschmutzung), und wenn Sie eine landwirtschaftliche Anlage haben, lohnt sich ein Blick auf unseren [Artikel über Ammoniak-Belastung](/blog/photovoltaik-reinigung-landwirtschaft-ammoniak).
+
+<div class="divider-icon not-prose"><span>📚</span></div>
+
+## Quellen & weiterführende Informationen
+
+Die Daten zu Pollen­flug und PV-Auswirkungen stammen aus offiziellen Quellen:
+
+- **[Deutscher Wetterdienst – Pollen­flug-Vorhersage](https://www.dwd.de/DE/leistungen/gefahrenindizespollen/pollenflug.html)**: tagesaktuelle Daten, Saison­karten, Belastungs­kategorien
+- **[Polleninformationsdienst (PID)](https://www.pollenstiftung.de/)**: wissenschaft­liche Forschung zu Pollen­arten und Verbreitung in Deutschland
+- **[Fraunhofer ISE – Saisonale Soiling-Loss-Studien](https://www.ise.fraunhofer.de/)**: Ertrags­verluste durch saisonale Verschmutzung
+- **[BSW Solar – Saisonale Wartungs­empfehlungen](https://www.solarwirtschaft.de/)**: Branchen­empfehlungen zum Reinigungs­zeitpunkt
+- **[Umweltbundesamt – Luftqualität und Pollen­belastung](https://www.umweltbundesamt.de/)**: regionale Belastungs­unterschiede
+
+Mehr zum Thema im [Hauptartikel über Ertragsverlust](/blog/ertragsverlust-photovoltaik-verschmutzung), zu konkreten **Kosten** im [Pricing-Artikel](/blog/solarpanel-reinigung-kosten-2026) oder direkt zu unserer Detailseite [Dachanlagen-Reinigung](/leistungen/dachanlagen-reinigung).

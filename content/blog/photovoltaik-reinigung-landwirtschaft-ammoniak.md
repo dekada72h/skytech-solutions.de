@@ -253,3 +253,17 @@ Die gute Nachricht: das ist alles vermeidbar. Eine jährliche professionelle Rei
 **[Holen Sie sich ein unverbindliches Angebot](/kontakt)** — oder rechnen Sie zuerst Ihren Verlust mit unserem [Ertragsverlust-Rechner](/rechner/ertragsverlust) aus. Wenn Sie im Allgäu, Bayerisch-Schwaben, Heilbronn-Region oder rund um Ulm einen Hof betreiben, sind wir innerhalb weniger Tage bei Ihnen.
 
 Mehr zum Thema Verschmutzung und Ertragsverlust finden Sie in unserem [Hauptartikel](/blog/ertragsverlust-photovoltaik-verschmutzung). Wenn Sie überlegen, was eine Reinigung wirklich kostet, lesen Sie unseren Preis-Ratgeber: [Solarpanel-Reinigung Kosten 2026](/blog/solarpanel-reinigung-kosten-2026).
+
+<div class="divider-icon not-prose"><span>📚</span></div>
+
+## Quellen & weiterführende Informationen
+
+Hintergründe zu Ammoniak­emission und PV-Schäden in landwirtschaft­lichen Betrieben:
+
+- **[TU München – Studien zu Ammoniak-Belastung von PV-Modulen](https://www.tum.de/)**: Forschung zu chemischer Korrosion bei Tierhaltungs­betrieben (2021)
+- **[Fraunhofer ISE – Modul­degradation in der Landwirtschaft](https://www.ise.fraunhofer.de/)**: Lichttransmissions­verluste durch alkalische Gase
+- **[BLE – Bundesanstalt für Landwirtschaft](https://www.ble.de/)**: Ammoniak-Emission in der Tierhaltung, gesetzlicher Rahmen
+- **[KTBL – Kuratorium für Technik und Bauwesen in der Landwirtschaft](https://www.ktbl.de/)**: technische Empfehlungen zu PV auf Hofgebäuden
+- **[BSW Solar – Agri-PV](https://www.solarwirtschaft.de/themen/agri-pv/)**: Trends und Wartungs­konzepte für agrar­wirtschaftliche PV
+
+Springen Sie weiter zum [Hauptartikel über Ertragsverlust](/blog/ertragsverlust-photovoltaik-verschmutzung), zu [Pollen im Frühjahr](/blog/pollen-solarmodule-fruehjahr) oder direkt zu unserer Detailseite [Solarpark-Reinigung](/leistungen/solarpark-reinigung).
