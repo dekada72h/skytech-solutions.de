@@ -2,9 +2,43 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-const services = [
+const dcsBaseParagraphs = [
+  'Wir basieren auf einer umfassenden Pumpen- und Wasseraufbereitungstechnologie der Firma DCS (Drone Cleaning Solutions), die mit modernster Drohnentechnologie integriert ist. Dank unserer gesammelten Erfahrung wurden die DCS-Lösungen mit den neuesten, auf dem internationalen Markt verfügbaren Technologien im Bereich der Reinigung und Pflege von Photovoltaikmodulen sowie Gebäudefassaden unterschiedlichster Struktur kombiniert.',
+  'Die Lösungen, auf denen unsere Tätigkeit basiert, sind sicher, effizient und wirtschaftlich. Sie sind sowohl umweltfreundlich als auch sicher für den Menschen und lassen sich flexibel an unterschiedliche Projekte und Arbeitsbedingungen anpassen. Unsere eingesetzten Systeme wurden speziell für den Einsatz an großen und schwer zugänglichen Objekten entwickelt, bei denen herkömmliche Methoden eine aufwendige Logistik und Arbeiten in großen Höhen erfordern.',
+  'Das System DCS X1 PRO ist eine integrierte hydraulische Plattform, die sowohl im mobilen/geländebasierten Einsatz als auch im Anschluss an das städtische Wassernetz genutzt werden kann. Die technische Konfiguration ist kompatibel mit der industriellen Drohne DJI Matrice 400. Durch den Einsatz ultraleichter Schläuche und einer Carbonkonstruktion ist es möglich, eine bisher unerreichte Arbeitshöhe von bis zu 150 m zu erreichen.',
+];
+
+const fassadenExtraParagraph =
+  'Das System wird vor allem bei Glas- und Aluminiumfassaden eingesetzt, bei denen die Kontrolle des Wasserdrucks sowie der Einsatz von demineralisiertem Wasser entscheidend sind, um Streifenbildung und mineralische Rückstände zu vermeiden. Dank der Integration der RO/DI-Technologie (Umkehrosmose und Deionisierung – zur vollständigen Entfernung von Mineralien und Rückständen) sowie der Wassererwärmung auf bis zu 60 °C ermöglicht die Plattform eine effektive Entfernung sowohl von üblichen atmosphärischen Verschmutzungen, Vogelkot als auch von industriellen Verunreinigungen und fettigen Ablagerungen.';
+
+const fassadenSpecs = [
+  ['LEISTUNG', '1200–2000 m²/h bei Glasfassaden'],
+  ['Betriebsdruck', 'bis zu 155 bar'],
+  ['Pufferspeicher', '550 l'],
+  ['Maximale Windgeschwindigkeit', 'bis zu 50 km/h'],
+  ['Maximale Arbeitshöhe', 'bis zu 150 m'],
+];
+
+const fassadenFooterNote =
+  'Bei fehlender Anschlussmöglichkeit an das städtische Wassernetz nutzen wir zusätzlich externe Wassertanks mit einem Fassungsvermögen von 1000 l.';
+
+type ServiceDetails = {
+  paragraphs: string[];
+  specs?: { label: string; value: string }[];
+  extraParagraph?: string;
+  footerNote?: string;
+};
+
+const services: {
+  title: string;
+  description: string;
+  image: string;
+  icon: React.ReactNode;
+  badge: string | null;
+  details: ServiceDetails;
+}[] = [
   {
     title: 'Solarpark-Reinigung',
     description:
@@ -17,6 +51,7 @@ const services = [
       </svg>
     ),
     badge: 'Beliebteste Leistung',
+    details: { paragraphs: dcsBaseParagraphs },
   },
   {
     title: 'Dachanlagen-Reinigung',
@@ -30,6 +65,7 @@ const services = [
       </svg>
     ),
     badge: null,
+    details: { paragraphs: dcsBaseParagraphs },
   },
   {
     title: 'Fassadenreinigung',
@@ -43,6 +79,12 @@ const services = [
       </svg>
     ),
     badge: null,
+    details: {
+      paragraphs: dcsBaseParagraphs,
+      extraParagraph: fassadenExtraParagraph,
+      specs: fassadenSpecs.map(([label, value]) => ({ label, value })),
+      footerNote: fassadenFooterNote,
+    },
   },
 ];
 
@@ -53,6 +95,24 @@ const fadeInUp = {
 };
 
 export default function Services() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenIndex(null);
+    };
+    document.addEventListener('keydown', onKey);
+    const original = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = original;
+    };
+  }, [openIndex]);
+
+  const active = openIndex !== null ? services[openIndex] : null;
+
   return (
     <section id="leistungen" className="section-padding bg-white">
       <div className="container-width">
@@ -92,7 +152,7 @@ export default function Services() {
             </p>
             <p className="mt-3 text-base text-gray-600 sm:text-lg">
               Von umfassenden W&auml;rmebildaufnahmen mit Bericht bis hin zu
-              Reinigungsdiensten bis zu 100 Meter H&ouml;he &ndash; Geb&auml;ude und Hallen,
+              Reinigungsdiensten bis zu 150 Meter H&ouml;he &ndash; Geb&auml;ude und Hallen,
               egal ob Glasfl&auml;chen, Metallkonstruktionen oder
               Au&szlig;enfassaden mit unterschiedlichsten Betonstrukturen.
             </p>
@@ -156,8 +216,11 @@ export default function Services() {
                   className="mt-2 text-sm leading-relaxed text-gray-600"
                   dangerouslySetInnerHTML={{ __html: service.description }}
                 />
-                <Link
-                  href="/kontakt"
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(index)}
+                  aria-haspopup="dialog"
+                  aria-expanded={openIndex === index}
                   className="mt-4 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
                 >
                   Mehr erfahren
@@ -174,12 +237,81 @@ export default function Services() {
                       d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                     />
                   </svg>
-                </Link>
+                </button>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {active && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="service-detail-title"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+        >
+          <button
+            type="button"
+            aria-label="Schließen"
+            onClick={() => setOpenIndex(null)}
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          />
+          <div className="relative z-10 w-full max-w-2xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div className="flex items-start justify-between gap-4 border-b border-gray-100 px-6 py-4 sm:px-8">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+                  {active.icon}
+                </div>
+                <h3
+                  id="service-detail-title"
+                  className="text-lg font-bold text-gray-900 sm:text-xl"
+                >
+                  {active.title}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setOpenIndex(null)}
+                aria-label="Schließen"
+                className="rounded-full p-1.5 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-700"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="max-h-[70vh] space-y-4 overflow-y-auto px-6 py-6 text-sm leading-relaxed text-gray-700 sm:px-8 sm:text-base">
+              {active.details.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+              {active.details.extraParagraph && (
+                <p>{active.details.extraParagraph}</p>
+              )}
+              {active.details.specs && (
+                <ul className="rounded-xl bg-gray-50 p-4 text-sm sm:p-5">
+                  {active.details.specs.map((spec) => (
+                    <li
+                      key={spec.label}
+                      className="flex flex-col gap-0.5 border-b border-gray-200 py-2 last:border-0 sm:flex-row sm:justify-between sm:gap-4"
+                    >
+                      <span className="font-semibold text-gray-900">
+                        {spec.label}
+                      </span>
+                      <span className="text-gray-700">{spec.value}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {active.details.footerNote && (
+                <p className="text-sm italic text-gray-600">
+                  {active.details.footerNote}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
