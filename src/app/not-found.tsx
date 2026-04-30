@@ -339,31 +339,31 @@ export default function NotFound() {
     return () => timeouts.forEach(clearTimeout);
   }, []);
 
-  // Drone position per stage (left%, top%)
-  const dronePos: Record<Stage, { left: string; top: string }> = {
-    enter: { left: '50%', top: '120%' },
-    goLeft: { left: '50%', top: '8%' },
-    cleanLeft: { left: '25%', top: '12%' },
-    goRight: { left: '25%', top: '12%' },
-    cleanRight: { left: '75%', top: '12%' },
-    finalSweep: { left: '75%', top: '12%' },
-    exit: { left: '50%', top: '8%' },
-    done: { left: '50%', top: '-110%' },
-  };
-  // For a smoother feel, transitions reflect the *next* state's position
-  // We map current `stage` → that stage's target position
-  const target = dronePos[stage];
-  const dronePosCurrent =
+  // Drone position per stage — drone SWEEPS during clean stages so the spray
+  // travels in lockstep with the dirty-layer wipe direction.
+  // cleanLeft: drone moves x: 15% → 50% (matches wipe left-edge → center)
+  // cleanRight: drone moves x: 85% → 50% (matches wipe right-edge → center)
+  const dronePosCurrent: { left: string; top: string } =
     stage === 'enter' ? { left: '50%', top: '8%' } :
-    stage === 'goLeft' ? { left: '25%', top: '12%' } :
-    stage === 'cleanLeft' ? { left: '25%', top: '12%' } :
-    stage === 'goRight' ? { left: '75%', top: '12%' } :
-    stage === 'cleanRight' ? { left: '75%', top: '12%' } :
-    stage === 'finalSweep' ? { left: '50%', top: '10%' } :
+    stage === 'goLeft' ? { left: '15%', top: '12%' } :
+    stage === 'cleanLeft' ? { left: '50%', top: '12%' } :
+    stage === 'goRight' ? { left: '85%', top: '12%' } :
+    stage === 'cleanRight' ? { left: '50%', top: '12%' } :
+    stage === 'finalSweep' ? { left: '50%', top: '14%' } :
     stage === 'exit' ? { left: '50%', top: '-110%' } :
-    target;
+    { left: '50%', top: '-110%' };
 
   const showSpray = stage === 'cleanLeft' || stage === 'cleanRight' || stage === 'finalSweep';
+  const showHose = stage !== 'enter' && stage !== 'exit' && stage !== 'done';
+
+  // Hose path (bottom-center water source → drone body bottom).
+  // dx,dy in 0–100 viewBox units (% of stage).
+  const dx = parseFloat(dronePosCurrent.left);
+  const dyTop = parseFloat(dronePosCurrent.top); // drone wrapper top
+  // Hose attaches to the drone body, roughly 22% below its top edge.
+  const dy = dyTop + 22;
+  const cy1 = Math.max(dy + 22, 60);
+  const hosePath = `M ${dx} ${dy} C ${dx} ${cy1}, 50 88, 50 100`;
 
   // Dirty layer wipes — once cleaned, STAYS cleaned for the rest of the sequence
   const leftClipDone = ['goRight', 'cleanRight', 'finalSweep', 'exit', 'done'].includes(stage);
@@ -420,6 +420,58 @@ export default function NotFound() {
               <PVPanelDirty />
             </motion.div>
 
+            {/* Water hose — connects drone body to bottom-center water source */}
+            <AnimatePresence>
+              {showHose && (
+                <motion.svg
+                  key="hose"
+                  className="pointer-events-none absolute inset-0 h-full w-full"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {/* Hose shadow */}
+                  <motion.path
+                    d={hosePath}
+                    animate={{ d: hosePath }}
+                    transition={{ duration: STAGE_DURATIONS[stage] / 1000, ease: 'easeInOut' }}
+                    stroke="#020617"
+                    strokeWidth={5}
+                    strokeLinecap="round"
+                    fill="none"
+                    vectorEffect="non-scaling-stroke"
+                    opacity={0.4}
+                  />
+                  {/* Hose body */}
+                  <motion.path
+                    d={hosePath}
+                    animate={{ d: hosePath }}
+                    transition={{ duration: STAGE_DURATIONS[stage] / 1000, ease: 'easeInOut' }}
+                    stroke="#1e293b"
+                    strokeWidth={4}
+                    strokeLinecap="round"
+                    fill="none"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                  {/* Hose highlight */}
+                  <motion.path
+                    d={hosePath}
+                    animate={{ d: hosePath }}
+                    transition={{ duration: STAGE_DURATIONS[stage] / 1000, ease: 'easeInOut' }}
+                    stroke="#475569"
+                    strokeWidth={1.2}
+                    strokeLinecap="round"
+                    fill="none"
+                    vectorEffect="non-scaling-stroke"
+                    opacity={0.65}
+                  />
+                </motion.svg>
+              )}
+            </AnimatePresence>
+
             {/* Final-sweep wet shimmer line */}
             {(stage === 'cleanLeft' || stage === 'cleanRight' || stage === 'finalSweep') && (
               <motion.div
@@ -450,30 +502,37 @@ export default function NotFound() {
             {/* Cleaned message — fades in after wipe done */}
             <AnimatePresence>
               {stage === 'done' && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2, type: 'spring', stiffness: 130 }}
-                  className="absolute inset-0 flex items-center justify-center px-6"
-                >
-                  <div className="flex w-full max-w-md flex-col items-center rounded-2xl bg-white/92 px-6 py-6 text-center shadow-lg backdrop-blur-sm sm:px-8 sm:py-7">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6">
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.92 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.55, delay: 0.15, type: 'spring', stiffness: 130 }}
+                    className="rounded-2xl bg-white px-6 py-4 shadow-xl ring-1 ring-slate-200"
+                  >
                     <Image
                       src="/skytech-logo-mark.png"
                       alt="Skytech Solutions"
                       width={3052}
                       height={638}
-                      className="mx-auto h-10 w-auto sm:h-14"
+                      className="h-12 w-auto sm:h-16"
                       priority
                     />
-                    <p className="mt-4 text-base font-semibold text-gray-900 sm:text-lg">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.55 }}
+                    className="max-w-md rounded-2xl bg-white px-6 py-4 text-center shadow-xl ring-1 ring-slate-200"
+                  >
+                    <p className="text-base font-semibold text-gray-900 sm:text-lg">
                       Diese Seite wurde gerade frisch gereinigt.
                     </p>
                     <p className="mt-1.5 text-sm text-gray-600 sm:text-base">
                       So gründlich reinigt Skytech Solutions auch Ihre
                       Photovoltaikanlage – mit Drohnentechnologie bis 150 m Höhe.
                     </p>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               )}
             </AnimatePresence>
 
