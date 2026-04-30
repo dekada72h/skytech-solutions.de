@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: { params: { city: string } })
     title: c.metaTitle,
     description: c.metaDescription,
     keywords: c.keywords,
-    alternates: { canonical: `https://skytech-solutions.de/pv-reinigung/${c.slug}` },
+    alternates: { canonical: `https://skytech-solutions.de/standorte/${c.slug}` },
     openGraph: {
       title: c.metaTitle,
       description: c.metaDescription,
-      url: `https://skytech-solutions.de/pv-reinigung/${c.slug}`,
+      url: `https://skytech-solutions.de/standorte/${c.slug}`,
       type: 'website',
     },
   };
@@ -44,10 +44,10 @@ export default function CityPage({ params }: { params: { city: string } }) {
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': `https://skytech-solutions.de/pv-reinigung/${c.slug}#business`,
+    '@id': `https://skytech-solutions.de/standorte/${c.slug}#business`,
     name: `Skytech Solutions — PV-Reinigung ${c.name}`,
     description: c.metaDescription,
-    url: `https://skytech-solutions.de/pv-reinigung/${c.slug}`,
+    url: `https://skytech-solutions.de/standorte/${c.slug}`,
     telephone: '+4915216991223',
     email: 'krzysztof@aeropro-inspekcje.pl',
     address: {
@@ -70,9 +70,9 @@ export default function CityPage({ params }: { params: { city: string } }) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://skytech-solutions.de' },
-      { '@type': 'ListItem', position: 2, name: 'PV-Reinigung', item: 'https://skytech-solutions.de/pv-reinigung' },
-      { '@type': 'ListItem', position: 3, name: regionInfo.name, item: `https://skytech-solutions.de/pv-reinigung/${c.region}` },
-      { '@type': 'ListItem', position: 4, name: c.name, item: `https://skytech-solutions.de/pv-reinigung/${c.slug}` },
+      { '@type': 'ListItem', position: 2, name: 'PV-Reinigung', item: 'https://skytech-solutions.de/standorte' },
+      { '@type': 'ListItem', position: 3, name: regionInfo.name, item: `https://skytech-solutions.de/standorte/${c.region}` },
+      { '@type': 'ListItem', position: 4, name: c.name, item: `https://skytech-solutions.de/standorte/${c.slug}` },
     ],
   };
 
@@ -98,9 +98,9 @@ export default function CityPage({ params }: { params: { city: string } }) {
           <nav className="mb-6 text-sm text-gray-500">
             <Link href="/" className="hover:text-primary-600">Start</Link>
             <span className="mx-2">/</span>
-            <Link href="/pv-reinigung" className="hover:text-primary-600">PV-Reinigung</Link>
+            <Link href="/standorte" className="hover:text-primary-600">PV-Reinigung</Link>
             <span className="mx-2">/</span>
-            <Link href={`/pv-reinigung/${c.region}`} className="hover:text-primary-600">{regionInfo.name}</Link>
+            <Link href={`/standorte/${c.region}`} className="hover:text-primary-600">{regionInfo.name}</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-900">{c.name}</span>
           </nav>
@@ -297,7 +297,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
                 return (
                   <Link
                     key={slug}
-                    href={`/pv-reinigung/${slug}`}
+                    href={`/standorte/${slug}`}
                     className="rounded-xl border border-gray-200 bg-white p-4 text-center transition-all hover:border-primary-300 hover:shadow-md"
                   >
                     <p className="font-semibold text-gray-900">{n.name}</p>
@@ -311,11 +311,11 @@ export default function CityPage({ params }: { params: { city: string } }) {
 
           {/* BACK LINKS */}
           <div className="text-center text-sm">
-            <Link href={`/pv-reinigung/${c.region}`} className="text-primary-600 hover:underline">
+            <Link href={`/standorte/${c.region}`} className="text-primary-600 hover:underline">
               ← Alle Standorte in {regionInfo.name}
             </Link>
             <span className="mx-3 text-gray-400">·</span>
-            <Link href="/pv-reinigung" className="text-primary-600 hover:underline">
+            <Link href="/standorte" className="text-primary-600 hover:underline">
               Alle Bundesländer
             </Link>
           </div>

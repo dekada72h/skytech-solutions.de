@@ -15,9 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/rechner/reinigungskosten', priority: 0.85, changefreq: 'monthly' as const },
     { path: '/rechner/amortisation', priority: 0.85, changefreq: 'monthly' as const },
     { path: '/rechner/roi-rechner', priority: 0.8, changefreq: 'monthly' as const },
-    { path: '/pv-reinigung', priority: 0.95, changefreq: 'monthly' as const },
-    { path: '/pv-reinigung/baden-wuerttemberg', priority: 0.92, changefreq: 'monthly' as const },
-    { path: '/pv-reinigung/bayern', priority: 0.9, changefreq: 'monthly' as const },
+    { path: '/standorte', priority: 0.95, changefreq: 'monthly' as const },
+    { path: '/standorte/baden-wuerttemberg', priority: 0.92, changefreq: 'monthly' as const },
+    { path: '/standorte/bayern', priority: 0.9, changefreq: 'monthly' as const },
     { path: '/ueber-uns', priority: 0.7, changefreq: 'yearly' as const },
     { path: '/faq', priority: 0.7, changefreq: 'monthly' as const },
     { path: '/kontakt', priority: 0.8, changefreq: 'yearly' as const },
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changefreq: 'monthly' as const,
   }));
   const cityRoutes = allCitySlugs().map((slug) => ({
-    path: `/pv-reinigung/${slug}`,
+    path: `/standorte/${slug}`,
     priority: 0.9,
     changefreq: 'monthly' as const,
   }));

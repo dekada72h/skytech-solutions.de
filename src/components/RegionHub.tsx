@@ -17,11 +17,11 @@ export default function RegionHub({ region, cities, info }: Props) {
     '@type': 'CollectionPage',
     name: `PV-Reinigung ${info.name}`,
     description: info.description,
-    url: `https://skytech-solutions.de/pv-reinigung/${region}`,
+    url: `https://skytech-solutions.de/standorte/${region}`,
     hasPart: cities.map((c) => ({
       '@type': 'WebPage',
       name: `PV-Reinigung ${c.name}`,
-      url: `https://skytech-solutions.de/pv-reinigung/${c.slug}`,
+      url: `https://skytech-solutions.de/standorte/${c.slug}`,
     })),
   };
 
@@ -30,8 +30,8 @@ export default function RegionHub({ region, cities, info }: Props) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Startseite', item: 'https://skytech-solutions.de' },
-      { '@type': 'ListItem', position: 2, name: 'PV-Reinigung', item: 'https://skytech-solutions.de/pv-reinigung' },
-      { '@type': 'ListItem', position: 3, name: info.name, item: `https://skytech-solutions.de/pv-reinigung/${region}` },
+      { '@type': 'ListItem', position: 2, name: 'PV-Reinigung', item: 'https://skytech-solutions.de/standorte' },
+      { '@type': 'ListItem', position: 3, name: info.name, item: `https://skytech-solutions.de/standorte/${region}` },
     ],
   };
 
@@ -45,7 +45,7 @@ export default function RegionHub({ region, cities, info }: Props) {
           <nav className="mb-6 text-sm text-gray-500">
             <Link href="/" className="hover:text-primary-600">Start</Link>
             <span className="mx-2">/</span>
-            <Link href="/pv-reinigung" className="hover:text-primary-600">PV-Reinigung</Link>
+            <Link href="/standorte" className="hover:text-primary-600">PV-Reinigung</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-900">{info.name}</span>
           </nav>
@@ -64,7 +64,7 @@ export default function RegionHub({ region, cities, info }: Props) {
             {sorted.map((c) => (
               <Link
                 key={c.slug}
-                href={`/pv-reinigung/${c.slug}`}
+                href={`/standorte/${c.slug}`}
                 className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl"
               >
                 <div className="mb-3 flex items-baseline justify-between">
@@ -90,7 +90,7 @@ export default function RegionHub({ region, cities, info }: Props) {
           <BlogTeaser />
 
           <div className="mx-auto mt-8 text-center">
-            <Link href="/pv-reinigung" className="text-sm text-primary-600 hover:underline">
+            <Link href="/standorte" className="text-sm text-primary-600 hover:underline">
               ← Alle Bundesländer ansehen
             </Link>
           </div>

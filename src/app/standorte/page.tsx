@@ -5,11 +5,11 @@ import PublicShell from '@/components/PublicShell';
 import BlogTeaser from '@/components/BlogTeaser';
 
 export const metadata: Metadata = {
-  title: 'PV-Reinigung in Süddeutschland | 14 Standorte | Skytech Solutions',
+  title: 'Unsere Standorte – PV- und Fassadenreinigung in Süddeutschland | Skytech Solutions',
   description:
-    'PV-Reinigung in Baden-Württemberg und Bayern: 14 Städte, regionale Hubs, drohnengestützte Reinigung mit Festpreis und Foto-Dokumentation. Wählen Sie Ihre Region.',
-  keywords: ['PV-Reinigung Standorte', 'Photovoltaik-Reinigung Baden-Württemberg', 'PV-Reinigung Bayern', 'Solaranlagen Reinigung Süddeutschland'],
-  alternates: { canonical: 'https://skytech-solutions.de/pv-reinigung' },
+    'PV-Reinigung und Fassadenreinigung in Baden-Württemberg und Bayern: 14 Städte, regionale Hubs, drohnengestützte Verfahren mit Festpreis und Foto-Dokumentation. Wählen Sie Ihre Region.',
+  keywords: ['Standorte Skytech', 'PV-Reinigung Baden-Württemberg', 'Fassadenreinigung Bayern', 'Drohnenreinigung Süddeutschland'],
+  alternates: { canonical: 'https://skytech-solutions.de/standorte' },
 };
 
 export default function StandortHub() {
@@ -22,11 +22,11 @@ export default function StandortHub() {
     '@type': 'CollectionPage',
     name: 'Standorte für PV-Reinigung',
     description: 'Skytech Solutions bedient 14 Städte in Baden-Württemberg und Bayern.',
-    url: 'https://skytech-solutions.de/pv-reinigung',
+    url: 'https://skytech-solutions.de/standorte',
     hasPart: cities.map((c) => ({
       '@type': 'WebPage',
       name: `PV-Reinigung ${c.name}`,
-      url: `https://skytech-solutions.de/pv-reinigung/${c.slug}`,
+      url: `https://skytech-solutions.de/standorte/${c.slug}`,
     })),
   };
 
@@ -41,20 +41,20 @@ export default function StandortHub() {
               📍 14 Standorte · 2 Bundesländer
             </span>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              PV-Reinigung in <span className="text-primary-600">Süddeutschland</span>
+              Unsere <span className="text-primary-600">Standorte</span> in Süddeutschland
             </h1>
             <p className="mt-6 text-lg text-gray-600">
               Wir bedienen Baden-Württemberg und das angrenzende Bayern mit professioneller
-              Photovoltaik-Reinigung. Wählen Sie Ihre Region oder direkt Ihre Stadt — jede
-              Standort-Seite enthält regional angepasste Hinweise zu Klima, Verschmutzung,
-              Wartungs-Intervallen und realistische Preise.
+              <strong> Photovoltaik- und Fassadenreinigung</strong>. Wählen Sie Ihre Region
+              oder direkt Ihre Stadt — jede Standort-Seite enthält regional angepasste Hinweise
+              zu Klima, Verschmutzung, Wartungs-Intervallen und realistische Preise.
             </p>
           </div>
 
           {/* REGIONAL HUBS — primary navigation */}
           <div className="mx-auto mb-16 grid max-w-4xl gap-6 md:grid-cols-2">
             <Link
-              href="/pv-reinigung/baden-wuerttemberg"
+              href="/standorte/baden-wuerttemberg"
               className="group rounded-2xl border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-white p-8 shadow-md transition-all hover:-translate-y-1 hover:border-primary-400 hover:shadow-xl"
             >
               <p className="text-xs font-semibold uppercase tracking-wider text-primary-700">Bundesland</p>
@@ -65,7 +65,7 @@ export default function StandortHub() {
               </p>
             </Link>
             <Link
-              href="/pv-reinigung/bayern"
+              href="/standorte/bayern"
               className="group rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-white p-8 shadow-md transition-all hover:-translate-y-1 hover:border-amber-400 hover:shadow-xl"
             >
               <p className="text-xs font-semibold uppercase tracking-wider text-amber-700">Bundesland</p>
@@ -84,7 +84,7 @@ export default function StandortHub() {
               {sorted.map((c) => (
                 <Link
                   key={c.slug}
-                  href={`/pv-reinigung/${c.slug}`}
+                  href={`/standorte/${c.slug}`}
                   className="rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-primary-300 hover:shadow-md"
                 >
                   <div className="flex items-baseline justify-between">

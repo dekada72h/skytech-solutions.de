@@ -138,7 +138,7 @@ function ServiceAreas() {
               {bw.map((slug) => (
                 <Link
                   key={slug}
-                  href={`/pv-reinigung/${slug}`}
+                  href={`/standorte/${slug}`}
                   className="rounded-full border border-gray-200 bg-white px-3.5 py-1.5 text-sm font-medium text-gray-700 transition-all hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
                 >
                   PV-Reinigung {labels[slug]}
@@ -146,7 +146,7 @@ function ServiceAreas() {
               ))}
             </div>
             <Link
-              href="/pv-reinigung/baden-wuerttemberg"
+              href="/standorte/baden-wuerttemberg"
               className="mt-5 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
             >
               Alle Standorte in BW
@@ -172,7 +172,7 @@ function ServiceAreas() {
               {by.map((slug) => (
                 <Link
                   key={slug}
-                  href={`/pv-reinigung/${slug}`}
+                  href={`/standorte/${slug}`}
                   className="rounded-full border border-gray-200 bg-white px-3.5 py-1.5 text-sm font-medium text-gray-700 transition-all hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
                 >
                   PV-Reinigung {labels[slug]}
@@ -180,7 +180,7 @@ function ServiceAreas() {
               ))}
             </div>
             <Link
-              href="/pv-reinigung/bayern"
+              href="/standorte/bayern"
               className="mt-5 inline-flex items-center text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700"
             >
               Alle Standorte in Bayern

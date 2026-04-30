@@ -93,7 +93,7 @@ export default function Footer() {
               {topStandorte.map((s) => (
                 <li key={s.slug}>
                   <Link
-                    href={`/pv-reinigung/${s.slug}`}
+                    href={`/standorte/${s.slug}`}
                     className="text-sm text-gray-600 transition-colors hover:text-primary-600"
                   >
                     PV-Reinigung {s.label}
@@ -102,7 +102,7 @@ export default function Footer() {
               ))}
               <li className="pt-1">
                 <Link
-                  href="/pv-reinigung"
+                  href="/standorte"
                   className="text-xs font-semibold text-primary-600 hover:underline"
                 >
                   Alle 14 Standorte →

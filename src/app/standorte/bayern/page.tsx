@@ -7,11 +7,11 @@ const REGION = 'bayern' as const;
 export const metadata: Metadata = {
   title: REGION_DATA[REGION].metaTitle,
   description: REGION_DATA[REGION].metaDescription,
-  alternates: { canonical: `https://skytech-solutions.de/pv-reinigung/${REGION}` },
+  alternates: { canonical: `https://skytech-solutions.de/standorte/${REGION}` },
   openGraph: {
     title: REGION_DATA[REGION].metaTitle,
     description: REGION_DATA[REGION].metaDescription,
-    url: `https://skytech-solutions.de/pv-reinigung/${REGION}`,
+    url: `https://skytech-solutions.de/standorte/${REGION}`,
   },
 };
 

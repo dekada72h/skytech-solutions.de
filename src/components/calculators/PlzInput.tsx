@@ -62,7 +62,7 @@ export default function PlzInput({ onPreset }: Props) {
             Anfahrt {matchedCity.distanceFromUlmKm === 0 ? 'lokal' : `${matchedCity.distanceFromUlmKm} km / ${matchedCity.driveTimeMin} Min.`}
           </p>
           <Link
-            href={`/pv-reinigung/${matchedCity.slug}`}
+            href={`/standorte/${matchedCity.slug}`}
             className="mt-1 inline-block font-semibold text-emerald-700 underline hover:text-emerald-900"
           >
             → Standort-Seite für {matchedCity.name} ansehen
