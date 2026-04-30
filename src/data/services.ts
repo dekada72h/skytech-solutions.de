@@ -1,3 +1,10 @@
+// ─────────────────────────────────────────────────────────────────────────
+// data/services.ts — single source of truth dla 3 oferowanych usług.
+// Używany przez Services.tsx (karty na stronie głównej + /leistungen),
+// /leistungen/[slug]/page.tsx (pełne podstrony) i sitemap.ts.
+// Każda usługa ma: hero, intro, technologię DCS, specs, use-cases,
+// proces, vorher/nachher, FAQ — wszystko w jednym miejscu.
+// ─────────────────────────────────────────────────────────────────────────
 export type ServiceSlug =
   | 'solarpark-reinigung'
   | 'dachanlagen-reinigung'
@@ -44,6 +51,8 @@ export interface ServiceData {
   badge?: string;
 }
 
+// 3-paragrafowy opis technologii DCS X1 PRO + DJI Matrice 400.
+// Identyczny dla wszystkich 3 usług — DRY. Używany w sekcji "Technologie".
 const dcsBaseTechnology = [
   'Wir basieren auf einer umfassenden Pumpen- und Wasseraufbereitungs­technologie der Firma DCS (Drone Cleaning Solutions), die mit modernster Drohnentechnologie integriert ist. Dank unserer gesammelten Erfahrung wurden die DCS-Lösungen mit den neuesten, auf dem internationalen Markt verfügbaren Technologien im Bereich der Reinigung und Pflege von Photovoltaikmodulen sowie Gebäudefassaden unterschiedlichster Struktur kombiniert.',
   'Die Lösungen, auf denen unsere Tätigkeit basiert, sind sicher, effizient und wirtschaftlich. Sie sind sowohl umweltfreundlich als auch sicher für den Menschen und lassen sich flexibel an unterschiedliche Projekte und Arbeits­bedingungen anpassen. Unsere eingesetzten Systeme wurden speziell für den Einsatz an großen und schwer zugänglichen Objekten entwickelt, bei denen herkömmliche Methoden eine aufwendige Logistik und Arbeiten in großen Höhen erfordern.',
@@ -356,6 +365,8 @@ export const services: ServiceData[] = [
   },
 ];
 
+// Helper — znajdź usługę po slug. Zwraca undefined jeśli nie ma → caller
+// woła notFound() z next/navigation żeby wyświetlić stronę 404.
 export function getServiceBySlug(slug: string): ServiceData | undefined {
   return services.find((s) => s.slug === slug);
 }

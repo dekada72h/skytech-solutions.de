@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// BlogTeaser — sekcja "Mehr aus unserer Wissensbasis": 3 wybrane artykuły
+// blogowe. Domyślnie pillar + 2 najnowsze, opcjonalnie preferSlugs do
+// ręcznego wyboru. Używane na /leistungen, /ueber-uns, w podstronach
+// artykułów. Wzmacnia internal linking + zatrzymuje czytelnika na stronie.
+// ─────────────────────────────────────────────────────────────────────────
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog';
 

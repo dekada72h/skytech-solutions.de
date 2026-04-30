@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Process — sekcja "So läuft Ihre PV-Reinigung ab" — 4 kroki obsługi:
+// 01 Inspektion → 02 Festpreisangebot 24h → 03 Reinigung → 04 Foto-Bericht.
+// Każdy krok = numer + ikona SVG + opis. Buduje zaufanie i transparentność.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion } from 'framer-motion';

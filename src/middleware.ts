@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// middleware.ts — Next.js middleware uruchamiany przed renderingiem
+// każdego requestu pasującego do `matcher`. Tu chroni ścieżki /admin/*
+// (wymaga zalogowania jako ADMIN/PARTNER) oraz przekierowuje już
+// zalogowanych z /login na /admin.
+// ─────────────────────────────────────────────────────────────────────────
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { auth } from '@/lib/auth';

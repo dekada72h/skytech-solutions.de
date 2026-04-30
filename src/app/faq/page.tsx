@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /faq — strona z często zadawanymi pytaniami. Wyświetla cały komponent
+// FAQ (akordeon) + finalne CTA. Schema FAQPage jest w globalnym layout.tsx.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import FAQ from '@/components/FAQ';

@@ -1,3 +1,11 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Contact — komponent strony /kontakt. Zawiera:
+//  • Formularz kontaktowy (POST /api/contact)
+//  • Karty z adresem, telefonem, e-mailem (kliknij = tel:/mailto:)
+//  • Pre-fill formularza z URL params (np. ?service=fassaden&kwp=30)
+//    — używane przy linkowaniu z rechnerów lub podstron usług
+// useSearchParams musi być w Suspense (Next 14 wymaganie).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion } from 'framer-motion';

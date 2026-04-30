@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// PageLayout — wrapper dla większości podstron content-owych.
+// Renderuje Navbar + hero z tytułem + subtitle, children jako content,
+// na końcu Footer. Używany przez /leistungen, /ueber-uns, /faq, /kontakt.
+// Hero ma niebieski gradient + animowany dotted pattern.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion } from 'framer-motion';

@@ -1,3 +1,7 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /kontakt — strona kontaktowa. Renderuje PageLayout z hero + komponent
+// Contact (formularz + dane kontaktowe). Domyślny CTA na całej witrynie.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import PageLayout from '@/components/PageLayout';
 import Contact from '@/components/Contact';

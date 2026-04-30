@@ -1,3 +1,10 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /ueber-uns — pełna strona "O nas". Sekcje: Mission, animowane statystyki
+// (4+ Jahre, 150 m, 14 Standorte, 2000 m²/h), Origin Story (Memmingen 2021),
+// 4 Werte (zasady firmy), Standort + kontakt + Servicezeiten,
+// Versicherung & Genehmigungen (6 kart), WhyUs, Trust, Closing-Statement,
+// BlogTeaser i CTA. Schema AboutPage połączona z LocalBusiness przez @id.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';

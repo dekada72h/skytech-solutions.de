@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// TiltCard — efekt 3D tiltu (do 6° rotacji) gdy kursor najedzie na kartę.
+// Kursor po lewej → karta przechyla się w prawo; góra → przechyla w dół.
+// Używane na kartach usług na stronie głównej + /leistungen.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import {
@@ -27,6 +32,8 @@ export default function TiltCard({ children, className, max = 6 }: Props) {
     return <div className={className}>{children}</div>;
   }
 
+  // Mapuje pozycję kursora w obrębie karty na rotateX/rotateY,
+  // useSpring wygładza ruch (efekt "płynnego magnesu" zamiast skoków).
   function onMove(e: MouseEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
     x.set((e.clientX - rect.left) / rect.width - 0.5);

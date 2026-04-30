@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// STRONA GŁÓWNA (/) — łączy wszystkie kluczowe sekcje firmy w jedną długą
+// stronę: Hero → Usługi → "Dlaczego my" → Proces → Drohne vs Gerüst →
+// Einsatzgebiete (regiony) → FAQ → BlogTeaser → CTA.
+// Server component, ale używa client-component'ów (Hero, Services, etc.).
+// ─────────────────────────────────────────────────────────────────────────
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -9,7 +15,9 @@ import BlogTeaser from '@/components/BlogTeaser';
 import CTA from '@/components/CTA';
 import AnimatedCounter from '@/components/animations/AnimatedCounter';
 
-// Drohne vs. Gerüst — comparison table for SEO + conversion
+// ── DroneVsScaffold — sekcja porównawcza Drohne kontra Gerüst.
+//    8 wierszy tabeli z konkretnymi argumentami konwersyjnymi (czas, koszt,
+//    ryzyko, ekologia). Mocne SEO-słowa kluczowe + łatwy do skanowania content.
 function DroneVsScaffold() {
   const rows = [
     { label: 'Aufbauzeit', drone: 'Sofort einsatzbereit', scaffold: '1–3 Tage Auf- und Abbau' },
@@ -70,7 +78,10 @@ function DroneVsScaffold() {
   );
 }
 
-// Einsatzgebiete — regions + city links for local SEO
+// ── ServiceAreas — sekcja "Einsatzgebiete" (obszary obsługi).
+//    Dwa kafelki (BW + Bayern) z 14 linkami do podstron miast.
+//    Bezpośrednie internal-link dla lokalnego SEO ("PV-Reinigung Stuttgart"
+//    itp.) i nawigacji do Standort-Hub.
 function ServiceAreas() {
   const bw = [
     'ulm',
@@ -203,7 +214,9 @@ function ServiceAreas() {
   );
 }
 
-// Compact trust/about preview for homepage
+// ── AboutPreview — krótka sekcja "Warum Skytech" + 4 kafelki ze statystykami.
+//    Liczby (30%, 24h, 150 m, 100%) odpalają animację AnimatedCounter
+//    (count-up od 0 do wartości docelowej, gdy sekcja wjeżdża w viewport).
 function AboutPreview() {
   const highlights: { value: React.ReactNode; label: string }[] = [
     { value: <AnimatedCounter to={30} suffix="%" />, label: 'Mehr Ertrag' },
@@ -269,6 +282,9 @@ function AboutPreview() {
   );
 }
 
+// ── Home — główny eksport strony "/". Składa wszystkie sekcje w pionową
+//    sekwencję. Kolejność celowa: hook (Hero) → oferta (Services) → zaufanie
+//    (AboutPreview) → proces → porównanie → SEO (Areas+FAQ) → blog → CTA.
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">

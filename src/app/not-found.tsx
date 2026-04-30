@@ -1,3 +1,11 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /404 (not-found.tsx) — niestandardowa strona 404 z animacją drona.
+// Animacja w fazach: dron wlatuje od dołu → przesuwa się w lewo → myje
+// lewą połowę brudnego panelu PV → leci w prawo → myje prawą → finalny
+// sweep → wylatuje w górę. Spod brudnej warstwy wyłania się czysty panel
+// + komunikat + logo Skytech. Wąż wodny rysowany jako SVG path łączący
+// dron z dolnej krawędzi (źródło wody), aktualizuje się dynamicznie.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -7,6 +15,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+// Stage = faza animacji. useEffect przełącza je sekwencyjnie wg STAGE_DURATIONS.
 type Stage =
   | 'enter'
   | 'goLeft'
@@ -40,7 +49,10 @@ const STAGE_ORDER: Stage[] = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Front-view industrial drone (DJI Matrice-inspired) with belly spray nozzle
+// DroneSVG — front-view dron inspirowany DJI Matrice 300/350 RTK:
+// gradientowy korpus, gimbal kamery z lensem, anteny RTK, A-frame
+// landing gear, dysza zraszająca pod brzuchem. Wszystkie elementy
+// stylowane gradientami SVG (defs → linearGradient/radialGradient).
 // ─────────────────────────────────────────────────────────────────────────────
 function DroneSVG() {
   const Arm = ({ side }: { side: 'left' | 'right' }) => {
@@ -215,7 +227,9 @@ function DroneSVG() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Downward water spray + cone glow
+// WaterSpray — strumień wody w dół z dyszy + niebieski cone-glow.
+// 22 niebieskich kropli rozsianych w stożku, każda z infinite loop
+// (animacja x/y/opacity) — daje efekt ciągłego rozpylania.
 // ─────────────────────────────────────────────────────────────────────────────
 function WaterSpray() {
   const drops = Array.from({ length: 22 });
@@ -258,7 +272,9 @@ function WaterSpray() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PV panel (clean, underneath) — 6×4 cell grid with busbar fingers
+// PVPanelClean — czysty panel PV: 6×4 ogniwa krzemowe (deep blue
+// gradient + busbar w środku każdego ogniwa). Renderowany pod
+// brudną warstwą — odsłania się gdy dron zmywa.
 // ─────────────────────────────────────────────────────────────────────────────
 function PVPanelClean() {
   const cells = Array.from({ length: 24 });

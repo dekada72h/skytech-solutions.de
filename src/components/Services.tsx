@@ -1,3 +1,10 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Services — sekcja "Unsere Leistungen" (3 karty usług + blok "Rund um
+// das Thema"). Karty: Solarpark / Dachanlagen / Fassaden — każda linkuje
+// do dedykowanej podstrony /leistungen/[slug]. Karty mają TiltCard
+// (3D efekt pochylania na hover) i obrazki z zoom-in efektem.
+// Treść kart pochodzi z `src/data/services.ts` (single source of truth).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion } from 'framer-motion';
@@ -6,6 +13,8 @@ import Link from 'next/link';
 import { services } from '@/data/services';
 import TiltCard from '@/components/animations/TiltCard';
 
+// Obrazki Unsplash dla każdej karty usługi (zewnętrzne, ładowane lazy
+// przez next/image z `unoptimized: true` w konfigu).
 const cardImages: Record<string, string> = {
   'solarpark-reinigung':
     'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&h=400&fit=crop',

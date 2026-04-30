@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// FAQ — sekcja "Häufig gestellte Fragen". Lista 7 pytań w accordionie
+// (rozwija się po kliknięciu). Pytania pokrywają najczęstsze obawy klienta:
+// koszty, częstotliwość, bezpieczeństwo modułów, regiony obsługi, etc.
+// Schema FAQPage jest osobno wstrzyknięta w layout.tsx (rich snippets).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState } from 'react';
@@ -46,6 +52,8 @@ const faqs = [
   },
 ];
 
+// Pojedyncze pytanie z animowanym rozwijaniem odpowiedzi
+// (AnimatePresence + motion.div height: auto/0).
 function FAQItem({
   question,
   answer,

@@ -1,3 +1,10 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /leistungen/[slug] — dynamiczne podstrony per usługa (solarpark-,
+// dachanlagen-, fassadenreinigung). generateStaticParams pre-renderuje
+// wszystkie 3 podstrony jako SSG. Każda zawiera: hero, intro, technologię
+// DCS, spec table, use-cases, proces, vorher/nachher, FAQ + 3 schemy
+// (BreadcrumbList, Service, FAQPage). Treść z `src/data/services.ts`.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -16,10 +23,13 @@ interface Params {
   params: { slug: string };
 }
 
+// generateStaticParams — Next.js wywołuje to przy buildzie i pre-renderuje
+// wszystkie 3 podstrony do statycznego HTML (SSG, brak runtime'u).
 export function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
 }
 
+// generateMetadata — dynamiczne meta-tagi per podstrona, brane z data/services.ts
 export function generateMetadata({ params }: Params): Metadata {
   const s = getServiceBySlug(params.slug);
   if (!s) return {};

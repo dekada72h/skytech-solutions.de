@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// LegalLayout — wrapper specyficznie dla stron prawnych (Impressum,
+// Datenschutz, AGB). Wąska kolumna max-w-3xl + prose-sm typografia,
+// żeby tekst legalny był łatwy do czytania.
+// ─────────────────────────────────────────────────────────────────────────
 import Navbar from './Navbar';
 import Footer from './Footer';
 

@@ -1,3 +1,12 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Navbar — sticky pasek nawigacyjny u góry każdej strony. Zawiera:
+//  • Logo Skytech Solutions (PNG, linkujące do "/")
+//  • 5 linków desktop: Leistungen / Rechner / Blog / Über uns / Kontakt
+//  • Każdy link ma efekt animowanego underline z lewej (CSS .link-underline)
+//  • Główne CTA "Angebot anfordern" w prawym rogu
+//  • Mobile menu (hamburger toggle przez useState)
+//  • Tło: białe półprzezroczyste + backdrop-blur (efekt szkła)
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { useState } from 'react';

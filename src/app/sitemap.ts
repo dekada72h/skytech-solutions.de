@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// sitemap.ts — Next.js generuje /sitemap.xml automatycznie z tego pliku.
+// Łączy: stałe routes (root + sekcje) + 3 podstrony usług + 14 miast +
+// 2 region hubs + wszystkie posty blogowe. Każdy URL ma priority i
+// changefrequency dla crawlerów.
+// ─────────────────────────────────────────────────────────────────────────
 import type { MetadataRoute } from 'next';
 import { allCitySlugs } from '@/data/cities';
 import { getAllSlugs } from '@/lib/blog';

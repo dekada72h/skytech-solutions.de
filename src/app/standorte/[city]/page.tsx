@@ -1,3 +1,10 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /standorte/[city] — dynamiczne podstrony per miasto (14 sztuk).
+// Każde miasto ma własny content (autorski, nie szablon!) z lokalnymi
+// danymi (klimat, populacja, dystans od Ulm), regionalnymi specyfikami
+// i SEO-keywordami. Pre-renderowane jako SSG przy buildzie.
+// Schemy: LocalBusiness (przez ID) + Service + BreadcrumbList.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -5,6 +12,7 @@ import { cities, cityBySlug, allCitySlugs, REGION_DATA } from '@/data/cities';
 import PublicShell from '@/components/PublicShell';
 import BlogTeaser from '@/components/BlogTeaser';
 
+// Lock: tylko 14 znanych miast → wszystko inne = 404
 export const dynamicParams = false;
 
 export async function generateStaticParams() {

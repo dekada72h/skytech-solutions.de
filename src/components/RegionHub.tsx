@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// RegionHub — wspólny komponent renderowany przez /standorte/baden-
+// wuerttemberg i /standorte/bayern. Pokazuje wszystkie miasta w danym
+// landzie z linkami do podstron + info o regionie. Wstrzykuje 2 schemy:
+// CollectionPage + BreadcrumbList. Na końcu BlogTeaser (powiązane artykuły).
+// ─────────────────────────────────────────────────────────────────────────
 import Link from 'next/link';
 import PublicShell from '@/components/PublicShell';
 import BlogTeaser from '@/components/BlogTeaser';

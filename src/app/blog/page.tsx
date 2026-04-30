@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /blog — strona indeksu bloga. Pobiera wszystkie posty z lib/blog.ts
+// (Markdown z frontmatter), wyświetla siatkę kart 3 kolumnowych z kategorią,
+// datą, czasem czytania i krótkim opisem. Schema Blog + listing wszystkich
+// BlogPosting dla rich snippets w Google.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PublicShell from '@/components/PublicShell';
@@ -11,6 +17,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://skytech-solutions.de/blog' },
 };
 
+// Etykiety + kolory dla 4 kategorii artykułów (frontmatter `category`).
+// Używane do kolorowania badge'a na karcie artykułu w listingu.
 const categoryLabels: Record<string, string> = {
   guide: 'Ratgeber',
   industry: 'Branche',

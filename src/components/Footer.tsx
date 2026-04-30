@@ -1,3 +1,11 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Footer — stopka, ten sam komponent na każdej stronie. Zawiera:
+//  • Logo + krótkie 1-zdaniowe opisanie firmy
+//  • 4 grupy linków: Leistungen / Unternehmen / Standorte / Rechtliches
+//  • Lista 6 najważniejszych miast (top Standorte) z linkami SEO
+//  • Copyright na dole
+// Wszystko statyczne, server-rendered.
+// ─────────────────────────────────────────────────────────────────────────
 import Link from 'next/link';
 import Image from 'next/image';
 

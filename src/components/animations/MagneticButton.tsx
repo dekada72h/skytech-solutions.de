@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// MagneticButton — wrapper dla przycisków/CTA. Gdy kursor zbliża się do
+// elementu, element delikatnie "ciągnie się" za kursorem (do `strength`
+// pikseli max). Daje efekt magnetyzmu i podkreśla interaktywność.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';

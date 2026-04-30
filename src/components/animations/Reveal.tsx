@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Reveal — uniwersalny wrapper "fade + slide-up gdy wjedzie w viewport".
+// Używany przez większość sekcji do scroll-triggered animacji.
+// Respektuje prefers-reduced-motion (osoby z włączoną redukcją animacji
+// dostają natychmiastowy widok bez żadnego ruchu).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion, useReducedMotion, type Variants, type HTMLMotionProps } from 'framer-motion';
@@ -38,6 +44,9 @@ export default function Reveal({
   );
 }
 
+// ── Pomocnicze warianty do animacji "stagger" (elementy listy pojawiają
+//    się po kolei z odstępem 70 ms). staggerContainer = rodzic, staggerItem
+//    = pojedynczy element do nadania potomkowi.
 export const staggerContainer = (childDelay = 0.07): Variants => ({
   hidden: {},
   show: { transition: { staggerChildren: childDelay, delayChildren: 0.05 } },

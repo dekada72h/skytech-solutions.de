@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /standorte — hub wszystkich 14 lokalizacji. Pokazuje 2 regiony (BW + BY)
+// + listę miast posortowaną po dystansie od Ulm-Einsingen. Schema
+// CollectionPage z hasPart linkującym do każdej podstrony miasta.
+// Treść z `src/data/cities.ts` (single source dla miast).
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { cities, citiesByRegion, REGION_DATA } from '@/data/cities';

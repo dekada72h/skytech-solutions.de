@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// PageTransition — wrapper renderowany w layout.tsx wokół całego content'u.
+// Przy każdej zmianie pathname (= przejście na inną podstronę) odpala
+// animację fade-in + slight slide-up. Klucz = pathname → React remontuje
+// element przy zmianie, framer-motion gra animację `initial → animate`.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';

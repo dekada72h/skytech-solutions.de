@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// AnimatedGradientMesh — animowane tło z 3 nakładających się radial-
+// gradientów (niebieski, indygo, sky-blue), które dryfują po sekcji w
+// powolnej 18-sekundowej pętli. Używane jako tło sekcji CTA — daje
+// "żywy" efekt bez ciężkich obrazów / wideo.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';

@@ -1,7 +1,9 @@
-/**
- * Standorte / Service-Städte für Skytech Solutions.
- * Each city has unique, authored content for SEO — no doorway-page templating.
- */
+// ─────────────────────────────────────────────────────────────────────────
+// data/cities.ts — single source dla 14 miast obsługiwanych przez firmę.
+// Każde miasto ma autorską treść (klimat, populacja, lokalne specyfiki) —
+// NIE szablon (doorway pages → karane przez Google). Używane przez
+// /standorte, /standorte/[city], /standorte/[region], Footer i sitemap.
+// ─────────────────────────────────────────────────────────────────────────
 
 import type { Environment } from '@/lib/calculators';
 

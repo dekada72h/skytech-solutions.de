@@ -1,9 +1,16 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /blog/[slug] — dynamiczne podstrony per artykuł blogowy. Pre-renderowane
+// wszystkie istniejące slugi (getAllSlugs), dynamicParams=false → 404 dla
+// nieznanych slug'ów. Każda podstrona generuje schemę BlogPosting +
+// FAQPage (jeśli artykuł ma sekcję faqs we frontmatterze).
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PublicShell from '@/components/PublicShell';
 import { getAllSlugs, getAllPosts, getPostBySlug } from '@/lib/blog';
 
+// false = nie generuj nieznanych ścieżek na żądanie (404 zamiast SSR)
 export const dynamicParams = false;
 
 export async function generateStaticParams() {

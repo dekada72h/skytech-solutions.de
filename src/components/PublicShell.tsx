@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// PublicShell — najprostszy wrapper z samym Navbar + Footer (bez hero).
+// Używany przez podstrony, które same definiują własny hero/banner —
+// /standorte, /standorte/[city], /blog/[slug], /rechner.
+// ─────────────────────────────────────────────────────────────────────────
 import Navbar from './Navbar';
 import Footer from './Footer';
 

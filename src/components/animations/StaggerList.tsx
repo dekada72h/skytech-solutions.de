@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// StaggerList — kontener dla list, w których elementy mają wjeżdżać po
+// kolei (animacja "schodkowa"). childDelay = czas między pojawieniem się
+// kolejnych dzieci (domyślnie 70 ms).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion, useReducedMotion, type Variants } from 'framer-motion';

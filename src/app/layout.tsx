@@ -1,7 +1,15 @@
+// ─────────────────────────────────────────────────────────────────────────
+// GŁÓWNY LAYOUT APLIKACJI (Next.js App Router) — wspólny dla każdej strony.
+// Tu siedzą: globalne metadane SEO, JSON-LD (schema.org), favicon,
+// otwarcie/zamknięcie <html>/<body> oraz wrapper PageTransition (fade
+// przy zmianie route'a).
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import './globals.css';
 import PageTransition from '@/components/animations/PageTransition';
 
+// ── METADATA — domyślne tagi SEO + Open Graph + Twitter + ikony.
+//    Dziedziczone przez wszystkie podstrony, każda może nadpisać własną.
 export const metadata: Metadata = {
   metadataBase: new URL('https://skytech-solutions.de'),
   title: {
@@ -77,7 +85,8 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD structured data for local business SEO
+// ── JSON-LD #1: LocalBusiness — adres, telefon, godziny otwarcia.
+//    Pomaga Google'owi pokazać firmę w lokalnych wynikach + Knowledge Panel.
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -127,6 +136,8 @@ const jsonLd = {
   ],
 };
 
+// ── JSON-LD #2: FAQPage — 5 najczęstszych pytań o czyszczenie PV.
+//    Daje rich snippets w SERP (rozwijalne pytania pod tytułem strony).
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -174,6 +185,8 @@ const faqJsonLd = {
   ],
 };
 
+// ── JSON-LD #3: Service @graph — 3 oferowane usługi powiązane z LocalBusiness
+//    przez @id. Pomaga Google'owi rozumieć zakres działalności.
 const servicesJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -213,6 +226,9 @@ const servicesJsonLd = {
   ],
 };
 
+// ── ROOTLAYOUT — wrapper renderowany wokół każdej podstrony.
+//    Wstrzykuje 3 bloki JSON-LD do <head> i opakowuje content w PageTransition
+//    (płynna animacja fade przy nawigacji między routami).
 export default function RootLayout({
   children,
 }: Readonly<{

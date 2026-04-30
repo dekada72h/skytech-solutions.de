@@ -1,3 +1,9 @@
+// ─────────────────────────────────────────────────────────────────────────
+// CTA — końcowa sekcja konwersyjna na końcu prawie każdej strony.
+// Niebieski gradient + animowana siatka radialnych gradientów w tle
+// (AnimatedGradientMesh) + 2 przyciski: główny "Kostenloses Angebot"
+// (z efektem magnetycznym) i secondary "Jetzt anrufen" (tel:).
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion } from 'framer-motion';

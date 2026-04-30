@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// WhyUs — sekcja "Warum Skytech?" — lista przewag konkurencyjnych:
+// DJI Drohnentechnologie, Kein Gerüst, Festpreise, Foto-Dokumentation.
+// Używana na /ueber-uns + jako argumentacja na podstronach.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion } from 'framer-motion';

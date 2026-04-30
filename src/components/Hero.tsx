@@ -1,3 +1,12 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Hero — pierwsza sekcja widoczna na stronie głównej. Ma:
+//  • Badge "Professionelle PV-Reinigung mit Drohnen"
+//  • Główny H1 z gradientowym akcentem ("Bis zu 30% mehr Ertrag")
+//  • 2 CTA (główne + secondary), główne owinięte w MagneticButton
+//  • 3 mini-fakty zaufania (Vollversichert, 100% umweltfreundlich, 24h)
+//  • Hero image z efektem parallax (przesuwa się wolniej niż scroll)
+//  • Pływającą kartę "+30% Ertrag"
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -6,6 +15,8 @@ import Link from 'next/link';
 import MagneticButton from '@/components/animations/MagneticButton';
 
 export default function Hero() {
+  // Parallax: przy scroll od 0 do 600px tło rusza się o 30 px,
+  // a obraz hero o 80 px — kreuje wrażenie "wielowarstwowości".
   const { scrollY } = useScroll();
   const heroImgY = useTransform(scrollY, [0, 600], [0, 80]);
   const heroBgY = useTransform(scrollY, [0, 600], [0, 30]);

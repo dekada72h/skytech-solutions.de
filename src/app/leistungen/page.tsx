@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// /leistungen — strona główna sekcji "Usługi". Pokazuje 3 karty usług
+// (Services), grid linkujący do podstron detali, proces obsługi (Process),
+// teaser do rechnerów, BlogTeaser i końcowe CTA.
+// ─────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageLayout from '@/components/PageLayout';

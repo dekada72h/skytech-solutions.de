@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Trust — sekcja "konkretne liczby" budujące zaufanie. Kafelki ze
+// statystykami (oszczędność wody, ertragssteigerung, ubezpieczenie).
+// Używana na /ueber-uns + innych stronach trust-building.
+// ─────────────────────────────────────────────────────────────────────────
 'use client';
 
 import { motion } from 'framer-motion';

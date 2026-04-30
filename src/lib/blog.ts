@@ -1,3 +1,10 @@
+// ─────────────────────────────────────────────────────────────────────────
+// lib/blog.ts — biblioteka do czytania artykułów blogowych z Markdown.
+// gray-matter parsuje frontmatter (--- ... ---), remark/remark-html
+// konwertuje treść markdown na HTML (z obsługą GFM — tabele, lists,
+// itp.). Funkcje: getAllSlugs(), getAllPosts(), getPostBySlug().
+// Wywoływane przy buildzie (SSG) — zero runtime'u w produkcji.
+// ─────────────────────────────────────────────────────────────────────────
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -26,6 +33,8 @@ export interface BlogPost extends BlogFrontmatter {
   contentHtml: string;
 }
 
+// Lista slug'ów wszystkich artykułów (= nazwy plików .md bez rozszerzenia).
+// Używane w generateStaticParams oraz w sitemap.ts.
 export function getAllSlugs(): string[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
   return fs.readdirSync(BLOG_DIR)
@@ -33,6 +42,8 @@ export function getAllSlugs(): string[] {
     .map((f) => f.replace(/\.md$/, ''));
 }
 
+// Wszystkie artykuły zsortowane od najnowszego (wg pola `date` w frontmatter).
+// Zwraca tylko frontmatter — bez treści HTML (lżejsze, dla listings).
 export function getAllPosts(): BlogFrontmatter[] {
   return getAllSlugs()
     .map((slug) => {
@@ -43,6 +54,8 @@ export function getAllPosts(): BlogFrontmatter[] {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
+// Pełny artykuł po slug — frontmatter + treść skompilowana do HTML.
+// Używane przez /blog/[slug]/page.tsx do renderingu pojedynczego artykułu.
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   const file = path.join(BLOG_DIR, `${slug}.md`);
   if (!fs.existsSync(file)) return null;
