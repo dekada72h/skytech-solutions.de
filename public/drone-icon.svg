@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+  <!-- Arms -->
+  <line x1="60" y1="78" x2="22" y2="46" />
+  <line x1="180" y1="78" x2="218" y2="46" />
+  <line x1="60" y1="78" x2="22" y2="110" />
+  <line x1="180" y1="78" x2="218" y2="110" />
+  <!-- Rotor housings -->
+  <circle cx="22" cy="46" r="6" fill="currentColor" />
+  <circle cx="218" cy="46" r="6" fill="currentColor" />
+  <circle cx="22" cy="110" r="6" fill="currentColor" />
+  <circle cx="218" cy="110" r="6" fill="currentColor" />
+  <!-- Rotor blades -->
+  <ellipse cx="22" cy="46" rx="22" ry="2.5" opacity="0.5" />
+  <ellipse cx="218" cy="46" rx="22" ry="2.5" opacity="0.5" />
+  <ellipse cx="22" cy="110" rx="22" ry="2.5" opacity="0.5" />
+  <ellipse cx="218" cy="110" rx="22" ry="2.5" opacity="0.5" />
+  <!-- Body -->
+  <rect x="60" y="58" width="120" height="40" rx="10" fill="currentColor" fill-opacity="0.12" />
+  <!-- Camera dome -->
+  <circle cx="100" cy="78" r="7" fill="currentColor" fill-opacity="0.3" />
+  <!-- Nozzle (front spray head, pointing right) -->
+  <rect x="180" y="72" width="34" height="12" rx="3" fill="currentColor" fill-opacity="0.25" />
+  <circle cx="218" cy="78" r="4" fill="currentColor" />
+  <!-- Skids -->
+  <line x1="80" y1="100" x2="80" y2="120" />
+  <line x1="160" y1="100" x2="160" y2="120" />
+  <line x1="72" y1="120" x2="168" y2="120" />
+</svg>
