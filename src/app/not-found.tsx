@@ -354,16 +354,18 @@ export default function NotFound() {
     { left: '50%', top: '-110%' };
 
   const showSpray = stage === 'cleanLeft' || stage === 'cleanRight' || stage === 'finalSweep';
-  const showHose = stage !== 'enter' && stage !== 'exit' && stage !== 'done';
+  const showHose = stage !== 'done';
 
   // Hose path (bottom-center water source → drone body bottom).
   // dx,dy in 0–100 viewBox units (% of stage).
   const dx = parseFloat(dronePosCurrent.left);
-  const dyTop = parseFloat(dronePosCurrent.top); // drone wrapper top
-  // Hose attaches to the drone body, roughly 22% below its top edge.
+  const dyTop = parseFloat(dronePosCurrent.top);
+  // Hose attaches ~22% below the drone wrapper's top edge (roughly the body).
   const dy = dyTop + 22;
-  const cy1 = Math.max(dy + 22, 60);
+  const cy1 = dy + 22;
   const hosePath = `M ${dx} ${dy} C ${dx} ${cy1}, 50 88, 50 100`;
+  // Pre-render starting path: drone below stage (matches enter initial pos).
+  const hoseInitial = 'M 50 142 C 50 164, 50 88, 50 100';
 
   // Dirty layer wipes — once cleaned, STAYS cleaned for the rest of the sequence
   const leftClipDone = ['goRight', 'cleanRight', 'finalSweep', 'exit', 'done'].includes(stage);
@@ -428,14 +430,14 @@ export default function NotFound() {
                   className="pointer-events-none absolute inset-0 h-full w-full"
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
-                  initial={{ opacity: 0 }}
+                  initial={{ opacity: 1 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
                 >
                   {/* Hose shadow */}
                   <motion.path
-                    d={hosePath}
+                    initial={{ d: hoseInitial }}
                     animate={{ d: hosePath }}
                     transition={{ duration: STAGE_DURATIONS[stage] / 1000, ease: 'easeInOut' }}
                     stroke="#020617"
@@ -447,7 +449,7 @@ export default function NotFound() {
                   />
                   {/* Hose body */}
                   <motion.path
-                    d={hosePath}
+                    initial={{ d: hoseInitial }}
                     animate={{ d: hosePath }}
                     transition={{ duration: STAGE_DURATIONS[stage] / 1000, ease: 'easeInOut' }}
                     stroke="#1e293b"
@@ -458,7 +460,7 @@ export default function NotFound() {
                   />
                   {/* Hose highlight */}
                   <motion.path
-                    d={hosePath}
+                    initial={{ d: hoseInitial }}
                     animate={{ d: hosePath }}
                     transition={{ duration: STAGE_DURATIONS[stage] / 1000, ease: 'easeInOut' }}
                     stroke="#475569"
