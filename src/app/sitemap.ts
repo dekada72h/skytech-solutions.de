@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { allCitySlugs } from '@/data/cities';
 import { getAllSlugs } from '@/lib/blog';
+import { SERVICE_SLUGS } from '@/data/services';
 
 const BASE = 'https://skytech-solutions.de';
 
@@ -24,6 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/datenschutz', priority: 0.3, changefreq: 'yearly' as const },
     { path: '/agb', priority: 0.3, changefreq: 'yearly' as const },
   ];
+  const serviceRoutes = SERVICE_SLUGS.map((slug) => ({
+    path: `/leistungen/${slug}`,
+    priority: 0.88,
+    changefreq: 'monthly' as const,
+  }));
   const cityRoutes = allCitySlugs().map((slug) => ({
     path: `/pv-reinigung/${slug}`,
     priority: 0.9,
@@ -37,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changefreq: 'monthly' as const,
     })),
   ];
-  return [...routes, ...cityRoutes, ...blogRoutes].map((r) => ({
+  return [...routes, ...serviceRoutes, ...cityRoutes, ...blogRoutes].map((r) => ({
     url: `${BASE}${r.path}`,
     lastModified: lastmod,
     changeFrequency: r.changefreq,
