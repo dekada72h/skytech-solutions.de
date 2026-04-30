@@ -1,14 +1,18 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import MagneticButton from '@/components/animations/MagneticButton';
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const heroImgY = useTransform(scrollY, [0, 600], [0, 80]);
+  const heroBgY = useTransform(scrollY, [0, 600], [0, 30]);
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-primary-50 pt-16">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
+      {/* Subtle background pattern (parallax) */}
+      <motion.div className="absolute inset-0 opacity-[0.03]" style={{ y: heroBgY }}>
         <div
           className="h-full w-full"
           style={{
@@ -17,7 +21,7 @@ export default function Hero() {
             backgroundSize: '40px 40px',
           }}
         />
-      </div>
+      </motion.div>
 
       <div className="container-width relative px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -65,25 +69,27 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
             >
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center justify-center rounded-full bg-primary-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/30"
-              >
-                Kostenloses Angebot anfordern
-                <svg
-                  className="ml-2 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
+              <MagneticButton strength={10}>
+                <Link
+                  href="/kontakt"
+                  className="inline-flex items-center justify-center rounded-full bg-primary-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/25 transition-all hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/30"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </Link>
+                  Kostenloses Angebot anfordern
+                  <svg
+                    className="ml-2 h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </Link>
+              </MagneticButton>
               <Link
                 href="/leistungen"
                 className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-gray-300 hover:shadow-md"
@@ -114,11 +120,12 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Image (parallax) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ y: heroImgY }}
             className="relative hidden lg:block"
           >
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">

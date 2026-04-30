@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import AnimatedGradientMesh from '@/components/animations/AnimatedGradientMesh';
+import MagneticButton from '@/components/animations/MagneticButton';
 
 export default function CTA() {
   return (
@@ -15,6 +17,7 @@ export default function CTA() {
           className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 px-6 py-16 text-center shadow-2xl shadow-primary-900/20 sm:px-12 sm:py-20"
         >
           {/* Background decoration */}
+          <AnimatedGradientMesh />
           <div className="absolute inset-0 opacity-10">
             <div
               className="h-full w-full"
@@ -35,6 +38,7 @@ export default function CTA() {
               Wir melden uns innerhalb von 24 Stunden bei Ihnen.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+              <MagneticButton strength={10}>
               <Link
                 href="/kontakt"
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary-700 shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl"
@@ -54,6 +58,7 @@ export default function CTA() {
                   />
                 </svg>
               </Link>
+              </MagneticButton>
               <a
                 href="tel:+4915216991223"
                 className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10"

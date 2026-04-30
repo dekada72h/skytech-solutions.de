@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import PageTransition from '@/components/animations/PageTransition';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://skytech-solutions.de'),
@@ -233,7 +234,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <PageTransition>{children}</PageTransition>
+      </body>
     </html>
   );
 }

@@ -10,6 +10,7 @@ import {
   SERVICE_SLUGS,
   type ServiceUseCase,
 } from '@/data/services';
+import Reveal from '@/components/animations/Reveal';
 
 interface Params {
   params: { slug: string };
@@ -228,16 +229,18 @@ export default function ServicePage({ params }: Params) {
             </h2>
           </div>
           <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2">
-            {s.useCases.map((uc) => (
-              <div key={uc.title} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-md">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    {useCaseIcons[uc.icon]}
-                  </svg>
+            {s.useCases.map((uc, i) => (
+              <Reveal key={uc.title} delay={i * 0.08} y={20}>
+                <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      {useCaseIcons[uc.icon]}
+                    </svg>
+                  </div>
+                  <h3 className="mt-4 text-lg font-bold text-gray-900">{uc.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{uc.description}</p>
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-gray-900">{uc.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{uc.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -255,12 +258,14 @@ export default function ServicePage({ params }: Params) {
             </h2>
           </div>
           <ol className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {s.process.map((step) => (
-              <li key={step.number} className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
-                <span className="text-3xl font-extrabold text-primary-600">{step.number}</span>
-                <h3 className="mt-2 text-base font-bold text-gray-900">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{step.description}</p>
-              </li>
+            {s.process.map((step, i) => (
+              <Reveal key={step.number} delay={i * 0.1} y={18}>
+                <li className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
+                  <span className="text-3xl font-extrabold text-primary-600">{step.number}</span>
+                  <h3 className="mt-2 text-base font-bold text-gray-900">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{step.description}</p>
+                </li>
+              </Reveal>
             ))}
           </ol>
         </div>

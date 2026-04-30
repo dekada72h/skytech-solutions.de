@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { services } from '@/data/services';
+import TiltCard from '@/components/animations/TiltCard';
 
 const cardImages: Record<string, string> = {
   'solarpark-reinigung':
@@ -119,8 +120,9 @@ export default function Services() {
               key={service.slug}
               {...fadeInUp}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50"
+              className="group"
             >
+              <TiltCard className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-gray-200/50">
               <Link href={`/leistungen/${service.slug}`} className="block">
                 <div className="relative h-52 overflow-hidden">
                   <Image
@@ -162,6 +164,7 @@ export default function Services() {
                   </span>
                 </div>
               </Link>
+              </TiltCard>
             </motion.article>
           ))}
         </div>

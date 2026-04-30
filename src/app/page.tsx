@@ -7,6 +7,7 @@ import Process from '@/components/Process';
 import FAQ from '@/components/FAQ';
 import BlogTeaser from '@/components/BlogTeaser';
 import CTA from '@/components/CTA';
+import AnimatedCounter from '@/components/animations/AnimatedCounter';
 
 // Drohne vs. Gerüst — comparison table for SEO + conversion
 function DroneVsScaffold() {
@@ -204,11 +205,11 @@ function ServiceAreas() {
 
 // Compact trust/about preview for homepage
 function AboutPreview() {
-  const highlights = [
-    { value: '30%', label: 'Mehr Ertrag' },
-    { value: '24h', label: 'Angebot' },
-    { value: '150 m', label: 'Arbeitshöhe' },
-    { value: '100%', label: 'Umweltfreundlich' },
+  const highlights: { value: React.ReactNode; label: string }[] = [
+    { value: <AnimatedCounter to={30} suffix="%" />, label: 'Mehr Ertrag' },
+    { value: <AnimatedCounter to={24} suffix="h" />, label: 'Angebot' },
+    { value: <AnimatedCounter to={150} suffix=" m" />, label: 'Arbeitshöhe' },
+    { value: <AnimatedCounter to={100} suffix="%" />, label: 'Umweltfreundlich' },
   ];
 
   return (
