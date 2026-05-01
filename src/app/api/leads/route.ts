@@ -18,12 +18,18 @@ const schema = z.object({
   contactEmail: z.string().email().max(200).optional(),
   contactPhone: z.string().max(40).optional(),
   source: z.string().max(80).optional(),
+  // Honeypot: bots fill this; humans (with display:none input) leave empty
+  website: z.string().max(200).optional(),
 });
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const data = schema.parse(body);
+
+    if (data.website && data.website.trim().length > 0) {
+      return NextResponse.json({ ok: true, id: null });
+    }
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? req.headers.get('x-real-ip') ?? null;
     const ua = req.headers.get('user-agent') ?? null;
 

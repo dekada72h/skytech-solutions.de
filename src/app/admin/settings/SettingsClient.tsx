@@ -133,13 +133,26 @@ function TwoFactorSection({ enabled: initialEnabled }: { enabled: boolean }) {
   }
 
   function disable() {
-    if (!confirm('2FA wirklich deaktivieren? Ihr Konto ist dann nur noch durch Passwort geschützt.')) return;
+    const password = prompt('Aktuelles Passwort zur Bestätigung:');
+    if (!password) return;
+    const totp = prompt('Aktueller 6-stelliger 2FA-Code:');
+    if (!totp || totp.length !== 6) {
+      setMsg({ ok: false, text: '6-stelliger 2FA-Code erforderlich.' });
+      return;
+    }
     startTransition(async () => {
-      const r = await fetch('/api/admin/me/2fa/disable', { method: 'POST' });
+      const r = await fetch('/api/admin/me/2fa/disable', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password, totp }),
+      });
       if (r.ok) {
         setEnabled(false);
         setMsg({ ok: true, text: '2FA deaktiviert.' });
         router.refresh();
+      } else {
+        const data = await r.json().catch(() => ({}));
+        setMsg({ ok: false, text: data.error || 'Deaktivieren fehlgeschlagen.' });
       }
     });
   }

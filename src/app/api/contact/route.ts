@@ -19,12 +19,24 @@ const schema = z.object({
   source: z.string().max(80).optional(),
   // Optional: associate with an existing lead by id
   leadId: z.string().optional(),
+  // Honeypot: if filled by a bot we silently accept and discard.
+  website: z.string().max(200).optional(),
+  // Submit timestamp (ms) set by client on form mount — drops sub-second submits.
+  ts: z.number().int().optional(),
 });
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const data = schema.parse(body);
+
+    // Spam guards: honeypot must be empty, form filled in for ≥ 1.5 s
+    if (data.website && data.website.trim().length > 0) {
+      return NextResponse.json({ ok: true, id: null });
+    }
+    if (data.ts && Date.now() - data.ts < 1500) {
+      return NextResponse.json({ ok: true, id: null });
+    }
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? req.headers.get('x-real-ip') ?? null;
     const ua = req.headers.get('user-agent') ?? null;
     const locale = req.headers.get('accept-language')?.split(',')[0].trim() ?? null;

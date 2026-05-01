@@ -42,6 +42,8 @@ function ContactInner() {
   const [telefon, setTelefon] = useState('');
   const [leistung, setLeistung] = useState('');
   const [nachricht, setNachricht] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot
+  const [mountTs] = useState<number>(() => Date.now());
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
   const [err, setErr] = useState<string | null>(null);
@@ -68,6 +70,8 @@ function ContactInner() {
           subject,
           message: fullMessage,
           source: 'kontakt-page',
+          website,
+          ts: mountTs,
         }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -88,6 +92,7 @@ function ContactInner() {
       telefon={telefon} setTelefon={setTelefon}
       leistung={leistung} setLeistung={setLeistung}
       nachricht={nachricht} setNachricht={setNachricht}
+      website={website} setWebsite={setWebsite}
       submit={submit} busy={busy} done={done} err={err}
     />
   );
@@ -100,6 +105,7 @@ interface ViewProps {
   telefon: string; setTelefon: (v: string) => void;
   leistung: string; setLeistung: (v: string) => void;
   nachricht: string; setNachricht: (v: string) => void;
+  website: string; setWebsite: (v: string) => void;
   submit: (e: React.FormEvent) => void;
   busy: boolean; done: boolean; err: string | null;
 }
@@ -111,6 +117,7 @@ function ContactView(p: ViewProps) {
 function ContactViewBody({
   vorname, setVorname, nachname, setNachname, email, setEmail,
   telefon, setTelefon, leistung, setLeistung, nachricht, setNachricht,
+  website, setWebsite,
   submit, busy, done, err,
 }: ViewProps) {
   return (
@@ -267,6 +274,20 @@ function ContactViewBody({
                   onChange={(e) => setNachricht(e.target.value)}
                   className="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                   placeholder="Beschreiben Sie kurz Ihr Anliegen..."
+                />
+              </div>
+
+              {/* Honeypot — hidden from users, bots usually fill it. */}
+              <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+                <label htmlFor="website">Website (leave blank)</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
                 />
               </div>
 
